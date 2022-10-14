@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+<<<<<<< HEAD
+    <wb-module deploy-name="test_mania_island">
+        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <property name="context-root" value="test_mania_island"/>
+        <property name="java-output-path" value="/test_mania_island/build/classes"/>
+=======
     <wb-module deploy-name="TMI">
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <property name="context-root" value="TMI"/>
         <property name="java-output-path" value="/TMI/build/classes"/>
+>>>>>>> 9d0b49f6ba3dfacddabc16b8bdef42b2d8854eae
     </wb-module>
 </project-modules>
