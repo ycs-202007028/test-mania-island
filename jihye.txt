@@ -19,7 +19,7 @@ git commit -m "쓰고 싶은 말" ; git push
 조원
 브렌치 만들고 (git checkout -b 브렌치명)
 git add . //으로 파일 추가시킨걸 올리고
-git commit -m "수정본등등.. 그냥 쓰고싶은 말"
+git commit -m "수정본등등.. 그냥 쓰고싶은 말"ddddddd
 git push --set-upstream origin 브렌치명
 git checkout 메인브렌치명 // 을 치고 나옴
 git pull로 당겨옴
