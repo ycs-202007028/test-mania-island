@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
+<<<<<<< HEAD
 	<name>test_mania_island</name>
+=======
+	<name>TMI</name>
+>>>>>>> 9d0b49f6ba3dfacddabc16b8bdef42b2d8854eae
 	<comment></comment>
 	<projects>
 	</projects>
