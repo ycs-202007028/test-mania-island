@@ -1,12 +1,12 @@
-파일명 작성시 한글과 띄어쓰기쓰면 뭐가 안될수도 있으니 파일작성시 영문으로 작성해주세요
+f파일명 작성시 한글과 띄어쓰기쓰면 뭐가 안될수도 있으니 파일작성시 영문으로 작성해주세요
 git restore시에 띄어쓰기가 안들어감 ㅎㅎ
-
+ffffff
 조장
 조원들이 만들어놓은 브렌치를 가져올때
 git remote update		// 조원들이 만든 브렌치가 뜸
 git checkout 메인브랜치 	// 메인브렌치로 이동
 git merge ***
- - 내가 만든 브렌치일때 *** = 브렌치명
+ - 내가 만든 브렌치일때 *** ffff= 브렌치명
  - 다른 조원이 만든 브렌치일때 *** = origin / 브렌치명
 
 병합을 끝내고 깃 상태를 확인하고 다시 올려줘야함
@@ -19,7 +19,7 @@ git commit -m "쓰고 싶은 말" ; git push
 조원
 브렌치 만들고 (git checkout -b 브렌치명)
 git add . //으로 파일 추가시킨걸 올리고
-git commit -m "수정본등등.. 그냥 쓰고싶은 말"
+git commit -m "수정본등등.. 그냥 쓰고싶은 말"ddddddd
 git push --set-upstream origin 브렌치명
 git checkout 메인브렌치명 // 을 치고 나옴
 git pull로 당겨옴
