@@ -192,7 +192,7 @@ td{border-width:0 1px;}
 body{color:#474747; background-color:#FFFFFF;}
 a{color:#D55A77;}
 a:active, a:focus{background:transparent;}
-hr, .borderedbox{border-color:##D7D7D7;}
+hr, .borderedbox{border-color:#D7D7D7;}
 label span{color:#FF0000; background-color:inherit;}
 input:focus, textarea:focus, *:required:focus{border-color:#D55A77;}
 

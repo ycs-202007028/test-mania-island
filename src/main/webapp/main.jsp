@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<title>T.M.I</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
 </head>
 <body id="top">
 <!-- Top Background Image Wrapper -->
@@ -24,7 +24,7 @@
               <li><a href="pages/sidebar-left.html">질병x</a></li>
               <li><a href="pages/full-width.html">자가진단</a></li>
               <li>
-              	<a href="pages/gallery.html">테스트</a>
+              	<a href="pages/gallery.jsp">테스트</a>
               	<ul>
                   <li><a href="#"> 1 </a></li>
                   <li><a href="#"> 2 </a></li>
@@ -40,7 +40,7 @@
               <li><a href="pages/sidebar-right.html">당뇨</a></li>
               <li><a href="pages/full-width2.html">자가진단</a></li>
               <li>
-              	<a href="pages/gallery.html">테스트</a>
+              	<a href="pages/gallery.jsp">테스트</a>
               	<ul>
                   <li><a href="#"> 1 </a></li>
                   <li><a href="#"> 2 </a></li>
