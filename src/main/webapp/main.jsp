@@ -52,107 +52,58 @@
     <article class="group btmspace-80">
     </article>
     <hr class="btmspace-80">
+    <figure id="introblocks">
     <ul class="nospace group overview">
       <li class="one_third">
-        <article><a href="#"><img src="images/demo/320x240.png" alt=""></a>
-          <h6 class="heading">overview 1</h6>
-          <ul class="nospace meta">
-            <li><i class="fa fa-user"></i> <a href="#">User Name</a></li>
-            <li><i class="fa fa-tag"></i> <a href="#">Tag Name</a></li>
-          </ul>
-          <p>설명1;</p>
-          <footer class="nospace"><a class="btn" href="#">버튼1 &raquo;</a></footer>
-        </article>
+        <a href="#"><img src="images/demo/320x240.png" alt=""></a>
       </li>
       <li class="one_third">
-        <article><a href="#"><img src="images/demo/320x240.png" alt=""></a>
-          <h6 class="heading">overview 2</h6>
-          <ul class="nospace meta">
-            <li><i class="fa fa-user"></i> <a href="#">User Name</a></li>
-            <li><i class="fa fa-tag"></i> <a href="#">Tag Name</a></li>
-          </ul>
-          <p>설명2&hellip;</p>
-          <footer class="nospace"><a class="btn" href="#">버튼2 &raquo;</a></footer>
-        </article>
+        <a href="#"><img src="images/demo/320x240.png" alt=""></a>
       </li>
       <li class="one_third">
-        <article><a href="#"><img src="images/demo/320x240.png" alt=""></a>
-          <h6 class="heading">overview 3</h6>
-          <ul class="nospace meta">
-            <li><i class="fa fa-user"></i> <a href="#">User Name</a></li>
-            <li><i class="fa fa-tag"></i> <a href="#">Tag Name</a></li>
-          </ul>
-          <p>설명3&hellip;</p>
-          <footer class="nospace"><a class="btn" href="#">버튼3 &raquo;</a></footer>
-        </article>
+        <a href="#"><img src="images/demo/320x240.png" alt=""></a>
+      </li>
+     </ul>
+     </figure>
+     <figure id="introblocks">
+     <ul class="nospace group overview">
+      <li class="one_third">
+        <a href="#"><img src="images/demo/320x240.png" alt=""></a>
       </li>
       <li class="one_third">
-        <article><a href="#"><img src="images/demo/320x240.png" alt=""></a>
-          <h6 class="heading">overview4</h6>
-          <ul class="nospace meta">
-            <li><i class="fa fa-user"></i> <a href="#">User Name</a></li>
-            <li><i class="fa fa-tag"></i> <a href="#">Tag Name</a></li>
-          </ul>
-          <p>설명4&hellip;</p>
-          <footer class="nospace"><a class="btn" href="#">버튼4 &raquo;</a></footer>
-        </article>
+        <a href="#"><img src="images/demo/320x240.png" alt=""></a>
       </li>
       <li class="one_third">
-        <article><a href="#"><img src="images/demo/320x240.png" alt=""></a>
-          <h6 class="heading">overview5</h6>
-          <ul class="nospace meta">
-            <li><i class="fa fa-user"></i> <a href="#">User Name</a></li>
-            <li><i class="fa fa-tag"></i> <a href="#">Tag Name</a></li>
-          </ul>
-          <p>설명5&hellip;</p>
-          <footer class="nospace"><a class="btn" href="#">버튼5 &raquo;</a></footer>
-        </article>
+        <a href="#"><img src="images/demo/320x240.png" alt=""></a>
+      </li>
+     </ul>
+     </figure>
+     <figure id="introblocks">
+     <ul class="nospace group overview">
+      <li class="one_third">
+        <a href="#"><img src="images/demo/320x240.png" alt=""></a>
       </li>
       <li class="one_third">
-        <article><a href="#"><img src="images/demo/320x240.png" alt=""></a>
-          <h6 class="heading">overview6</h6>
-          <ul class="nospace meta">
-            <li><i class="fa fa-user"></i> <a href="#">User Name</a></li>
-            <li><i class="fa fa-tag"></i> <a href="#">Tag Name</a></li>
-          </ul>
-          <p>설명6&hellip;</p>
-          <footer class="nospace"><a class="btn" href="#">버튼6 &raquo;</a></footer>
-        </article>
+        <a href="#"><img src="images/demo/320x240.png" alt=""></a>
       </li>
       <li class="one_third">
-        <article><a href="#"><img src="images/demo/320x240.png" alt=""></a>
-          <h6 class="heading">overview7</h6>
-          <ul class="nospace meta">
-            <li><i class="fa fa-user"></i> <a href="#">User Name</a></li>
-            <li><i class="fa fa-tag"></i> <a href="#">Tag Name</a></li>
-          </ul>
-          <p>설명7&hellip;</p>
-          <footer class="nospace"><a class="btn" href="#">버튼7 &raquo;</a></footer>
-        </article>
+        <a href="#"><img src="images/demo/320x240.png" alt=""></a>
+      </li>
+     </ul>
+     </figure>
+     <figure id="introblocks">
+     <ul class="nospace group overview">
+      <li class="one_third">
+        <a href="#"><img src="images/demo/320x240.png" alt=""></a>
       </li>
       <li class="one_third">
-        <article><a href="#"><img src="images/demo/320x240.png" alt=""></a>
-          <h6 class="heading">overview8</h6>
-          <ul class="nospace meta">
-            <li><i class="fa fa-user"></i> <a href="#">User Name</a></li>
-            <li><i class="fa fa-tag"></i> <a href="#">Tag Name</a></li>
-          </ul>
-          <p>설명8&hellip;</p>
-          <footer class="nospace"><a class="btn" href="#">버튼8 &raquo;</a></footer>
-        </article>
+        <a href="#"><img src="images/demo/320x240.png" alt=""></a>
       </li>
       <li class="one_third">
-        <article><a href="#"><img src="images/demo/320x240.png" alt=""></a>
-          <h6 class="heading">overview9</h6>
-          <ul class="nospace meta">
-            <li><i class="fa fa-user"></i> <a href="#">User Name</a></li>
-            <li><i class="fa fa-tag"></i> <a href="#">Tag Name</a></li>
-          </ul>
-          <p>설명9&hellip;</p>
-          <footer class="nospace"><a class="btn" href="#">버튼9 &raquo;</a></footer>
-        </article>
+        <a href="#"><img src="images/demo/320x240.png" alt=""></a>
       </li>
     </ul>
+    </figure>
     <!-- / main body -->
     <div class="clear"></div>
   </main>
