@@ -10,28 +10,27 @@
 <body>
 <jsp:include page = "top.jsp" flush = "false"/>
 
-<fieldset class ="" >
-<legend>profile</legend>
-<div>
-	<div style="padding-bottom:10%" id="profile">
-    	<img src="images/demo/gallery/01.png" width="30%" "/>
-    </div>
-</fieldset>
+<div class = "div1"> 
+<div class="box1">
+    	<img src="images/demo/gallery/01.png" class="profile"/>    	
+    	<h2 class="center" style="margin:20px ">이름</h2>
+</div>
 
-<fieldset class ="" id="info">
-<legend>info</legend>
-이름
-생년월일
-</fieldset>
+<div class="box2">
+    	<img src="images/demo/gallery/01.png" class="profile"/>    	
+    	<h2 class="center" style="margin:20px ">이름</h2>
+</div>
+</div>
 
-<fieldset class ="" id="test">
-<legend>test</legend>
-<progress value="20" max="100" id = "psbar"></progress>
-</fieldset>
+<div class = "div2"> 
+<div class="box3">
+    	<progress class="progress" value="50" min="0" max="100"></progress>
+</div>
 
-<fieldset class ="" id="profile">
-<legend>profile</legend>
-</fieldset>
+<div class="box4">
+    	
+</div>
+</div>
 
 </body>
 </html>

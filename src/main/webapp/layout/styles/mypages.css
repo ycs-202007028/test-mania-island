@@ -1,3 +1,64 @@
 @charset "EUC-KR";
 
-img {border-radius:50%}
+h2{ margin:30px;}
+
+.div1, .div2{
+	display: flex;
+	justify-content: center;
+}
+
+.box1{
+	width:30%;
+	margin: 20px;
+	background : rgb(255,242,204);
+	border-radius: 40px;
+	padding: 20px;
+	text-align: center;
+	}
+	
+.box2{
+	width:70%;
+	margin: 20px;
+	background : rgb(255,242,204);
+	border-radius: 40px;
+	padding: 20px;
+	text-align: center;
+	}
+
+.box3{
+	width:70%;
+	margin: 20px;
+	background : rgb(255,242,204);
+	border-radius: 40px;
+	padding: 20px;
+	text-align: center;
+	}
+	
+.box4{
+	width:30%;
+	margin: 20px;
+	background : rgb(255,242,204);
+	border-radius: 40px;
+	padding: 20px;
+	text-align: center;
+	}	
+
+.profile {
+	border-radius:50%;
+}
+
+.progress {
+    -webkit-appearance: none;
+}
+::-webkit-progress-bar {
+    background:#f0f0f0;
+    border-radius:10px;
+    box-shadow: inset 3px 3px 10px #ccc;
+}
+
+::-webkit-progress-value {
+     border-radius:10px;
+    background: rgb(255,242,204);
+    background: -webkit-linear-gradient(to right, #93F9B9, #1D976C);
+    background: linear-gradient(to right, #93F9B9, #1D976C);
+}

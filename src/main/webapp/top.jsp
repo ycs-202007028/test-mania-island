@@ -9,8 +9,8 @@
 </head>
 <body>
 	
-	<div class="wrapper row1"><br>
-	<div id="logo" style="display:flex; justify-content: flex-end; color:black;">
+	<div class="wrapper row1">
+	<div id="logo" style="display:flex; justify-content: flex-end; ">
 	<% 
             String master = (String)session.getAttribute("MLoginID");
             String id = (String)session.getAttribute("LoginID");
@@ -18,23 +18,23 @@
             if(master==null && id==null)
             {
             %>
-               <a href="login.jsp">로그인</a> &nbsp; &nbsp;
-               <a href="join.jsp">회원가입</a> &nbsp; &nbsp;
+               <a href="login.jsp" style = "padding: 5px 10px 8px 0px; color: black;" > 로그인 </a>
+               <a href="join.jsp" style = "padding: 5px 10px 8px 0px; color: black;"> 회원가입 </a> 
             <%
             } else {
             %>
-            	<a href=#>마이페이지</a>
+            	<a href=# style = "padding: 5px 10px 8px 0px; ;">마이페이지</a>
             <%
             }
             %>
             </div>
-    <br></div>
+    </div>
     
 	<div class="wrapper row3">
     <header id="header" class="hoc clear"> 
        <div id="logo" class="fl_left">
        
-        <h1><a href="main.jsp"><img alt="logo" src="images/logo.jpg"/></a></h1>
+        <h1><a href="main.jsp"><img alt="logo" src="images/logo.png" style="width:120px"/></a></h1>
       </div>
       <nav id="mainav" class="fl_right">
         <ul class="clear">
