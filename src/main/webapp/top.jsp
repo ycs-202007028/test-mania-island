@@ -18,8 +18,8 @@
             if(master==null && id==null)
             {
             %>
-               <a href="login.jsp" style = "padding: 5px 10px 8px 0px; color: black;" > 로그인 </a>
-               <a href="join.jsp" style = "padding: 5px 10px 8px 0px; color: black;"> 회원가입 </a> 
+               <a href="login.jsp" style = "padding: 5px 10px 8px 0px; color: black; font-size:large;" > 로그인 </a>
+               <a href="join.jsp" style = "padding: 5px 10px 8px 0px; color: black; font-size:large;"> 회원가입 </a> 
             <%
             } else {
             %>
@@ -30,7 +30,7 @@
             </div>
     </div>
     
-	<div class="wrapper row3">
+	<div class="wrapper row3" style="font-size:large;">
     <header id="header" class="hoc clear"> 
        <div id="logo" class="fl_left">
        
