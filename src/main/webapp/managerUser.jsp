@@ -10,8 +10,85 @@
 </head>
 
 <br><br>
+		<!-- 게시판 내 글 삭제 및 기타 기능 추가 -->
+		<form action="delete.jsp" method="post">
+			<fieldset>
+				<legend align="center">&nbsp;게시판 관리</legend> 
+					<table class="table text-center">
+						<tr height=20px;>
+							<th>선택</th>
+							<th>No.</th>
+							<th>작성자</th>
+							<th>작성일</th>
+							<th>내용</th>
+						</tr>
+						<%
+						String b_num = null; //게시글 번호
+						String b_writer = null; //작성자
+						String b_date = null; //작성일
+						String b_content = null; //작성 내용
+						
+						//DB연결
+						Connection conn_b = null;
+						PreparedStatement pstmt_b = null;
+						ResultSet rs = null;
+						try {
+							String jdbcUrl = "jdbc:mysql://localhost:3306/tmi?useUnicode=yes&characterEncoding=UTF8";
+							String dbId = "root";
+							String dbPass = "jsp2021";
+							Class.forName("com.mysql.jdbc.Driver");
+							conn_b = DriverManager.getConnection(jdbcUrl, dbId, dbPass);
+							
+							//sql문으로 db에 번호, 작성자id, 날짜, 내용 검색
+							String sql = "select boardid, id, wrdate, wrcontent from board order by boardid desc limit 5";
+							pstmt_b = conn_b.prepareStatement(sql);
+							rs = pstmt_b.executeQuery();
+							%>
+							
+							<input type="hidden" name="check" value="1">
+							<%
+							//각각의 결과 레코드를 변수에 입력
+							while(rs.next()){
+								b_num = rs.getString("boardid");
+								b_writer = rs.getString("id");
+								b_date = rs.getString("wrdate");
+								b_content = rs.getString("wrcontent");
+								%>
+								<tr height=30px>
+									<td><input type="checkbox" name="chk" value="<%=b_num%>"></td>
+									<td><%=b_num%></td>
+									<td><%=b_writer%></td>
+									<td><%=b_date%></td>
+									<td><%=b_content%></td>
+								</tr>
+							<%
+							}
+					    }catch(SQLException ex){
+					    	ex.printStackTrace();
+					    } finally {
+							if (pstmt_b != null)
+							try {
+								pstmt_b.close();
+							} catch (SQLException sqle) {
+							}
 
-		<!-- 회원관리 게시판, 승인제, 승인불가 기능 -->
+							if (conn_b != null)
+							try {
+								conn_b.close();
+							} catch (SQLException sqle) {
+							}
+							}
+						%>
+						<tr>
+						</tr>
+					</table>
+
+		<br>
+			<button type="submit" class="board_delete" value="게시글 삭제">게시글 삭제</button>
+		</fieldset>
+	</form>
+
+		<!-- 댓글 관리 -->
 		<form method="post" name="textform">
 		<fieldset>
 				<legend align="center">&nbsp;댓글관리</legend>
@@ -102,83 +179,7 @@
 		</form>
 		<hr>
 
-		<!-- 게시판 내 글 삭제 및 기타 기능 추가 -->
-		<form action="delete.jsp" method="post">
-			<fieldset>
-				<legend align="center">&nbsp;게시판 관리</legend> 
-					<table class="table text-center">
-						<tr height=20px;>
-							<th>선택</th>
-							<th>No.</th>
-							<th>작성자</th>
-							<th>작성일</th>
-							<th>내용</th>
-						</tr>
-						<%
-						String b_num = null; //게시글 번호
-						String b_writer = null; //작성자
-						String b_date = null; //작성일
-						String b_content = null; //작성 내용
-						
-						//DB연결
-						Connection conn_b = null;
-						PreparedStatement pstmt_b = null;
-						ResultSet rs = null;
-						try {
-							String jdbcUrl = "jdbc:mysql://localhost:3306/tmi?useUnicode=yes&characterEncoding=UTF8";
-							String dbId = "root";
-							String dbPass = "jsp2021";
-							Class.forName("com.mysql.jdbc.Driver");
-							conn_b = DriverManager.getConnection(jdbcUrl, dbId, dbPass);
-							
-							//sql문으로 db에 번호, 작성자id, 날짜, 내용 검색
-							String sql = "select boardid, id, wrdate, wrcontent from board order by boardid desc limit 5";
-							pstmt_b = conn_b.prepareStatement(sql);
-							rs = pstmt_b.executeQuery();
-							%>
-							
-							<input type="hidden" name="check" value="1">
-							<%
-							//각각의 결과 레코드를 변수에 입력
-							while(rs.next()){
-								b_num = rs.getString("boardid");
-								b_writer = rs.getString("id");
-								b_date = rs.getString("wrdate");
-								b_content = rs.getString("wrcontent");
-								%>
-								<tr height=30px>
-									<td><input type="checkbox" name="chk" value="<%=b_num%>"></td>
-									<td><%=b_num%></td>
-									<td><%=b_writer%></td>
-									<td><%=b_date%></td>
-									<td><%=b_content%></td>
-								</tr>
-							<%
-							}
-					    }catch(SQLException ex){
-					    	ex.printStackTrace();
-					    } finally {
-							if (pstmt != null)
-							try {
-								pstmt.close();
-							} catch (SQLException sqle) {
-							}
-
-							if (conn != null)
-							try {
-								conn.close();
-							} catch (SQLException sqle) {
-							}
-							}
-						%>
-						<tr>
-						</tr>
-					</table>
-
-		<br>
-			<button type="submit" class="board_delete" value="게시글 삭제">게시글 삭제</button>
-		</fieldset>
-	</form>
+		
 
 </body>
 </html>
