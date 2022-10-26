@@ -11,11 +11,11 @@
 	<div class="wrapper row1">
     <header id="header" class="hoc clear"> 
        <div id="logo" class="fl_left">
-        <h1><a href="index.html">TMI</a></h1>
+        <h1><a href="main.jsp">TMI</a></h1>
       </div>
       <nav id="mainav" class="fl_right">
         <ul class="clear">
-          <li class="active"><a href="index.html">Home</a></li>
+          <li class="active"><a href="main.jsp">Home</a></li>
           <li><a class="drop" href="#">테스트</a>
             <ul>
               <li><a href="#">연예</a></li>
