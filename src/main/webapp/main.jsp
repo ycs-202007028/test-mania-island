@@ -5,10 +5,14 @@
 <title>T.M.I</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+<link rel="stylesheet" href="css/bootstrap.css" />
+<link rel="stylesheet" href="css/custom.css" />
 </head>
 <body id="top">
+	
 <!-- Top Background Image Wrapper -->
 <jsp:include page = "top.jsp" flush = "false"/>
+<hr>
   <div id="pageintro" class="hoc clear"> 
     <div class="flexslider basicslider">
       <ul class="slides">

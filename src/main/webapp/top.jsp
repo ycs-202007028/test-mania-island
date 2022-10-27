@@ -12,22 +12,27 @@
 	<div class="wrapper row1">
 	<div id="logo" style="display:flex; justify-content: flex-end; ">
 	<% 
-            String master = (String)session.getAttribute("MLoginID");
-            String id = (String)session.getAttribute("LoginID");
-            //	로그인을 하지 않은 상태
-            if(master==null && id==null)
-            {
+		/*String master = (String)session.getAttribute("MLoginID"); */ 
+		String userID = null;
+		//	로그인을 하지 않은 상태
+		if(session.getAttribute("userID") != null){
+			userID = (String) session.getAttribute("userID");
+		}
+
+			if(userID == null){
+		%>
+				<a href="login.jsp" style = "padding: 5px 10px 8px 0px; color: black; font-size:large;" > 로그인 </a>
+            	<a href="join.jsp" style = "padding: 5px 10px 8px 0px; color: black; font-size:large;"> 회원가입 </a> 
+		<%
+			} else {
+		
             %>
-               <a href="login.jsp" style = "padding: 5px 10px 8px 0px; color: black; font-size:large;" > 로그인 </a>
-               <a href="join.jsp" style = "padding: 5px 10px 8px 0px; color: black; font-size:large;"> 회원가입 </a> 
-            <%
-            } else {
-            %>
-            	<a href=# style = "padding: 5px 10px 8px 0px; ;">마이페이지</a>
+            	<a href="mypages.jsp" style = "padding: 5px 10px 8px 0px; ;">마이페이지</a>
+            	<a href="logoutOK.jsp" style = "padding: 5px 10px 8px 0px; ;">로그아웃</a>
             <%
             }
             %>
-            </div>
+        </div>
     </div>
     
 	<div class="wrapper row3" style="font-size:large;">
@@ -47,7 +52,7 @@
               <li><a href="#">유형</a></li>
             </ul>
           </li>
-          <li><a href="#">커뮤니티</a></li>
+          <li><a href="board.jsp">커뮤니티</a></li>
           <li><a href="#">MBTI?</a></li>
         </ul>
       </nav>

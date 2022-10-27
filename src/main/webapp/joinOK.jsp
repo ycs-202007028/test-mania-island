@@ -1,66 +1,62 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="java.sql.*" %>
+<%@ page import="user.UserDAO" %>
+<%@ page import="java.io.PrintWriter" %>
 <% request.setCharacterEncoding("UTF-8"); %>
+<jsp:useBean id="user" class="user.User" scope="page" />
+<jsp:setProperty name="user" property="name" />
+<jsp:setProperty name="user" property="id" />
+<jsp:setProperty name="user" property="pw" />
+<jsp:setProperty name="user" property="birth" />
+<jsp:setProperty name="user" property="nickname" />
+<jsp:setProperty name="user" property="email" />
+<jsp:setProperty name="user" property="gender" />
+<jsp:setProperty name="user" property="mbti" />
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
-<title> Insert title here </title>
+<title></title>
 </head>
 <body>
-<%			// 학번
-String name = request.getParameter("name");				// 이름
-String id = request.getParameter("id");					// ID
-String pw = request.getParameter("pw");				    // PW
-String birth = request.getParameter("birth");			// 생일
-String nickname = request.getParameter("nickname");		// 닉네임
-String email = request.getParameter("email");		    // EMAIL
-String gender = request.getParameter("gender");			// 성별
-String mbti = request.getParameter("mbti");				// mbti
-%>
+
 <%
-String prnM=null;
-
-Connection conn=null;
-PreparedStatement pstmt = null;
-String str = "";
-
-try{
-    String jdbcUrl="jdbc:mysql://localhost:3306/tmi?useUnicode=yes&characterEncoding=UTF8";
-    String dbId="root";
-    String dbPass="jsp2021";
-    Class.forName("com.mysql.jdbc.Driver");
-
-    conn=DriverManager.getConnection(jdbcUrl, dbId, dbPass);
-    String sql = "insert into member values(?,?,?,?,?,?,?,?)";
-    pstmt = conn.prepareStatement(sql);
-    pstmt.setString(1, id);
-    pstmt.setString(2, name);
-    pstmt.setString(3, pw);
-    pstmt.setString(4, birth);
-    pstmt.setString(5, nickname);
-    pstmt.setString(6, email);
-    pstmt.setString(7, gender);
-    pstmt.setString(8, mbti);
-    pstmt.executeUpdate();
-%>
-	<script>
-		alert("회원가입이 완료되었습니다!!");
-		location.href="main.jsp";
-	</script>
-<%
-}catch(SQLException e){
-%>
-    <script>
-    	alert("이미 회원이 있습니다!");
-    	history.go(-1);
-    </script>
-<%
-}finally{
-    if(pstmt !=null)
-        try{pstmt.close();}catch(SQLException sqle){}
-
-    if(conn !=null)
-        try{conn.close();}catch(SQLException sqle){}
-}
-%>
+		String userID = null;
+		if(session.getAttribute("userID") != null){
+			userID = (String) session.getAttribute("id");
+		}
+		if(userID != null){
+			PrintWriter script = response.getWriter();
+			script.println("<script>");
+			script.println("alert('이미 로그인이 되어있습니다.')");
+			script.println("location.href = 'main.jsp'");
+			script.println("</script>");
+		}
+		if(user.getName() == null || user.getId() == null || user.getPw() == null || 
+				user.getBirth() == null  || user.getNickname() == null || user.getEmail() == null  || 
+				user.getGender() == null  || user.getMbti() == null){
+			PrintWriter script = response.getWriter();
+			script.println("<script>");
+			script.println("alert('입력되지 않은 사항이 있습니다')"); //회원가입 오류
+			script.println("history.back()");
+			script.println("</script>");
+		} else {
+			UserDAO userDAO = new UserDAO();
+			int result = userDAO.join(user);
+			if(result == -1){
+				PrintWriter script = response.getWriter();
+				script.println("<script>");
+				script.println("alert('이미 존재하는 아이디입니다.')");
+				script.println("history.back()");
+				script.println("</script>");
+			} else { // 회원가입 성공
+				session.setAttribute("userID", user.getId());
+				PrintWriter script = response.getWriter();
+				script.println("<script>");
+				script.println("location.href = 'main.jsp'");
+				script.println("</script>");
+			}
+		}
+	%>
+</body>
+</html>

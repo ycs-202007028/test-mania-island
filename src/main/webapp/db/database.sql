@@ -1,4 +1,4 @@
-create table member(
+create table user(
 	id varchar(20) primary key,
 	name varchar(20) not null,
 	pw varchar(30) not null,
@@ -10,10 +10,11 @@ create table member(
 ) charset = 'utf8';
 
 create table board(
-	boardid int AUTO_INCREMENT primary key,
-	wrdate datetime,
-	id varchar(20),
-	wrcontent varchar(500) NOT NULL,
-	FOREIGN KEY (id)
-    REFERENCES member(id) ON UPDATE CASCADE
+	b_ID INT,
+	b_Title VARCHAR(50),
+	id VARCHAR(20),
+	b_Date DATETIME,
+	b_Content VARCHAR(2048),
+	b_Available INT,
+	primary key (b_ID)
 ) charset = 'utf8';
