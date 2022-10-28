@@ -138,7 +138,7 @@ public class BbsDAO {
 	}
 	// 게시물 수정
 	public int update(int b_ID, String b_Title, String b_Content) {
-		String SQL = "update board set b_Title = ?, bbsContent = ? where bbsID = ?";
+		String SQL = "update board set b_Title = ?, b_Content = ? where b_ID = ?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
 			pstmt.setString(1, b_Title);

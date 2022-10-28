@@ -43,7 +43,7 @@
 				} else { // 글쓰기 성공
 					PrintWriter script = response.getWriter();
 					script.println("<script>");
-					script.println("location.href = 'bbs.jsp'");
+					script.println("location.href = 'board.jsp'");
 					script.println("</script>");
 				}
 			}

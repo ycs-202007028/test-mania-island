@@ -34,7 +34,6 @@
 			pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
 		}
 	%>
-		
 
 	<!-- 게시판 시작 -->
 	<div class="container">
@@ -51,6 +50,7 @@
 						<th style="background-color: #eeeeee; text-align:center;"><font color="black">작성일</font></th>
 					</tr>
 				</thead>
+				<!-- 데이터 불러오기 -->
 				<tbody>
 					<%
 						BbsDAO bbsDAO = new BbsDAO();
@@ -60,7 +60,7 @@
 						<tr>
 							<td><%= list.get(i).getB_ID() %></td>
 							<td><a href="view.jsp?b_ID=<%=list.get(i).getB_ID()%>"><%= list.get(i).getB_Title() %></a></td>
-							<td><%= list.get(i).getB_ID() %></td>
+							<td><%= list.get(i).getId() %></td>
 							<td><%= list.get(i).getB_Date().substring(0, 11) + list.get(i).getB_Date().substring(11, 13) + "시" + list.get(i).getB_Date().substring(14, 16) + "분" %></td>
 						</tr>
 					<%

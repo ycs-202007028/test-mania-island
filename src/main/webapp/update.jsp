@@ -13,6 +13,10 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<!-- Top 호출-->
+	<jsp:include page = "top.jsp" flush = "false"/>
+	<hr>
+	
 	<%
 		String userID = null;
 		if (session.getAttribute("userID") != null) {
@@ -26,8 +30,8 @@
 			script.println("</script>");
 		}
 		
-		int b_ID = 0;
-		// url에 b_ID가 넘어온다면 b_ID 변수에 정보 저장
+		//유효한 글 판단
+		int b_ID = 0; // url에 b_ID가 넘어온다면 b_ID 변수에 정보 저장
 		if(request.getParameter("b_ID") != null){
 			b_ID = Integer.parseInt(request.getParameter("b_ID"));
 		}
@@ -38,6 +42,8 @@
 			script.println("location.href = 'board.jsp'");
 			script.println("</script>");
 		}
+		
+		//작성한 글이 작성한 자 본인인지 확인 
 		Bbs bbs = new BbsDAO().getBbs(b_ID);
 		if(!userID.equals(bbs.getId())){
 			PrintWriter script = response.getWriter();
@@ -47,34 +53,7 @@
 			script.println("</script>");
 		}
 	%>
-	<nav class="navbar navbar-default">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle collapsed"
-				data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
-				aria-expanded="false">
-				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
-					class="icon-bar"></span>
-			</button>
-			<a href="main.jsp" class="navbar-brand">JSP 게시판 웹 사이트</a>
-		</div>
-		<div class="collapse navbar-collapse"
-			id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav">
-				<li><a href="main.jsp">메인</a></li>
-				<li class="active"><a href="bbs.jsp">게시판</a></li>
-			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown" role="button" aria-haspopup="true"
-					aria-expanded="false">회원관리<span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="logoutOK.jsp">로그아웃</a></li>
-					</ul>
-				</li>
-			</ul>
-		</div>
-	</nav>
-
+	
 	<!-- 게시판 시작 -->
 
 	<div class="container">

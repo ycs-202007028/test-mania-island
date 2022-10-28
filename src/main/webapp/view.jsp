@@ -18,11 +18,22 @@
 	<hr>
 	<%
 		String userID = null;
-		if (session.getAttribute("userID") != null) {
+		if(session.getAttribute("userID") != null){
 			userID = (String) session.getAttribute("userID");
 		}
+		if(userID == null){
+			PrintWriter script = response.getWriter();
+			script.println("<script>");
+			script.println("alert('로그인을 하세요.')");
+			script.println("location.href = 'login.jsp'");
+			script.println("</script>");
+		}else{
+			PrintWriter script = response.getWriter();
+			script.println("location.href = 'view'.jsp'");
+		}
+		
 		int b_ID = 0;
-		// url에 bbsID가 넘어온다면 bbsID 변수에 정보 저장
+		// url에 b_ID가 넘어온다면 b_ID 변수에 정보 저장
 		if(request.getParameter("b_ID") != null){
 			b_ID = Integer.parseInt(request.getParameter("b_ID"));
 		}
@@ -71,11 +82,11 @@
 				if(userID != null && userID.equals(bbs.getId())){
 			%>
 					<a href="update.jsp?b_ID=<%=b_ID%>" class="btn btn-primary">수정</a>
-					<a onclick="return confirm('정말로 삭제하시겠습니까?')" href="deleteAction.jsp?bbsID=<%=b_ID%>" class="btn btn-primary">삭제</a>
+					<a onclick="return confirm('정말로 삭제하시겠습니까?')" href="b_deleteOK.jsp?b_ID=<%=b_ID%>" class="btn btn-primary">삭제</a>
 			<%
 				}
 			%>
-			<input type="submit" class="btn btn-primary pull-right" value="글쓰기" />
+			<a href="write.jsp" class="btn btn-primary pull-right"><input type="submit" class="btn btn-primary pull-right" value="글쓰기" /></a>
 		</div>
 	</div>
 
