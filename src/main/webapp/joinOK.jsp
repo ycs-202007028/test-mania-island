@@ -33,7 +33,7 @@
 			script.println("</script>");
 		}
 		if(user.getName() == null || user.getId() == null || user.getPw() == null || 
-				user.getBirth() == null  || user.getNickname() == null || user.getEmail() == null  || 
+				user.getBirth() == null  || user.getEmail() == null  || 
 				user.getGender() == null  || user.getMbti() == null){
 			PrintWriter script = response.getWriter();
 			script.println("<script>");

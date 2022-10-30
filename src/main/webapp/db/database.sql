@@ -3,7 +3,6 @@ create table user(
 	name varchar(20) not null,
 	pw varchar(30) not null,
 	birth varchar(20) not null,
-	nickname varchar(30) not null,
 	email varchar(30) not null,
 	gender varchar(6) not null,
 	mbti varchar(4)
@@ -28,3 +27,6 @@ create table test(
 ) default character set utf8 collate utf8_general_ci;
 
 drop table test;
+drop table user;
+
+insert into user values('방채연', 'qwert', 'qwert', '991202', 'bchy1202@naver.com', '여자', 'ISFP');

@@ -46,17 +46,16 @@ public class UserDAO {
 	}
 	
 	public int join(User user) {
-		String SQL = "insert into user values (?, ?, ?, ?, ?, ?, ?, ?)";
+		String SQL = "insert into user values (?, ?, ?, ?, ?, ?, ?)";
 		try {
 			pstmt = conn.prepareStatement(SQL);
 			pstmt.setString(1,  user.getId());
 			pstmt.setString(2,  user.getPw());
 			pstmt.setString(3,  user.getName());
 			pstmt.setString(4,  user.getBirth());
-			pstmt.setString(5,  user.getNickname());
-			pstmt.setString(6,  user.getEmail());
-			pstmt.setString(7,  user.getGender());
-			pstmt.setString(8,  user.getMbti());
+			pstmt.setString(5,  user.getEmail());
+			pstmt.setString(6,  user.getGender());
+			pstmt.setString(7,  user.getMbti());
 			return pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();

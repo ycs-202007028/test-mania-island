@@ -5,7 +5,6 @@ public class User {
 	private String name;
 	private String pw;
 	private String birth;
-	private String nickname;
 	private String email;
 	private String gender;
 	private String mbti;
@@ -32,12 +31,6 @@ public class User {
 	}
 	public void setBirth(String birth) {
 		this.birth = birth;
-	}
-	public String getNickname() {
-		return nickname;
-	}
-	public void setNickname(String nickname) {
-		this.nickname = nickname;
 	}
 	public String getEmail() {
 		return email;
