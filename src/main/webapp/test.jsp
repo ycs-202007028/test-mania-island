@@ -5,27 +5,27 @@
 <%@ page import="org.jsoup.nodes.Element" %>
 <%@ page import="org.jsoup.select.Elements" %>
 <%@ page import="java.util.*" %>
+<%@ page import="java.sql.*" %>
+<%@ page import="java.lang.*" %>
 <!DOCTYPE html>
 <html>
-<head>타토인형
+<head>
 <meta charset="UTF-8">
 <title>test</title>
 </head>
 <body>
 <%
-	//저장할 테스트들의 사이트 배열 선언
-	//String test[] = {};
-	Document doc2 = Jsoup.connect("https://www.banggooso.com/gl/136/").get();
+Connection conn;
+ResultSet rs;
+PreparedStatement pstmt;
 
-	Elements posts2 = doc2.body().getElementsByClass("app-main");
-	Elements file2 = posts2.select("article");
-
-	for(Element e : file2){
-	%>
-		선택지 설명 : <%=e.select(".question-options button").text() %><br>
-		<br>
-	<%
-	    }
+try{
+	String dbURL = "jdbc:mysql://localhost:3306/BBS?useUnicode=yes&characterEncoding=UTF8";
+	String dbID = "root";
+	String dbPassword = "root";
+	
+	Class.forName("com.mysql.jdbc.Driver");
+	conn = DriverManager.getConnection(dbURL,  dbID, dbPassword);
 
 	Document doc1 = 
 			Jsoup.connect("https://www.banggooso.com/").get();
@@ -33,22 +33,29 @@
 	// feed-list 속성안에  요소 데이터들을 긁어온다
     Elements posts = doc1.body().getElementsByClass("feed-list");
     Elements file = posts.select("li");
-%>
--------------------------------------------------------<br>
-<%
+    
+    String title;
+    String kind;
+    String content;
+    String img;
+
     for(Element e : file){
-%>
-	카테고리 : <%=e.select(".item-header span").text() %><br>
-	제목 : <%=e.select(".title_wrap h4").text() %><br>
-	설명 : <%=e.select(".title_wrap h5").text() %><br>
-	이미지 : <%=e.select(".thumb img").attr("src") %><br>
-	<br>
-<%
+    	
+    	title = e.select(".title_wrap h4").text();
+    	kind = e.select(".item-header span").text();
+    	content = e.select(".title_wrap h5").text();
+    	img = e.select(".thumb img").attr("data-src");
+    	
+    	String SQL = "insert into test(t_title,t_kind,t_content,t_img) values(?,?,?,?)";
+    	
+    	pstmt = conn.prepareStatement(SQL);
+    	pstmt.setString(1, title);
+    	pstmt.setString(2, kind);
+    	pstmt.setString(3, content);
+    	pstmt.setString(4, img);
+    	pstmt.executeUpdate();
     }
-    
-    
-    
-    
+} finally {	}
 %>
 
 </body>

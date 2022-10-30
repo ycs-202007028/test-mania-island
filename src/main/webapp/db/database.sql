@@ -18,3 +18,13 @@ create table board(
 	b_Available INT,
 	primary key (b_ID)
 ) charset = 'utf8';
+
+create table test(
+	t_id int AUTO_INCREMENT primary key,
+	t_title varchar(50) not null,
+	t_kind varchar(15) not null,
+	t_content varchar(100) not null,
+	t_img varchar(2048) not null
+) default character set utf8 collate utf8_general_ci;
+
+drop table test;
