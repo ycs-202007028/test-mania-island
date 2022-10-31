@@ -53,7 +53,7 @@
             </ul>
           </li>
           <li><a href="board.jsp">커뮤니티</a></li>
-          <li><a href="#">MBTI?</a></li>
+          <li><a href="MBTI.jsp">MBTI?</a></li>
         </ul>
       </nav>
       </header>
