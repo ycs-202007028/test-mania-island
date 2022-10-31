@@ -20,7 +20,7 @@
 
 /* Page Intro
 --------------------------------------------------------------------------------------------------------------- */
-#pageintro{margin-top: 20px; margin-bottom: 20px; border: solid 8px #F7AD19; padding: 30px 10px 0px 10px; border-radius: 60px 60px 60px 60px / 60px 60px 60px 60px;}
+#pageintro{margin-top: 20px; margin-bottom: 20px; border: solid 4px #F7AD19; padding: 30px 10px 0px 10px; border-radius: 60px 60px 60px 60px / 60px 60px 60px 60px;}
 
 #pageintro li article{display:block; max-width:75%; margin:0 auto; text-align:center; }
 #pageintro li article *{margin:0;}
@@ -229,7 +229,7 @@ input:focus, textarea:focus, *:required:focus{border-color:#D55A77;}
 
 
 /* Content Area */
-#introblocks{background-color:#FFFFFF; margin-top: 20px; margin-bottom: 20px; border: solid 6px #F7AD19; padding: 20px 20px 20px 20px; border-radius: 40px 40px 40px 40px / 40px 40px 40px 40px;}
+#introblocks{background-color:#FFFFFF; margin-top: 20px; margin-bottom: 20px; border: solid 4px #F7AD19; padding: 20px 20px 20px 20px; border-radius: 40px 40px 40px 40px / 40px 40px 40px 40px;}
 
 /* Copyright */
 #copyright{border-color:rgba(0,0,0,.1);}
