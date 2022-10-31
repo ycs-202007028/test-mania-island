@@ -46,10 +46,10 @@
           <li class="active"><a href="main.jsp">Home</a></li>
           <li><a class="drop" href="#">테스트</a>
             <ul>
-              <li><a href="#">연예</a></li>
-              <li><a href="#">퀴즈</a></li>
-              <li><a href="#">심리</a></li>
-              <li><a href="#">유형</a></li>
+              <li><a href="gallery.jsp?kind=love">연애</a></li>
+              <li><a href="gallery.jsp?kind=quiz">퀴즈</a></li>
+              <li><a href="gallery.jsp?kind=mind">심리</a></li>
+              <li><a href="gallery.jsp?kind=cate">유형</a></li>
             </ul>
           </li>
           <li><a href="board.jsp">커뮤니티</a></li>
