@@ -24,9 +24,8 @@ PreparedStatement pstmt = null;
 ResultSet rs = null;
 
 String title[] = new String[3];
-String kind;
+String id[] = new String[3];
 String content[] = new String[3];
-String img;
 String n_img[] = new String[3];
 String sql;
 int i = 0;
@@ -39,7 +38,7 @@ try{
 	conn = DriverManager.getConnection(jdbcUrl, dbId, dbPass);
 	
 	//test에서 타이틀, 테스트 종류, 테스트 상세, 테스트 이미지 불러오기
-	sql = "select t_img, t_title, t_content from test order by t_id desc limit 3";
+	sql = "select t_img, t_title, t_content, t_id from test order by t_id desc limit 3";
 	pstmt = conn.prepareStatement(sql);
 	rs = pstmt.executeQuery();
 	
@@ -47,6 +46,7 @@ try{
 		title[i] = rs.getString("t_title");
 		content[i] = rs.getString("t_content");
 		n_img[i] = rs.getString("t_img");
+		id[i] = rs.getString("t_id");
 		i++;
 		
 	}
@@ -55,22 +55,28 @@ try{
     <li>
       <article>
       	<h3 class="heading">NEW</h3>
+      	<a href="testinfo.jsp?t_id=<%=id[0]%>">
         <img src=<%=n_img[0] %> style="display: block; margin: 0 auto; width:600px; height:300px"/><br>
         <%=title[1] %><br>
+        </a>
       </article>
     </li>
     <li>
       <article>
         <h3 class="heading">NEW</h3>
+        <a href="testinfo.jsp?t_id=<%=id[1]%>">
         <img src=<%=n_img[1] %> style="display: block; margin: 0 auto; width:600px; height:300px"/><br>
         <%=title[1] %><br>
+        </a>
       </article>
     </li>
     <li>
       <article>
         <h3 class="heading">NEW</h3>
+        <a href="testinfo.jsp?t_id=<%=id[2]%>">
         <img src=<%=n_img[2] %> style="display: block; margin: 0 auto; width:600px; height:300px"/><br>
         <%=title[2] %><br>
+        </a>
       </article>
     </li>
   </ul>
@@ -81,12 +87,13 @@ try{
 <!-- End Top Background Image Wrapper -->
 <%
 //test에서 타이틀, 테스트 종류, 테스트 상세, 테스트 이미지 불러오기
-sql = "select t_img, t_title from test where t_id <= 3";
+sql = "select t_img, t_title, t_id from test where t_id <= 3";
 pstmt = conn.prepareStatement(sql);
 rs = pstmt.executeQuery();
 i = 0;
 
 while(rs.next()){
+	id[i] = rs.getString("t_id");
 	title[i] = rs.getString("t_title");
 	n_img[i] = rs.getString("t_img");
 	i++;	
@@ -97,9 +104,9 @@ while(rs.next()){
 	<div style="border-radius:10px; width:67px; background-color:#F7AD19; color:#FFFFFF; font-size:150%; padding:5px;text-align:center;">Best3</div>
     <figure id="introblocks">
       <ul class="nospace group">
-        <li class="one_third first"><a href="#"><img src=<%=n_img[0] %> alt=""><%=title[0] %></a></li>
-        <li class="one_third"><a href="#"><img src=<%=n_img[1] %> alt=""><%=title[1] %></a></li>
-        <li class="one_third"><a href="#"><img src=<%=n_img[2] %> alt=""><%=title[2] %></a></li>
+        <li class="one_third first"><a href="testinfo.jsp?t_id=<%=id[0]%>"><img src=<%=n_img[0] %> alt=""><%=title[0] %></a></li>
+        <li class="one_third"><a href="testinfo.jsp?t_id=<%=id[1]%>"><img src=<%=n_img[1] %> alt=""><%=title[1] %></a></li>
+        <li class="one_third"><a href="testinfo.jsp?t_id=<%=id[2]%>"><img src=<%=n_img[2] %> alt=""><%=title[2] %></a></li>
       </ul>
     </figure>
   </div>
@@ -115,25 +122,26 @@ while(rs.next()){
     <ul class="nospace group overview">
 <%
 	//test에서 타이틀, 테스트 종류, 테스트 상세, 테스트 이미지 불러오기
-	sql = "select t_img, t_title from test where t_kind like '%연애%' limit 3";
+	sql = "select t_img, t_title, t_id from test where t_kind like '%연애%' limit 3";
 	pstmt = conn.prepareStatement(sql);
 	rs = pstmt.executeQuery();
 	i = 0;
 
 	while(rs.next()){
+		id[i] = rs.getString("t_id");
 		title[i] = rs.getString("t_title");
 		n_img[i] = rs.getString("t_img");
 		i++;	
 	}
 %>
       <li class="one_third">
-        <a href="#"><img src=<%=n_img[0] %> alt=""><%=title[0] %></a>
+        <a href="testinfo.jsp?t_id=<%=id[0]%>"><img src=<%=n_img[0] %> alt=""><%=title[0] %></a>
       </li>
       <li class="one_third">
-        <a href="#"><img src=<%=n_img[1] %> alt=""><%=title[1] %></a>
+        <a href="testinfo.jsp?t_id=<%=id[1]%>"><img src=<%=n_img[1] %> alt=""><%=title[1] %></a>
       </li>
       <li class="one_third">
-        <a href="#"><img src=<%=n_img[2] %> alt=""><%=title[2] %></a>
+        <a href="testinfo.jsp?t_id=<%=id[2]%>"><img src=<%=n_img[2] %> alt=""><%=title[2] %></a>
       </li>
      </ul>
      </figure>
@@ -142,25 +150,26 @@ while(rs.next()){
      <ul class="nospace group overview">
 <%
 	//test에서 타이틀, 테스트 종류, 테스트 상세, 테스트 이미지 불러오기
-	sql = "select t_img, t_title from test where t_kind like '%유형%' limit 3";
+	sql = "select t_img, t_title, t_id from test where t_kind like '%유형%' limit 3";
 	pstmt = conn.prepareStatement(sql);
 	rs = pstmt.executeQuery();
 	i = 0;
 
 	while(rs.next()){
+		id[i] = rs.getString("t_id");
 		title[i] = rs.getString("t_title");
 		n_img[i] = rs.getString("t_img");
 		i++;	
 	}
 %>
       <li class="one_third">
-        <a href="#"><img src=<%=n_img[0] %> alt=""><%=title[0] %></a>
+        <a href="testinfo.jsp?t_id=<%=id[0]%>"><img src=<%=n_img[0] %> alt=""><%=title[0] %></a>
       </li>
       <li class="one_third">
-        <a href="#"><img src=<%=n_img[1] %> alt=""><%=title[1] %></a>
+        <a href="testinfo.jsp?t_id=<%=id[1]%>"><img src=<%=n_img[1] %> alt=""><%=title[1] %></a>
       </li>
       <li class="one_third">
-        <a href="#"><img src=<%=n_img[2] %> alt=""><%=title[2] %></a>
+        <a href="testinfo.jsp?t_id=<%=id[2]%>"><img src=<%=n_img[2] %> alt=""><%=title[2] %></a>
       </li>
      </ul>
      </figure>
@@ -169,25 +178,26 @@ while(rs.next()){
      <ul class="nospace group overview">
      <%
 	//test에서 타이틀, 테스트 종류, 테스트 상세, 테스트 이미지 불러오기
-	sql = "select t_img, t_title from test where t_kind like '%퀴즈%' limit 3";
+	sql = "select t_img, t_title, t_id from test where t_kind like '%퀴즈%' limit 3";
 	pstmt = conn.prepareStatement(sql);
 	rs = pstmt.executeQuery();
 	i = 0;
 
 	while(rs.next()){
+		id[i] = rs.getString("t_id");
 		title[i] = rs.getString("t_title");
 		n_img[i] = rs.getString("t_img");
 		i++;	
 	}
 %>
       <li class="one_third">
-        <a href="#"><img src=<%=n_img[0]%> alt=""><%=title[0] %></a>
+        <a href="testinfo.jsp?t_id=<%=id[0]%>"><img src=<%=n_img[0]%> alt=""><%=title[0] %></a>
       </li>
       <li class="one_third">
-        <a href="#"><img src=<%=n_img[1]%> alt=""><%=title[1] %></a>
+        <a href="testinfo.jsp?t_id=<%=id[1]%>"><img src=<%=n_img[1]%> alt=""><%=title[1] %></a>
       </li>
       <li class="one_third">
-        <a href="#"><img src=<%=n_img[2]%> alt=""><%=title[2] %></a>
+        <a href="testinfo.jsp?t_id=<%=id[2]%>"><img src=<%=n_img[2]%> alt=""><%=title[2] %></a>
       </li>
      </ul>
      </figure>
@@ -196,25 +206,26 @@ while(rs.next()){
      <ul class="nospace group overview">
      <%
 	//test에서 타이틀, 테스트 종류, 테스트 상세, 테스트 이미지 불러오기
-	sql = "select t_img, t_title from test where t_kind like '%미궁%' limit 3";
+	sql = "select t_img, t_title, t_id from test where t_kind like '%미궁%' limit 3";
 	pstmt = conn.prepareStatement(sql);
 	rs = pstmt.executeQuery();
 	i = 0;
 
 	while(rs.next()){
+		id[i] = rs.getString("t_id");
 		title[i] = rs.getString("t_title");
 		n_img[i] = rs.getString("t_img");
 		i++;	
 	}
 %>
       <li class="one_third">
-        <a href="#"><img src=<%=n_img[0]%> alt=""><%=title[0] %></a>
+        <a href="testinfo.jsp?t_id=<%=id[0]%>"><img src=<%=n_img[0]%> alt=""><%=title[0] %></a>
       </li>
       <li class="one_third">
-        <a href="#"><img src=<%=n_img[1]%> alt=""><%=title[1] %></a>
+        <a href="testinfo.jsp?t_id=<%=id[1]%>"><img src=<%=n_img[1]%> alt=""><%=title[1] %></a>
       </li>
       <li class="one_third">
-        <a href="#"><img src=<%=n_img[2]%> alt=""><%=title[2] %></a>
+        <a href="testinfo.jsp?t_id=<%=id[2]%>"><img src=<%=n_img[2]%> alt=""><%=title[2] %></a>
       </li>
     </ul>
     </figure>

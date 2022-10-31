@@ -60,6 +60,7 @@
     String t_title = null; //테스트 제목
     String t_img = null; //테스트 이미지
     String t_content = null; //테스트 상세내용
+    String t_id = null;
     
     Connection conn = null;
     PreparedStatement pstmt = null;
@@ -86,7 +87,7 @@
 		board_num = (int)Math.ceil(total);
 		
 		//sql문으로 db에 번호, 제목, 작성자, 종류, 날짜 검색
-		sql = "select t_img, t_title, t_content from test where t_kind like ? order by t_id limit ?,?";
+		sql = "select t_img, t_title, t_content, t_id from test where t_kind like ? order by t_id limit ?,?";
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, "%"+name+"%");
 		pstmt.setInt(2, (page_num-1)*12);
@@ -99,11 +100,12 @@
 			t_img = rs.getString("t_img");
 			t_title = rs.getString("t_title");
 			t_content = rs.getString("t_content");
+			t_id = rs.getString("t_id");
 			
 			if(i % 4 == 0){
 %>
 
-            <li class="one_quarter first"><a href="#">
+            <li class="one_quarter first"><a href="testinfo.jsp?t_id=<%=t_id%>">
             	<img src=<%=t_img %> alt=""/><div> </div>
             	<div style="font-size:130%; font-weight:BOLD;"><%=t_title %></div>
             	<div><%=t_content %></div>
@@ -112,7 +114,7 @@
 			}
 			else {
 				%>
-				<li class="one_quarter"><a href="#">
+				<li class="one_quarter"><a href="testinfo.jsp?t_id=<%=t_id%>">
             	<img src=<%=t_img %> alt=""/><div> </div>
             	<div style="font-size:130%; font-weight:BOLD;"><%=t_title %></div>
             	<div><%=t_content %></div>
