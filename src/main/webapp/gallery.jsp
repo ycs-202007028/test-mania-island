@@ -104,18 +104,18 @@
 %>
 
             <li class="one_quarter first"><a href="#">
-            	<img src=<%=t_img %> alt=""/>
-            	<%=t_title %><br>
-            	<%=t_content %>
+            	<img src=<%=t_img %> alt=""/><div> </div>
+            	<div style="font-size:130%; font-weight:BOLD;"><%=t_title %></div>
+            	<div><%=t_content %></div>
             </a></li>
             <% 	
 			}
 			else {
 				%>
 				<li class="one_quarter"><a href="#">
-            	<img src=<%=t_img %> alt=""/>
-            	<%=t_title %><br>
-            	<%=t_content %>
+            	<img src=<%=t_img %> alt=""/><div> </div>
+            	<div style="font-size:130%; font-weight:BOLD;"><%=t_title %></div>
+            	<div><%=t_content %></div>
             	</a></li>
 				<%
 			}
