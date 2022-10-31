@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
 <%@ page import="java.util.Date" %>
+<%@ page import="java.util.*" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <!DOCTYPE html>
 <html>
@@ -27,7 +28,7 @@ String birth = null;
 String email = null;
 String gender = null;
 String mbti = null;
-String img = "images/mbti/"; //mbti별 이미지를 저장하기 위한 변수
+String img = ""; //mbti별 이미지를 저장하기 위한 변수
 
 //나이 저장 변수
 String year = null;
@@ -56,23 +57,24 @@ try{
 		mbti = rs.getString("mbti");
 		
 	}
+	mbti = (String)mbti.toUpperCase().trim();
 	
-	if(mbti == "ENFJ" || mbti == "enfj") img = img + "ENFJ.jpg";
-	else if(mbti == "ENFP" || mbti == "enfp") img = img + "ENFP.jpg";
-	else if(mbti == "ENTJ" || mbti == "entj") img = img + "ENTJ.jpg";
-	else if(mbti == "ENTP" || mbti == "entp") img = img + "ENTP.jpg";
-	else if(mbti == "ESFJ" || mbti == "esfj") img = img + "ESFJ.jpg";
-	else if(mbti == "ESFP" || mbti == "esfp") img = img + "ESFP.jpg";
-	else if(mbti == "ESTJ" || mbti == "estj") img = img + "ESTJ.jpg";
-	else if(mbti == "ESTP" || mbti == "estp") img = img + "ESTP.jpg";
-	else if(mbti == "INFJ" || mbti == "infj") img = img + "INFJ.jpg";
-	else if(mbti == "INFP" || mbti == "infp") img = img + "INFP.jpg";
-	else if(mbti == "INTJ" || mbti == "intj") img = img + "INTJ.jpg";
-	else if(mbti == "INTP" || mbti == "intp") img = img + "INTP.jpg";
-	else if(mbti == "ISFJ" || mbti == "isfj") img = img + "ISFJ.jpg";
-	else if(mbti == "ISFP" || mbti == "isfp") img = img + "ISFP.jpg";
-	else if(mbti == "ISTJ" || mbti == "istj") img = img + "ISTJ.jpg";
-	else img = img + "ISTP.jpg";
+	if(mbti == "ENFJ") img = "images/mbti/ENFJ.jpg";
+	else if(mbti == "ENFP") img = "images/mbti/ENFP.jpg";
+	else if(mbti == "ENTJ") img = "images/mbti/ENTJ.jpg";
+	else if(mbti == "ENTP") img = "images/mbti/ENTP.jpg";
+	else if(mbti == "ESFJ") img = "images/mbti/ESFJ.jpg";
+	else if(mbti == "ESFP") img = "images/mbti/ESFP.jpg";
+	else if(mbti == "ESTJ") img = "images/mbti/ESTJ.jpg";
+	else if(mbti == "ESTP") img = "images/mbti/ESTP.jpg";
+	else if(mbti == "INFJ") img = "images/mbti/INFJ.jpg";
+	else if(mbti == "INFP") img = "images/mbti/INFP.jpg";
+	else if(mbti == "INTJ") img = "images/mbti/INTJ.jpg";
+	else if(mbti == "INTP") img = "images/mbti/INTP.jpg";
+	else if(mbti == "ISFJ") img = "images/mbti/ISFJ.jpg";
+	else if(mbti == "ISFP") img = "images/mbti/ISFP.jpg";
+	else if(mbti == "ISTJ") img = "images/mbti/ISTJ.jpg";
+	else img = "images/mbti/ISTP.jpg";
 
 	year = birth.substring(0,4);
 	month = birth. substring(4,6);

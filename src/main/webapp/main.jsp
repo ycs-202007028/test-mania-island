@@ -39,7 +39,7 @@ try{
 	conn = DriverManager.getConnection(jdbcUrl, dbId, dbPass);
 	
 	//test에서 타이틀, 테스트 종류, 테스트 상세, 테스트 이미지 불러오기
-	sql = "select t_img, t_title from test order by t_id desc limit 3";
+	sql = "select t_img, t_title, t_content from test order by t_id desc limit 3";
 	pstmt = conn.prepareStatement(sql);
 	rs = pstmt.executeQuery();
 	
@@ -87,8 +87,8 @@ rs = pstmt.executeQuery();
 i = 0;
 
 while(rs.next()){
-	n_img[i] = rs.getString("t_img");
 	title[i] = rs.getString("t_title");
+	n_img[i] = rs.getString("t_img");
 	i++;	
 }
 %>
@@ -97,9 +97,9 @@ while(rs.next()){
 	<div style="border-radius:10px; width:67px; background-color:#F7AD19; color:#FFFFFF; font-size:150%; padding:5px;text-align:center;">Best3</div>
     <figure id="introblocks">
       <ul class="nospace group">
-        <li class="one_third first"><a href="#"><img src=<%=n_img[0] %> alt=""><br><%=title[0] %></a></li>
-        <li class="one_third"><a href="#"><img src=<%=n_img[1] %> alt=""><br><%=title[1] %></a></li>
-        <li class="one_third"><a href="#"><img src=<%=n_img[2] %> alt=""><br><%=title[2] %></a></li>
+        <li class="one_third first"><a href="#"><img src=<%=n_img[0] %> alt=""><%=title[0] %></a></li>
+        <li class="one_third"><a href="#"><img src=<%=n_img[1] %> alt=""><%=title[1] %></a></li>
+        <li class="one_third"><a href="#"><img src=<%=n_img[2] %> alt=""><%=title[2] %></a></li>
       </ul>
     </figure>
   </div>
@@ -115,25 +115,25 @@ while(rs.next()){
     <ul class="nospace group overview">
 <%
 	//test에서 타이틀, 테스트 종류, 테스트 상세, 테스트 이미지 불러오기
-	sql = "select t_img from test where t_kind like '%연애%' limit 3";
+	sql = "select t_img, t_title from test where t_kind like '%연애%' limit 3";
 	pstmt = conn.prepareStatement(sql);
 	rs = pstmt.executeQuery();
 	i = 0;
 
 	while(rs.next()){
-		n_img[i] = rs.getString("t_img");
 		title[i] = rs.getString("t_title");
+		n_img[i] = rs.getString("t_img");
 		i++;	
 	}
 %>
       <li class="one_third">
-        <a href="#"><img src=<%=n_img[0] %> alt=""></a>
+        <a href="#"><img src=<%=n_img[0] %> alt=""><%=title[0] %></a>
       </li>
       <li class="one_third">
-        <a href="#"><img src=<%=n_img[1] %> alt=""></a>
+        <a href="#"><img src=<%=n_img[1] %> alt=""><%=title[1] %></a>
       </li>
       <li class="one_third">
-        <a href="#"><img src=<%=n_img[2] %> alt=""></a>
+        <a href="#"><img src=<%=n_img[2] %> alt=""><%=title[2] %></a>
       </li>
      </ul>
      </figure>
@@ -142,25 +142,25 @@ while(rs.next()){
      <ul class="nospace group overview">
 <%
 	//test에서 타이틀, 테스트 종류, 테스트 상세, 테스트 이미지 불러오기
-	sql = "select t_img from test where t_kind like '%유형%' limit 3";
+	sql = "select t_img, t_title from test where t_kind like '%유형%' limit 3";
 	pstmt = conn.prepareStatement(sql);
 	rs = pstmt.executeQuery();
 	i = 0;
 
 	while(rs.next()){
-		n_img[i] = rs.getString("t_img");
 		title[i] = rs.getString("t_title");
+		n_img[i] = rs.getString("t_img");
 		i++;	
 	}
 %>
       <li class="one_third">
-        <a href="#"><img src=<%=n_img[0] %> alt=""></a>
+        <a href="#"><img src=<%=n_img[0] %> alt=""><%=title[0] %></a>
       </li>
       <li class="one_third">
-        <a href="#"><img src=<%=n_img[1] %> alt=""></a>
+        <a href="#"><img src=<%=n_img[1] %> alt=""><%=title[1] %></a>
       </li>
       <li class="one_third">
-        <a href="#"><img src=<%=n_img[2] %> alt=""></a>
+        <a href="#"><img src=<%=n_img[2] %> alt=""><%=title[2] %></a>
       </li>
      </ul>
      </figure>
@@ -169,25 +169,25 @@ while(rs.next()){
      <ul class="nospace group overview">
      <%
 	//test에서 타이틀, 테스트 종류, 테스트 상세, 테스트 이미지 불러오기
-	sql = "select t_img from test where t_kind like '%퀴즈%' limit 3";
+	sql = "select t_img, t_title from test where t_kind like '%퀴즈%' limit 3";
 	pstmt = conn.prepareStatement(sql);
 	rs = pstmt.executeQuery();
 	i = 0;
 
 	while(rs.next()){
-		n_img[i] = rs.getString("t_img");
 		title[i] = rs.getString("t_title");
+		n_img[i] = rs.getString("t_img");
 		i++;	
 	}
 %>
       <li class="one_third">
-        <a href="#"><img src=<%=n_img[0]%> alt=""></a>
+        <a href="#"><img src=<%=n_img[0]%> alt=""><%=title[0] %></a>
       </li>
       <li class="one_third">
-        <a href="#"><img src=<%=n_img[1]%> alt=""></a>
+        <a href="#"><img src=<%=n_img[1]%> alt=""><%=title[1] %></a>
       </li>
       <li class="one_third">
-        <a href="#"><img src=<%=n_img[2]%> alt=""></a>
+        <a href="#"><img src=<%=n_img[2]%> alt=""><%=title[2] %></a>
       </li>
      </ul>
      </figure>
@@ -196,24 +196,25 @@ while(rs.next()){
      <ul class="nospace group overview">
      <%
 	//test에서 타이틀, 테스트 종류, 테스트 상세, 테스트 이미지 불러오기
-	sql = "select t_img from test where t_kind like '%미궁%' limit 3";
+	sql = "select t_img, t_title from test where t_kind like '%미궁%' limit 3";
 	pstmt = conn.prepareStatement(sql);
 	rs = pstmt.executeQuery();
 	i = 0;
 
 	while(rs.next()){
+		title[i] = rs.getString("t_title");
 		n_img[i] = rs.getString("t_img");
 		i++;	
 	}
 %>
       <li class="one_third">
-        <a href="#"><img src=<%=n_img[0]%> alt=""></a>
+        <a href="#"><img src=<%=n_img[0]%> alt=""><%=title[0] %></a>
       </li>
       <li class="one_third">
-        <a href="#"><img src=<%=n_img[1]%> alt=""></a>
+        <a href="#"><img src=<%=n_img[1]%> alt=""><%=title[1] %></a>
       </li>
       <li class="one_third">
-        <a href="#"><img src=<%=n_img[2]%> alt=""></a>
+        <a href="#"><img src=<%=n_img[2]%> alt=""><%=title[2] %></a>
       </li>
     </ul>
     </figure>
