@@ -314,3 +314,7 @@ table a, #comments a{background-color:inherit;}
 	#pageintro li article{max-width:none; width:100%;}
 	#pageintro li .heading{font-size:1.6rem;}
 }
+
+/* Radi */
+#radi {background-color:rgba(247,173,25,1); border-color:rgba(247,173,25,0); z-index:3; position: relative; left: 80px; top: -312px; box-sizing: border-box; width: 150px; height: 45px; background-color: orange; border-radius: 40px / 40px;} /*margin: 20px auto;*/
+#radi1 {position: relative; z-index:2;}

@@ -40,7 +40,7 @@
 							conn_b = DriverManager.getConnection(jdbcUrl, dbId, dbPass);
 							
 							//sql문으로 db에 번호, 작성자id, 날짜, 내용 검색
-							String sql = "select boardid, id, wrdate, wrcontent from board order by boardid desc limit 5";
+							String sql = "select b_ID, id, b_Date, b_content from board order by b_ID desc limit 5";
 							pstmt_b = conn_b.prepareStatement(sql);
 							rs = pstmt_b.executeQuery();
 							%>
@@ -49,10 +49,10 @@
 							<%
 							//각각의 결과 레코드를 변수에 입력
 							while(rs.next()){
-								b_num = rs.getString("boardid");
+								b_num = rs.getString("b_ID");
 								b_writer = rs.getString("id");
-								b_date = rs.getString("wrdate");
-								b_content = rs.getString("wrcontent");
+								b_date = rs.getString("b_Date");
+								b_content = rs.getString("b_content");
 								%>
 								<tr height=30px>
 									<td><input type="checkbox" name="chk" value="<%=b_num%>"></td>

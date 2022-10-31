@@ -88,7 +88,7 @@ while(rs.next()){
 %>
 <div class="wrapper">
   <div class="hoc clear"> 
-  <div style="border-radius:10px; width:84px; background-color:#F7AD19; color:#FFFFFF; font-size:150%;padding:5px; text-align:center;">BEST3</div>
+	<div style="border-radius:10px; width:67px; background-color:#F7AD19; color:#FFFFFF; font-size:150%; padding:5px;text-align:center;">Best3</div>
     <figure id="introblocks">
       <ul class="nospace group">
         <li class="one_third first"><a href="#"><img src=<%=n_img[0] %> alt=""></a></li>
@@ -132,7 +132,6 @@ while(rs.next()){
      </figure>
      <div style="border-radius:10px; width:67px; background-color:#F7AD19; color:#FFFFFF; font-size:150%; padding:5px;text-align:center;">유형</div>
      <figure id="introblocks">
-     <legend>유형</legend>
      <ul class="nospace group overview">
 <%
 	//test에서 타이틀, 테스트 종류, 테스트 상세, 테스트 이미지 불러오기
