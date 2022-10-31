@@ -269,11 +269,13 @@ table a, #comments a{background-color:inherit;}
 
 /* Max Wrapper Width - Laptop, Desktop etc.
 --------------------------------------------------------------------------------------------------------------- */
-@media screen and (min-width:1350px){
-	.hoc{max-width:1000px;}
-	<!--사이즈 너무 작아서 변경함-->
+@media screen and (min-width:978px){
+	.hoc{max-width:80%;}
 }
 
+@media screen and (max-width:1080px){
+	.hoc{max-width:80%;}
+}
 
 @media screen and (max-width:750px){
 	.flex-direction-nav .flex-prev, .flex-direction-nav .flex-next{display:none;}
