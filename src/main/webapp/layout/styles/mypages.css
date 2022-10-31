@@ -86,7 +86,7 @@ tr, td{
 }
 td:first-child, td:nth-child(3){
 	text-align:right !important;
-	width: 95px;
+	width: 105px;
 }
 
 .update{
