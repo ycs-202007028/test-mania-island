@@ -15,15 +15,13 @@
 <br>
 <div class="hoc clear">
 <%
-String a = "qwert";
-
 Connection conn = null;
 PreparedStatement pstmt = null;
 ResultSet rs = null;
 String sql;
 
 //마이페이지에 들어가는 정보를 저장하기 위한 변수
-String userID = (String)session.getAttribute("id");
+String userID = (String)session.getAttribute("userID");
 String name = null;
 String birth = null;
 String email = null;
@@ -47,7 +45,7 @@ try{
 	//test에서 타이틀, 테스트 종류, 테스트 상세, 테스트 이미지 불러오기
 	sql = "select name, birth, email, gender, mbti from user where id = ?";
 	pstmt = conn.prepareStatement(sql);
-	pstmt.setString(1, a);
+	pstmt.setString(1, userID);
 	rs = pstmt.executeQuery();
 	
 	while(rs.next()){
@@ -119,7 +117,7 @@ try{
 	<!--  변경버튼 모아놓음 -->
  		<div class="box4">
     		<table >    		
-    		<tr> <td>아이디 : </td> <td><%=a %></td> </tr>
+    		<tr> <td>아이디 : </td> <td><%=userID %></td> </tr>
     		<tr> <td>비밀번호 </td> <td> <button class="ps">비밀번호 변경</button> </td> </tr>
     		<tr> <td>이메일 : </td> <td><%=email %></td></tr>
     		</table>

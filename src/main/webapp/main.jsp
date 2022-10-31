@@ -23,9 +23,9 @@ Connection conn = null;
 PreparedStatement pstmt = null;
 ResultSet rs = null;
 
-String title;
+String title[] = new String[3];
 String kind;
-String content;
+String content[] = new String[3];
 String img;
 String n_img[] = new String[3];
 String sql;
@@ -39,11 +39,13 @@ try{
 	conn = DriverManager.getConnection(jdbcUrl, dbId, dbPass);
 	
 	//test에서 타이틀, 테스트 종류, 테스트 상세, 테스트 이미지 불러오기
-	sql = "select t_img from test order by t_id desc limit 3";
+	sql = "select t_img, t_title from test order by t_id desc limit 3";
 	pstmt = conn.prepareStatement(sql);
 	rs = pstmt.executeQuery();
 	
 	while(rs.next()){
+		title[i] = rs.getString("t_title");
+		content[i] = rs.getString("t_content");
 		n_img[i] = rs.getString("t_img");
 		i++;
 		
@@ -53,19 +55,22 @@ try{
     <li>
       <article>
       	<h3 class="heading">NEW</h3>
-        <p><img src=<%=n_img[0] %> style="display: block; margin: 0 auto; width:600px; height:300px"/></p>
+        <img src=<%=n_img[0] %> style="display: block; margin: 0 auto; width:600px; height:300px"/><br>
+        <%=title[1] %><br>
       </article>
     </li>
     <li>
       <article>
         <h3 class="heading">NEW</h3>
-        <p><img src=<%=n_img[1] %> style="display: block; margin: 0 auto; width:600px; height:300px"/></p>
+        <img src=<%=n_img[1] %> style="display: block; margin: 0 auto; width:600px; height:300px"/><br>
+        <%=title[1] %><br>
       </article>
     </li>
     <li>
       <article>
         <h3 class="heading">NEW</h3>
-        <p><img src=<%=n_img[2] %> style="display: block; margin: 0 auto; width:600px; height:300px"/></p>
+        <img src=<%=n_img[2] %> style="display: block; margin: 0 auto; width:600px; height:300px"/><br>
+        <%=title[2] %><br>
       </article>
     </li>
   </ul>
@@ -76,13 +81,14 @@ try{
 <!-- End Top Background Image Wrapper -->
 <%
 //test에서 타이틀, 테스트 종류, 테스트 상세, 테스트 이미지 불러오기
-sql = "select t_img from test where t_id <= 3";
+sql = "select t_img, t_title from test where t_id <= 3";
 pstmt = conn.prepareStatement(sql);
 rs = pstmt.executeQuery();
 i = 0;
 
 while(rs.next()){
 	n_img[i] = rs.getString("t_img");
+	title[i] = rs.getString("t_title");
 	i++;	
 }
 %>
@@ -91,9 +97,9 @@ while(rs.next()){
 	<div style="border-radius:10px; width:67px; background-color:#F7AD19; color:#FFFFFF; font-size:150%; padding:5px;text-align:center;">Best3</div>
     <figure id="introblocks">
       <ul class="nospace group">
-        <li class="one_third first"><a href="#"><img src=<%=n_img[0] %> alt=""></a></li>
-        <li class="one_third"><a href="#"><img src=<%=n_img[1] %> alt=""></a></li>
-        <li class="one_third"><a href="#"><img src=<%=n_img[2] %> alt=""></a></li>
+        <li class="one_third first"><a href="#"><img src=<%=n_img[0] %> alt=""><br><%=title[0] %></a></li>
+        <li class="one_third"><a href="#"><img src=<%=n_img[1] %> alt=""><br><%=title[1] %></a></li>
+        <li class="one_third"><a href="#"><img src=<%=n_img[2] %> alt=""><br><%=title[2] %></a></li>
       </ul>
     </figure>
   </div>
@@ -116,6 +122,7 @@ while(rs.next()){
 
 	while(rs.next()){
 		n_img[i] = rs.getString("t_img");
+		title[i] = rs.getString("t_title");
 		i++;	
 	}
 %>
@@ -142,6 +149,7 @@ while(rs.next()){
 
 	while(rs.next()){
 		n_img[i] = rs.getString("t_img");
+		title[i] = rs.getString("t_title");
 		i++;	
 	}
 %>
@@ -168,6 +176,7 @@ while(rs.next()){
 
 	while(rs.next()){
 		n_img[i] = rs.getString("t_img");
+		title[i] = rs.getString("t_title");
 		i++;	
 	}
 %>
