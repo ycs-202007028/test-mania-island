@@ -77,7 +77,7 @@ try{
 
 	</div>
 </div>
-</div>
+
 <!-- End Top Background Image Wrapper -->
 <%
 //test에서 타이틀, 테스트 종류, 테스트 상세, 테스트 이미지 불러오기
