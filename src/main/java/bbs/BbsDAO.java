@@ -14,7 +14,7 @@ public class BbsDAO {
 	public BbsDAO() {
 		//UserDAO 객체가 생성될때 바로 데이터베이스 접근하도록 생성자 설정
 		try {
-			String dbURL = "jdbc:mysql://localhost:3306/BBS";
+			String dbURL = "jdbc:mysql://localhost:3306/BBS?useUnicode=yes&characterEncoding=UTF8";
 			String dbID = "root";
 			String dbPassword = "root";
 			

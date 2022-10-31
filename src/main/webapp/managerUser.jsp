@@ -33,9 +33,9 @@
 						PreparedStatement pstmt_b = null;
 						ResultSet rs = null;
 						try {
-							String jdbcUrl = "jdbc:mysql://localhost:3306/tmi?useUnicode=yes&characterEncoding=UTF8";
+							String jdbcUrl = "jdbc:mysql://localhost:3306/BBS?useUnicode=yes&characterEncoding=UTF8";
 							String dbId = "root";
-							String dbPass = "jsp2021";
+							String dbPass = "root";
 							Class.forName("com.mysql.jdbc.Driver");
 							conn_b = DriverManager.getConnection(jdbcUrl, dbId, dbPass);
 							

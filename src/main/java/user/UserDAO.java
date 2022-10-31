@@ -14,7 +14,7 @@ public class UserDAO {
 	public UserDAO() {
 		//UserDAO 객체가 생성될때 바로 데이터베이스 접근하도록 생성자 설정
 		try {
-			String dbURL = "jdbc:mysql://localhost:3306/BBS";
+			String dbURL = "jdbc:mysql://localhost:3306/BBS??useUnicode=yes&characterEncoding=UTF8";
 			String dbID = "root";
 			String dbPassword = "root";
 			
@@ -50,8 +50,8 @@ public class UserDAO {
 		try {
 			pstmt = conn.prepareStatement(SQL);
 			pstmt.setString(1,  user.getId());
-			pstmt.setString(2,  user.getPw());
-			pstmt.setString(3,  user.getName());
+			pstmt.setString(2,  user.getName());
+			pstmt.setString(3,  user.getPw());
 			pstmt.setString(4,  user.getBirth());
 			pstmt.setString(5,  user.getEmail());
 			pstmt.setString(6,  user.getGender());
