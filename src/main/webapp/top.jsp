@@ -27,8 +27,8 @@
 			} else {
 		
             %>
-            	<a href="mypages.jsp" style = "padding: 5px 10px 8px 0px; ;">마이페이지</a>
-            	<a href="logoutOK.jsp" style = "padding: 5px 10px 8px 0px; ;">로그아웃</a>
+            	<a href="mypages.jsp" style = "padding: 5px 10px 8px 0px; color: black; font-size:large;">마이페이지</a>
+            	<a href="logoutOK.jsp" style = "padding: 5px 10px 8px 0px; color: black; font-size:large;">로그아웃</a>
             <%
             }
             %>
