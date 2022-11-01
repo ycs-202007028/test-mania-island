@@ -18,6 +18,16 @@ create table board(
 	primary key (b_ID)
 ) charset = 'utf8';
 
+create table reply(
+	userID varchar(20),
+	replyID int,
+	replyContent varchar(20),
+	b_ID int,
+	replyAvailable int,
+	primary key(replyID),
+	foreign key(b_ID) references board(b_ID)
+);
+
 create table test(
 	t_id int AUTO_INCREMENT primary key,
 	t_title varchar(50) not null,
@@ -25,6 +35,9 @@ create table test(
 	t_content varchar(100) not null,
 	t_img varchar(2048) not null
 ) default character set utf8 collate utf8_general_ci;
+
+alter table reply add primary key (replyID, b_ID);
+alter table reply add constraint b_ID foreign key b_ID references board(b_ID); 
 
 drop table test;
 drop table user;

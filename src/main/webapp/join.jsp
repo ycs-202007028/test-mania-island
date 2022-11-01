@@ -31,7 +31,7 @@
 						<input type="password" class="form-control" placeholder="비밀번호" name="pw" maxlength="20"/>
 					</div>
 					<div class="form-group">
-						<input type="date" class="form-control" placeholder="날짜" name="date" maxlength="20"/>
+						<input type="date" class="form-control" placeholder="날짜" name="birth" maxlength="20"/>
 					</div>
 					<div class="form-group">
 						<input type="email" class="form-control" placeholder="e-mail" name="email" maxlength="20"/>
@@ -39,7 +39,7 @@
 					<div class="form-group" style="text-align: left:">
 						<div class="btn-group" data-toggle="buttons">
 							<label class="btn btn-primary active">
-								<input type="radio" name="gender autocomplete="off" value="male" checked />남자
+								<input type="radio" name="gender" autocomplete="off" value="male" checked />남자
 							</label>
 							<label class="btn btn-primary">
 								<input type="radio" name="gender" autocomplete="off" value="female"/>여자

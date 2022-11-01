@@ -8,7 +8,6 @@
 <jsp:setProperty name="user" property="id" />
 <jsp:setProperty name="user" property="pw" />
 <jsp:setProperty name="user" property="birth" />
-<jsp:setProperty name="user" property="nickname" />
 <jsp:setProperty name="user" property="email" />
 <jsp:setProperty name="user" property="gender" />
 <jsp:setProperty name="user" property="mbti" />

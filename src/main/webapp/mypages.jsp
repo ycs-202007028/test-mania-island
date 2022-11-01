@@ -12,7 +12,7 @@
 <title>my pages</title>
 </head>
 <body>
-<jsp:include page = "top.jsp" flush = "false"/>
+<jsp:include page = "top.jsp" flush = "false"/><hr>
 <br>
 <div class="hoc clear">
 <%

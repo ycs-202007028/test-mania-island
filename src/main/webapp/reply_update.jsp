@@ -1,22 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <%@ page import="java.io.PrintWriter"%>
 <%@ page import="bbs.Bbs"%>
 <%@ page import="bbs.BbsDAO"%>
+<%@ page import="reply.Reply" %>
+<%@ page import="reply.ReplyDAO" %>
+
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="stylesheet" href="css/bootstrap.css" />
-<link rel="stylesheet" href="css/custom.css" />
-<title>게시물 수정</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/custom.css">
+
+<title>댓글 수정</title>
 </head>
 <body>
-	<!-- Top 호출-->
-	<jsp:include page = "top.jsp" flush = "false"/>
-	<hr>
-	
 	<%
 		String userID = null;
 		if (session.getAttribute("userID") != null) {
@@ -52,40 +50,32 @@
 			script.println("location.href = 'board.jsp'");
 			script.println("</script>");
 		}
+		Reply reply = new ReplyDAO().getReply(b_ID);
 	%>
 	
-	<!-- 게시판 시작 -->
-
-	<div class="container">
-		<div class="row">
-
-			<form action="updateOK.jsp?b_ID=<%= b_ID %>" method="post">
-				<table class="table table-striped"
-					style="text-align: center; border: 1px solid #dddddd">
-					<thead>
-						<tr>
-							<th colspan="2"
-								style="background-color: #eeeeee; text-align: center;"><font color="black">게시판
-								글 수정</font> </th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td><input type="text" class="form-control"
-								placeholder="글 제목" name="b_Title" maxlength="50" value="<%= bbs.getB_Title() %>" /></td>
-						</tr>
-						<tr>
-							<td><textarea class="form-control" placeholder="글 내용"
-									name="b_Content" maxlength="2048" style="height: 350px;"><%= bbs.getB_Content() %></textarea></td>
-						</tr>
-					</tbody>
-				</table>
-				<input type="submit" class="btn btn-primary pull-right" value="글수정" />
-			</form>
+	<div class="container" align="center">
+		<div class="col-lg-10">
+			<div class="jumbotron" style="padding-top: 1px;">				
+				<h3><br>댓글 수정 창</h3>
+				<form name = r_replyUpdate action="updateOK.jsp?b_ID=<%= b_ID %>" method="post">
+					<%-- <input type="text" id="update" style="width:400px;height:50px;" maxlength=1024 value="<%= reply.replyContent %>">
+					<input type="submit" onclick="send(<%=userID %>,<%=b_ID %>,<%=replyID %>)" value="수정"> --%>
+					<br><br>
+				</form>
+			</div>
 		</div>
+		<div class="col-lg-10"></div>
 	</div>
-
-	<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
 </body>
+<script>
+	var upload = document.querySelector('#updatePicture');
+	updatePicture.addEvent
+	function send(userID,bbsID,replyID){
+		var sb;
+		var commentText = document.c_commentUpdate.update.value;
+		sb = "reply_updateOK.jsp?userID="+userID+"&b_ID="+b_ID+"&replyID="+ replyID+"&replyContent="+replyContent;
+		window.opener.location.href= sb;
+		window.close();
+	}
+</script>
 </html>

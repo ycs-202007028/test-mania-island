@@ -150,6 +150,7 @@ public class BbsDAO {
 		}
 		return -1; // DB 오류
 	}
+	
 	// 게시물 삭제
 	public int delete(int b_ID) {
 		String SQL = "update board set b_Available = 0 where b_ID = ?";
