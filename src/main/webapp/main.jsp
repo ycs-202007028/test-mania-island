@@ -55,7 +55,7 @@ try{
       <article>      	
       	<a href="testinfo.jsp?t_id=<%=id[0]%>">
         <img src=<%=n_img[0] %> style="display: block; margin: 0 auto; width:600px; height:300px"/>
-        <br> <%=title[1] %> <br>
+        <br> <%=title[0] %> <br>
         </a>
       </article>
     </li>
@@ -122,7 +122,7 @@ while(rs.next()){
     <ul class="nospace group overview">
 <%
 	//test에서 타이틀, 테스트 종류, 테스트 상세, 테스트 이미지 불러오기
-	sql = "select t_img, t_title, t_id from test where t_kind like '%연애%' limit 3";
+	sql = "select t_img, t_title, t_id from test where t_kind = '방구석 연구소' limit 3";
 	pstmt = conn.prepareStatement(sql);
 	rs = pstmt.executeQuery();
 	i = 0;
@@ -150,7 +150,7 @@ while(rs.next()){
      <ul class="nospace group overview">
 <%
 	//test에서 타이틀, 테스트 종류, 테스트 상세, 테스트 이미지 불러오기
-	sql = "select t_img, t_title, t_id from test where t_kind like '%유형%' limit 3";
+	sql = "select t_img, t_title, t_id from test where t_kind = 'ktest' limit 3";
 	pstmt = conn.prepareStatement(sql);
 	rs = pstmt.executeQuery();
 	i = 0;
@@ -178,7 +178,7 @@ while(rs.next()){
      <ul class="nospace group overview">
      <%
 	//test에서 타이틀, 테스트 종류, 테스트 상세, 테스트 이미지 불러오기
-	sql = "select t_img, t_title, t_id from test where t_kind like '%퀴즈%' limit 3";
+	sql = "select t_img, t_title, t_id from test where t_kind ='방구석 연구소' limit 3";
 	pstmt = conn.prepareStatement(sql);
 	rs = pstmt.executeQuery();
 	i = 0;
@@ -206,7 +206,7 @@ while(rs.next()){
      <ul class="nospace group overview">
      <%
 	//test에서 타이틀, 테스트 종류, 테스트 상세, 테스트 이미지 불러오기
-	sql = "select t_img, t_title, t_id from test where t_kind like '%미궁%' limit 3";
+	sql = "select t_img, t_title, t_id from test where t_kind = 'ktest' limit 3";
 	pstmt = conn.prepareStatement(sql);
 	rs = pstmt.executeQuery();
 	i = 0;

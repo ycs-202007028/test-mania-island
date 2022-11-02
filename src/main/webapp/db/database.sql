@@ -28,18 +28,23 @@ create table reply(
 	foreign key(b_ID) references board(b_ID)
 );
 
+drop table test;
 create table test(
 	t_id int AUTO_INCREMENT primary key,
 	t_title varchar(50) not null,
 	t_kind varchar(15) not null,
 	t_content varchar(100) not null,
-	t_img varchar(2048) not null
+	t_img varchar(2048) not null,
+	t_src varchar(2048) not null
 ) default character set utf8 collate utf8_general_ci;
 
-alter table reply add primary key (replyID, b_ID);
-alter table reply add constraint b_ID foreign key b_ID references board(b_ID); 
+create table test_select(
+	t_id varchar(20) primary key,
+	t_title varchar(50) not null,
+	s_content varchar(200) not null,
+	
+)charset = 'utf8';
+
 
 drop table test;
 drop table user;
-
-insert into user values('방채연', 'qwert', 'qwert', '991202', 'bchy1202@naver.com', '여자', 'ISFP');

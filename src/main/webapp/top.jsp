@@ -46,8 +46,8 @@
           <li class="active"><a href="main.jsp">Home</a></li>
           <li><a class="drop" href="#">테스트</a>
             <ul>
-              <li><a href="gallery.jsp?kind=love">연애</a></li>
-              <li><a href="gallery.jsp?kind=quiz">퀴즈</a></li>
+              <li><a href="gallery.jsp?kind=banggoosuk">방구석 연구소</a></li>
+              <li><a href="gallery.jsp?kind=ktest">ktest</a></li>
               <li><a href="gallery.jsp?kind=mind">심리</a></li>
               <li><a href="gallery.jsp?kind=cate">유형</a></li>
             </ul>

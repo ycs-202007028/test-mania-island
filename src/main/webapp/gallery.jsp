@@ -28,12 +28,12 @@
 		page_num = Integer.parseInt(s_page);
 	
 	switch(kind){
-	case "love" :
-		category = "연애";
+	case "banggoosuk" :
+		category = "방구석 연구소";
 		name = category;
 		break;
-	case "quiz" :
-		category = "퀴즈";
+	case "ktest" :
+		category = "ktest";
 		name = category;
 		break;
 	case "mind" :
