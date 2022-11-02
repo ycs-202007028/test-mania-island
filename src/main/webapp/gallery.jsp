@@ -11,6 +11,7 @@
 <body id="top">
 <!-- Top Background Image Wrapper -->
  <jsp:include page = "top.jsp" flush = "false"/>
+ 
 <!-- End Top Background Image Wrapper -->
 <div class="wrapper row3">
 
@@ -50,7 +51,7 @@
     <div class="content"> 
       <div id="gallery">
         <figure>
-          <header class="heading"><%=category %></header>
+          <header class="introfont"><%=category %></header>
           <ul class="nospace clear">
 	<%
 	
