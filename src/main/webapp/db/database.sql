@@ -53,3 +53,4 @@ insert into test_select values(3, '사계절이 사라진다는 소식을 처음
 
 drop table test;
 drop table user;
+drop table test_select;
