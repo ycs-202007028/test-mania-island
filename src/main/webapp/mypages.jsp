@@ -77,8 +77,8 @@ try{
 	else img = "images/mbti/ISTP.jpg";
 
 	year = birth.substring(0,4);
-	month = birth. substring(4,6);
-	date = birth.substring(6);
+	month = birth. substring(5,7);
+	date = birth.substring(8,10);
 	
 	int old = 2022 - Integer.parseInt(year) + 1;
 	%>

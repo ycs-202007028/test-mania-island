@@ -1,19 +1,20 @@
-<%@page import="java.io.File"%>
-<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="java.io.PrintWriter"%>
+<%@ page import="java.util.ArrayList"%>
 <%@ page import="bbs.Bbs" %>
 <%@ page import="bbs.BbsDAO" %>
-<%@page import="reply.Reply"%>
-<%@page import="reply.ReplyDAO"%>
+<%@ page import="reply.Reply"%>
+<%@ page import="reply.ReplyDAO"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="stylesheet" href="css/bootstrap.css" />
-<link rel="stylesheet" href="css/custom.css" />
+<style>
+	#submit { border:none; border-radius:20px; width:100px; height:50px; background:#FFC000; text-align:center; color:white; display:block; vertical-align:middle; top:550px; left:900px;font-size:15pt; font-weight:bold;}
+	#comment-input { border-style:bold; border-bottom-color:#FFC000; align:center; border-right:0px; border-top:0px; border-left:50px;}
+</style>
 <title>Insert title here</title>
 </head>
 <body>
@@ -41,25 +42,19 @@
 		if(request.getParameter("b_ID") != null){
 			b_ID = Integer.parseInt(request.getParameter("b_ID"));
 		}
-		
+		if(b_ID==0){
+			PrintWriter script=response.getWriter();
+			script.println("<script>");
+			script.println("alert('유효하지 않은 글입니다.')");
+			script.println("location.href='board.jsp'");
+			script.println("</script>");	
+		}
 		int pageNumber = 1; // 기본페이지
 		if(request.getParameter("pageNumber") != null){
 			pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
 		}
 		
-		if (b_ID == 0){
-			PrintWriter script = response.getWriter();
-			script.println("<script>");
-			script.println("alert('유효하지 않은 글입니다.')");
-			script.println("location.href = 'board.jsp'");
-			script.println("</script>");
-		}
-		int replyID = 0;
-		if (request.getParameter("replyID") != null){
-			replyID = Integer.parseInt(request.getParameter("replyID"));
-		}
 		Bbs bbs = new BbsDAO().getBbs(b_ID);
-
 	%>
 	
 	<!-- 게시판 시작 -->
@@ -106,48 +101,47 @@
 	</div>
 	
 	<!-- 댓글 -->
-		<form method="post" action="replyOK.jsp?b_ID=<%= b_ID %>">
-				<table class="table table-striped"
-					style="text-align: center; border: 1px solid #dddddd">
-					<%-- 홀,짝 행 구분 --%>
-						<tr>
-							<th 
-								style="background-color: #EAEAEA; text-align: left;"><font color="black">댓글</font></th>
-						</tr>
-					</table>
-		</form>
-		<form method="post" encType = "multipart/form-data" action="replyOK.jsp?b_ID=<%= b_ID %>&userID=<%=userID%>">
-			<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
-
-					<td style="border-bottom:none;" valign="middle"><br><br><%= userID %></td>
-					<td colspan="5" ><input type="text" style="height:100px;" class="form-control" placeholder="상대방을 존중하는 댓글을 남깁시다." name = "commentText"></td>
-					<td><br><br><input type="submit" class="btn" value="댓글 작성"></td>
-
-						<%
-						ReplyDAO replyDAO=new ReplyDAO();
-						ArrayList<Reply> list=replyDAO.getList(b_ID, pageNumber);
-						for(int i=list.size()-1;i>=0;i--){
-								
-						%>
-
-						<tr>
-						<td style="text-align: center;" colspan="3" ><%= list.get(i).getUserID() %></td>
-							<td style="text-align: left;" colspan="3" ><%= list.get(i).getReplyContent() %></td>
-							<td>
-							<a href="reply_update.jsp?b_ID=<%= b_ID %>" class="btn btn-primary">수정</a>
-							<a href="reply_deleteOK.jsp?b_ID=<%= b_ID %>" class="btn btn-primary">삭제</a>
-							</td>
-						</tr>
-					
-						<%
-								}
-						%>
-				
-			</table>
-		</form>
-	</div>
-</div>
-
+	<div style="padding:10px 20px 40px 50px;" >
+	<form action="replyOK.jsp?b_ID=<%= b_ID %>" method="post">
+        <div id="comment-count">댓글 0</div>
+        <!-- 데이터 불러오기 -->
+       	<%
+			ReplyDAO replyDAO=new ReplyDAO();
+			ArrayList<Reply> list=replyDAO.getList(b_ID, pageNumber);
+			for(int i=list.size()-1;i>=0;i--){
+							
+		%>
+		<table>
+		<tr>
+		
+			<td style="text-align: left;"><%= list.get(i).getUserID() %></td>
+			<td style="text-align: left;"><%= list.get(i).getReplyContent() %></td>
+			<td ><%= list.get(i).getR_Date().substring(0, 11) + list.get(i).getR_Date().substring(11, 13) + "시" + list.get(i).getR_Date().substring(14, 16) + "분" %>
+			</td>
+			<td>			
+			<a href="reply_update.jsp?b_ID=<%=b_ID%>" class="btn btn-primary">수정</a>
+					<a onclick="return confirm('정말로 삭제하시겠습니까?')" href="reply_deleteOK.jsp?b_ID=<%=b_ID%>" class="btn btn-primary">삭제</a>
+		
+			</td>
+		</tr>
+		
+		<%
+			}
+		%>
+		</table>
+		<table>
+		<tr>
+		<td>
+		<%=userID %>
+		</td>
+		<td><input id="comment-input" type="text" name="replyContent" maxlength="50" placeholder="댓글 남기기 어때?" style="width:1200px;height:70px;font-size:25px;" >
+		</td>
+        <td><a href="replyOK.jsp"><input id="submit" type="submit" value="등록" /></a>
+		</td>
+	</table>
+    </form>
+    </div>
+	
 	<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 </body>

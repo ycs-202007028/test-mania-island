@@ -20,21 +20,22 @@
 </head>
 <body>
 	<%
+	
 		String userID = null;
 		if (session.getAttribute("userID") != null) {//유저아이디이름으로 세션이 존재하는 회원들은 
 			userID = (String) session.getAttribute("userID");//유저아이디에 해당 세션값을 넣어준다.
 		}
-		int boardID = 0;
-		if (request.getParameter("boardID") != null){
-			boardID = Integer.parseInt(request.getParameter("boardID"));
+		int b_ID = 0;
+		if (request.getParameter("b_ID") != null){
+			b_ID = Integer.parseInt(request.getParameter("b_ID"));
 		}
-		int commentID = 0;
-		if (request.getParameter("commentID") != null){
-			commentID = Integer.parseInt(request.getParameter("commentID"));
+		int replyID = 0;
+		if (request.getParameter("replyID") != null){
+			replyID = Integer.parseInt(request.getParameter("replyID"));
 		}
-		String commentText = null;
-		if (request.getParameter("commentText")!=null){
-			commentText = request.getParameter("commentText");
+		String replyContent = null;
+		if (request.getParameter("replyContent")!=null){
+			replyContent = request.getParameter("replyContent");
 		}
 		
 		if (userID == null) {
@@ -44,11 +45,7 @@
 			script.println("location.href = 'login.jsp'");
 			script.println("</script>");
 		} 
-		//글이 유효한지 판별
-		int b_ID = 0;
-		if (request.getParameter("b_ID") != null) {
-			b_ID = Integer.parseInt(request.getParameter("b_ID"));
-		}
+		
 		if (b_ID == 0) {
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
@@ -71,7 +68,7 @@
 				script.println("alert('입력이 안된 사항이 있습니다')");
 				script.println("history.back()");
 				script.println("</script>");
-			} /* else {
+			} else {
 				ReplyDAO replyDAO = new ReplyDAO();
 				int result = ReplyDAO.update(replyID, replyContent);
 				if (result == -1) {
@@ -80,14 +77,14 @@
 					script.println("alert('댓글수정에 실패했습니다')");
 					script.println("history.back()");
 					script.println("</script>");
-				} */ else {
+				} else {
 					PrintWriter script = response.getWriter();
 					script.println("<script>");
-					script.println("location.href= \'view.jsp?userID="+userID+"&b_ID="+b_ID+"\'");
+					script.println("location.href= \'view.jsp?b_ID="+b_ID+"\'");
 					script.println("</script>");
 				}
 			}
-		
+	 		
 	%>
 </body>
 </html>

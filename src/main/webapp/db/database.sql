@@ -19,14 +19,26 @@ create table board(
 ) charset = 'utf8';
 
 create table reply(
-	userID varchar(20),
 	replyID int,
+	id VARCHAR(20),
 	replyContent varchar(20),
+	r_Date DateTIME,
 	b_ID int,
 	replyAvailable int,
 	primary key(replyID),
 	foreign key(b_ID) references board(b_ID)
-);
+)charset = 'utf8';
+
+create table test_reply(
+	tr_ID int,
+	id VARCHAR(20),
+	tr_Content varchar(20),
+	tr_Date DateTIME,
+	t_id int,
+	tr_Available int,
+	primary key(tr_ID),
+	foreign key(t_id) references test(t_id)
+)charset = 'utf8';
 
 create table test(
 	t_id int AUTO_INCREMENT primary key,

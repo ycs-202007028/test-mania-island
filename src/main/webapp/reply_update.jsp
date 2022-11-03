@@ -16,6 +16,7 @@
 </head>
 <body>
 	<%
+	
 		String userID = null;
 		if (session.getAttribute("userID") != null) {
 			userID = (String) session.getAttribute("userID");
@@ -50,17 +51,23 @@
 			script.println("location.href = 'board.jsp'");
 			script.println("</script>");
 		}
-		Reply reply = new ReplyDAO().getReply(b_ID);
+		int replyID = 0;
+		if (request.getParameter("replyID") != null){
+			replyID = Integer.parseInt(request.getParameter("replyID"));
+		}
+		
+		ReplyDAO replyDAO = new ReplyDAO();
+		String replyContent = replyDAO.getUpdateReply(replyID);
 	%>
 	
 	<div class="container" align="center">
 		<div class="col-lg-10">
 			<div class="jumbotron" style="padding-top: 1px;">				
-				<h3><br>댓글 수정 창</h3>
-				<form name = r_replyUpdate action="updateOK.jsp?b_ID=<%= b_ID %>" method="post">
-					<%-- <input type="text" id="update" style="width:400px;height:50px;" maxlength=1024 value="<%= reply.replyContent %>">
-					<input type="submit" onclick="send(<%=userID %>,<%=b_ID %>,<%=replyID %>)" value="수정"> --%>
-					<br><br>
+				<h3><br>댓글 수정</h3>
+				<form name = c_commentUpdate>
+					<input type="text" id="update" style="width:400px;height:50px;" maxlength=1024 value="<%= replyContent %>">
+					<input type="button" onclick="send(<%=b_ID %>,<%=replyID %>)" value="수정">
+					<br><br>		
 				</form>
 			</div>
 		</div>
@@ -70,10 +77,10 @@
 <script>
 	var upload = document.querySelector('#updatePicture');
 	updatePicture.addEvent
-	function send(userID,bbsID,replyID){
+	function send(b_ID,replyID){
 		var sb;
 		var commentText = document.c_commentUpdate.update.value;
-		sb = "reply_updateOK.jsp?userID="+userID+"&b_ID="+b_ID+"&replyID="+ replyID+"&replyContent="+replyContent;
+		sb = "commentUpdateAction.jsp?b_ID="+b_ID+"&b_ID="+b_ID+"&replyID="+replyID+"&replyContent="+replyContent;
 		window.opener.location.href= sb;
 		window.close();
 	}
