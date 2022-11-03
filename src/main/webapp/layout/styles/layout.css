@@ -3,6 +3,40 @@
 @import url("custom.flexslider.css");
 @import url("framework.css");
 
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+body, .introfont{
+	font-family: 'GmarketSansMedium';
+}
+
+.introfont{
+	font-size: 50px;
+	padding-left:0px;
+	padding-bottom:20px;
+	position: static;
+}
+
+.introfont2{
+	font-size: 40px;
+	display: flex;
+	justify-content: center;
+	margin-top: 0px;	
+	font-weight: 900;
+	color:  #F7AD19;
+}
+
+h3{
+	font-family: 'Poppins', sans-serif;
+}
+
 /* Rows
 ---------------------------------------------------------------------------- */
 .row1, .row1 a{}
@@ -20,7 +54,7 @@
 
 /* Page Intro
 --------------------------------------------------------------------------------------------------------------- */
-#pageintro{margin-top: 20px; margin-bottom: 20px; border: solid 4px #F7AD19; padding: 30px 10px 0px 10px; border-radius: 60px 60px 60px 60px / 60px 60px 60px 60px;}
+#pageintro{margin-top: 0px; margin-bottom: 20px; border: solid 4px #F7AD19; padding: 0px 10px 10px 10px; border-radius: 60px 60px 60px 60px / 60px 60px 60px 60px;}
 
 #pageintro li article{display:block; max-width:75%; margin:0 auto; text-align:center; }
 #pageintro li article *{margin:0;}
@@ -49,7 +83,7 @@
 .overview > li:nth-child(3n+1){margin-left:0; clear:left;}/* Removes the need to add class="first" */
 .overview > li article{max-width:320px;}
 .overview > li article img{margin-bottom:30px;}
-.overview > li article .heading{margin:0; font-size:1.2rem;}
+.overview > li article {margin:0; font-size:1.2rem;}
 
 .meta li{display:inline-block; font-size:.8rem;}
 .meta li::after{margin-left:5px; content:"|";}
@@ -87,7 +121,7 @@
 --------------------------------------------------------------------------------------------------------------- */
 #footer{padding:80px 0 50px;}
 
-#footer .heading{margin-bottom:50px; font-size:1.2rem;}
+#footer {margin-bottom:50px; font-size:1.2rem;}
 
 #footer .linklist li{display:block; margin-bottom:15px; padding:0 0 15px 0; border-bottom:1px solid;}
 #footer .linklist li:last-child{margin:0; padding:0; border:none;}

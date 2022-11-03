@@ -8,15 +8,14 @@
 <title>T.M.I</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
-<link rel="stylesheet" href="css/bootstrap.css" />
-<link rel="stylesheet" href="css/custom.css" />
 </head>
 <body id="top">
 <!-- Top Background Image Wrapper -->
 <jsp:include page = "top.jsp" flush = "false"/>
 <hr>
-  <div id="pageintro" class="hoc clear"> 
-    <div class="flexslider basicslider">
+  <div id="pageintro" class="hoc clear" > 
+  	<div class="introfont2"><p>NEW</p></div>
+    <div class="flexslider basicslider" >
 
 <%
 Connection conn = null;
@@ -53,36 +52,35 @@ try{
 	%>
     <ul class="slides">
     <li>
-      <article>
-      	<h3 class="heading">NEW</h3>
+      <article>      	
       	<a href="testinfo.jsp?t_id=<%=id[0]%>">
-        <img src=<%=n_img[0] %> style="display: block; margin: 0 auto; width:600px; height:300px"/><br>
-        <%=title[1] %><br>
+        <img src=<%=n_img[0] %> style="display: block; margin: 0 auto; width:600px; height:300px"/>
+        <br> <%=title[0] %> <br>
         </a>
       </article>
     </li>
     <li>
       <article>
-        <h3 class="heading">NEW</h3>
         <a href="testinfo.jsp?t_id=<%=id[1]%>">
-        <img src=<%=n_img[1] %> style="display: block; margin: 0 auto; width:600px; height:300px"/><br>
-        <%=title[1] %><br>
+        <img src=<%=n_img[1] %> style="display: block; margin: 0 auto; width:600px; height:300px"/>
+        <br> <%=title[1] %> <br>
         </a>
       </article>
     </li>
     <li>
       <article>
-        <h3 class="heading">NEW</h3>
         <a href="testinfo.jsp?t_id=<%=id[2]%>">
-        <img src=<%=n_img[2] %> style="display: block; margin: 0 auto; width:600px; height:300px"/><br>
-        <%=title[2] %><br>
+        <img src=<%=n_img[2] %> style="display: block; margin: 0 auto; width:600px; height:300px"/>
+        <br> <%=title[2] %> <br>
         </a>
       </article>
     </li>
   </ul>
 
+		
 	</div>
 </div>
+
 
 <!-- End Top Background Image Wrapper -->
 <%
@@ -101,7 +99,7 @@ while(rs.next()){
 %>
 <div class="wrapper">
   <div class="hoc clear"> 
-	<div style="border-radius:10px; width:67px; background-color:#F7AD19; color:#FFFFFF; font-size:150%; padding:5px;text-align:center;">Best3</div>
+	<div style="border-radius:15px; width:130px; background-color:#F7AD19; color:#FFFFFF; font-size:150%; padding:5px;text-align:center;">Best3</div>
     <figure id="introblocks">
       <ul class="nospace group">
         <li class="one_third first"><a href="testinfo.jsp?t_id=<%=id[0]%>"><img src=<%=n_img[0] %> alt=""><%=title[0] %></a></li>
@@ -111,6 +109,8 @@ while(rs.next()){
     </figure>
   </div>
 </div>
+
+
 <div class="wrapper row3">
   <main class="hoc container clear"> 
     <!-- main body -->
@@ -122,7 +122,7 @@ while(rs.next()){
     <ul class="nospace group overview">
 <%
 	//test에서 타이틀, 테스트 종류, 테스트 상세, 테스트 이미지 불러오기
-	sql = "select t_img, t_title, t_id from test where t_kind like '%연애%' limit 3";
+	sql = "select t_img, t_title, t_id from test where t_kind = '방구석 연구소' limit 3";
 	pstmt = conn.prepareStatement(sql);
 	rs = pstmt.executeQuery();
 	i = 0;
@@ -150,7 +150,7 @@ while(rs.next()){
      <ul class="nospace group overview">
 <%
 	//test에서 타이틀, 테스트 종류, 테스트 상세, 테스트 이미지 불러오기
-	sql = "select t_img, t_title, t_id from test where t_kind like '%유형%' limit 3";
+	sql = "select t_img, t_title, t_id from test where t_kind = 'ktest' limit 3";
 	pstmt = conn.prepareStatement(sql);
 	rs = pstmt.executeQuery();
 	i = 0;
@@ -178,7 +178,7 @@ while(rs.next()){
      <ul class="nospace group overview">
      <%
 	//test에서 타이틀, 테스트 종류, 테스트 상세, 테스트 이미지 불러오기
-	sql = "select t_img, t_title, t_id from test where t_kind like '%퀴즈%' limit 3";
+	sql = "select t_img, t_title, t_id from test where t_kind ='방구석 연구소' limit 3";
 	pstmt = conn.prepareStatement(sql);
 	rs = pstmt.executeQuery();
 	i = 0;
@@ -206,7 +206,7 @@ while(rs.next()){
      <ul class="nospace group overview">
      <%
 	//test에서 타이틀, 테스트 종류, 테스트 상세, 테스트 이미지 불러오기
-	sql = "select t_img, t_title, t_id from test where t_kind like '%미궁%' limit 3";
+	sql = "select t_img, t_title, t_id from test where t_kind = 'ktest' limit 3";
 	pstmt = conn.prepareStatement(sql);
 	rs = pstmt.executeQuery();
 	i = 0;

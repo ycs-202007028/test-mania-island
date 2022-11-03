@@ -62,7 +62,7 @@
 	<br>
 	<span style="font-size:20px;"><%=content %></span>
     <!--<footer><a class="btn" href="######">크롤링부분</a></footer><br>-->
-    <button id="go" align="right" onclick="location.href='testresult.jsp?t_id=<%=id%>'">테스트 시작하기</button>
+    <button id="go" align="right" onclick="location.href='test.jsp?t_id=<%=id%>&img=<%=img%>'">테스트 시작하기</button>
    </div>
   </p>
    <br><br><br><br><br><br><br><br><br><br><br><br>

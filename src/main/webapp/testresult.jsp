@@ -71,7 +71,7 @@
     <br>
    <span style="font-size:20px;">모두가 결론만 딱딱 말해서 순식간에 팀플이 마무리되었어요.<br>불합리한 상황에서 나의 논리적인 말로 문제를 해결했어요.</span>
    <!--<footer><a class="btn" href="######">크롤링부분</a></footer><br>-->
-    <button id="rego" align="right" onclick="https://www.banggooso.com/gl/58/">테스트 다시하기</button>
+    <button id="rego" align="right" onclick='testinfo.jsp?t_id=<%=id%>'>테스트 다시하기</button>
    </div>
   </p>
   

@@ -11,6 +11,7 @@
 <body id="top">
 <!-- Top Background Image Wrapper -->
  <jsp:include page = "top.jsp" flush = "false"/>
+ 
 <!-- End Top Background Image Wrapper -->
 <div class="wrapper row3">
 
@@ -27,12 +28,12 @@
 		page_num = Integer.parseInt(s_page);
 	
 	switch(kind){
-	case "love" :
-		category = "연애";
+	case "banggoosuk" :
+		category = "방구석 연구소";
 		name = category;
 		break;
-	case "quiz" :
-		category = "퀴즈";
+	case "ktest" :
+		category = "ktest";
 		name = category;
 		break;
 	case "mind" :
@@ -50,7 +51,7 @@
     <div class="content"> 
       <div id="gallery">
         <figure>
-          <header class="heading"><%=category %></header>
+          <header class="introfont"><%=category %></header>
           <ul class="nospace clear">
 	<%
 	
