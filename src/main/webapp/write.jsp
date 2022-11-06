@@ -12,9 +12,9 @@
 </head>
 <body>
 	<!-- Top 호출-->
-	<jsp:include page = "top.jsp" flush = "false"/>
+	<jsp:include page="top.jsp" flush="false" />
 	<hr>
-	
+
 	<%
 		String userID = null;
 		if (session.getAttribute("userID") != null) {
@@ -33,8 +33,8 @@
 					<thead>
 						<tr>
 							<th colspan="2"
-								style="background-color: #eeeeee; text-align: center;"><font color="black">
-								게시판 글쓰기 </th>
+								style="background-color: #eeeeee; text-align: center;"><font
+								color="black"> 게시판 글쓰기 </th>
 						</tr>
 					</thead>
 					<tbody>
@@ -47,7 +47,7 @@
 									name="b_Content" maxlength="2048" style="height: 350px;"></textarea></td>
 						</tr>
 					</tbody>
-				</table>	
+				</table>
 				<input type="submit" class="btn btn-primary pull-right" value="글쓰기" />
 			</form>
 		</div>

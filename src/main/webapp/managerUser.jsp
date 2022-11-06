@@ -9,20 +9,21 @@
 <title>관리자 게시판</title>
 </head>
 
-<br><br>
-		<!-- 게시판 내 글 삭제 및 기타 기능 추가 -->
-		<form action="delete.jsp" method="post">
-			<fieldset>
-				<legend align="center">&nbsp;게시판 관리</legend> 
-					<table class="table text-center">
-						<tr height=20px;>
-							<th>선택</th>
-							<th>No.</th>
-							<th>작성자</th>
-							<th>작성일</th>
-							<th>내용</th>
-						</tr>
-						<%
+<br>
+<br>
+<!-- 게시판 내 글 삭제 및 기타 기능 추가 -->
+<form action="delete.jsp" method="post">
+	<fieldset>
+		<legend align="center">&nbsp;게시판 관리</legend>
+		<table class="table text-center">
+			<tr height=20px;>
+				<th>선택</th>
+				<th>No.</th>
+				<th>작성자</th>
+				<th>작성일</th>
+				<th>내용</th>
+			</tr>
+			<%
 						String b_num = null; //게시글 번호
 						String b_writer = null; //작성자
 						String b_date = null; //작성일
@@ -44,9 +45,9 @@
 							pstmt_b = conn_b.prepareStatement(sql);
 							rs = pstmt_b.executeQuery();
 							%>
-							
-							<input type="hidden" name="check" value="1">
-							<%
+
+			<input type="hidden" name="check" value="1">
+			<%
 							//각각의 결과 레코드를 변수에 입력
 							while(rs.next()){
 								b_num = rs.getString("b_ID");
@@ -54,14 +55,14 @@
 								b_date = rs.getString("b_Date");
 								b_content = rs.getString("b_content");
 								%>
-								<tr height=30px>
-									<td><input type="checkbox" name="chk" value="<%=b_num%>"></td>
-									<td><%=b_num%></td>
-									<td><%=b_writer%></td>
-									<td><%=b_date%></td>
-									<td><%=b_content%></td>
-								</tr>
-							<%
+			<tr height=30px>
+				<td><input type="checkbox" name="chk" value="<%=b_num%>"></td>
+				<td><%=b_num%></td>
+				<td><%=b_writer%></td>
+				<td><%=b_date%></td>
+				<td><%=b_content%></td>
+			</tr>
+			<%
 							}
 					    }catch(SQLException ex){
 					    	ex.printStackTrace();
@@ -79,31 +80,32 @@
 							}
 							}
 						%>
-						<tr>
-						</tr>
-					</table>
+			<tr>
+			</tr>
+		</table>
 
 		<br>
-			<button type="submit" class="board_delete" value="게시글 삭제">게시글 삭제</button>
-		</fieldset>
-	</form>
+		<button type="submit" class="board_delete" value="게시글 삭제">게시글
+			삭제</button>
+	</fieldset>
+</form>
 
-		<!-- 댓글 관리 -->
-		<form method="post" name="textform">
-		<fieldset>
-				<legend align="center">&nbsp;댓글관리</legend>
-					<table class="table text-center">
-						<tr class ="sticky" height=20px;>
-							<th>선택</th>
-							<th>No.</th>
-							<th>학번</th>
-							<th>이름</th>
-							<th>ID</th>
-							<th>가입신청날짜</th>
-						</tr>
-						<!-- DB에서 signcheck가 X인 사람들만 검색하여 리스트 작성 -->
-						<!-- No. 는 for문에서 사용되는 변수를 이용 -->
-						<%
+<!-- 댓글 관리 -->
+<form method="post" name="textform">
+	<fieldset>
+		<legend align="center">&nbsp;댓글관리</legend>
+		<table class="table text-center">
+			<tr class="sticky" height=20px;>
+				<th>선택</th>
+				<th>No.</th>
+				<th>학번</th>
+				<th>이름</th>
+				<th>ID</th>
+				<th>가입신청날짜</th>
+			</tr>
+			<!-- DB에서 signcheck가 X인 사람들만 검색하여 리스트 작성 -->
+			<!-- No. 는 for문에서 사용되는 변수를 이용 -->
+			<%
 						// DB에서 id에 맞는 정보들을 가져온 값
 						String StdID = null; // 학번
 						String ID = null; // 아이디
@@ -127,8 +129,8 @@
 							pstmt = conn.prepareStatement(sql);
 							ResultSet result = pstmt.executeQuery();
 						%>
-							<input type="hidden" name="ck" value="1">
-						<%
+			<input type="hidden" name="ck" value="1">
+			<%
 							// 결과 레코드 하나씩마다 ID PW 이름 변수에 입력
 							while (result.next()) {
 								StdID = result.getString("stdid");
@@ -136,16 +138,16 @@
 								Name = result.getString("name");
 								date = result.getString("sign_date");
 						%>
-						
-						<tr height=30px>
-							<td><input type="checkbox" name="memck" value="<%=ID%>"></td>
-							<td><%=i%></td>
-							<td><%=StdID%></td>
-							<td><%=Name%></td>
-							<td><%=ID%></td>
-							<td><%=date%></td>
-						</tr>
-						<%
+
+			<tr height=30px>
+				<td><input type="checkbox" name="memck" value="<%=ID%>"></td>
+				<td><%=i%></td>
+				<td><%=StdID%></td>
+				<td><%=Name%></td>
+				<td><%=ID%></td>
+				<td><%=date%></td>
+			</tr>
+			<%
 						i++;
 						}
 
@@ -166,20 +168,22 @@
 						}
 						}
 						%>
-						
-						<tr>
-						</tr>
-					</table>
+
+			<tr>
+			</tr>
+		</table>
 
 
 		<br>
-			<button type="submit" class="mem_ok" value="승인" onclick="javascript: form.action='memok.jsp';">승인</button>
-			<button type="submit" class="mem_no" value="거절" onclick="javascript: form.action='memno.jsp';">거절</button>
-		</fieldset>
-		</form>
-		<hr>
+		<button type="submit" class="mem_ok" value="승인"
+			onclick="javascript: form.action='memok.jsp';">승인</button>
+		<button type="submit" class="mem_no" value="거절"
+			onclick="javascript: form.action='memno.jsp';">거절</button>
+	</fieldset>
+</form>
+<hr>
 
-		
+
 
 </body>
 </html>

@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ page import="java.io.PrintWriter"%>
 <%@ page import="bbs.Bbs"%>
 <%@ page import="bbs.BbsDAO"%>
-<%@ page import="reply.Reply" %>
-<%@ page import="reply.ReplyDAO" %>
+<%@ page import="reply.Reply"%>
+<%@ page import="reply.ReplyDAO"%>
 
 <!DOCTYPE html>
 <html>
@@ -59,15 +59,18 @@
 		ReplyDAO replyDAO = new ReplyDAO();
 		String replyContent = replyDAO.getUpdateReply(replyID);
 	%>
-	
+
 	<div class="container" align="center">
 		<div class="col-lg-10">
-			<div class="jumbotron" style="padding-top: 1px;">				
-				<h3><br>댓글 수정</h3>
-				<form name = c_commentUpdate>
-					<input type="text" id="update" style="width:400px;height:50px;" maxlength=1024 value="<%= replyContent %>">
-					<input type="button" onclick="send(<%=b_ID %>,<%=replyID %>)" value="수정">
-					<br><br>		
+			<div class="jumbotron" style="padding-top: 1px;">
+				<h3>
+					<br>댓글 수정
+				</h3>
+				<form name=c_commentUpdate>
+					<input type="text" id="update" style="width: 400px; height: 50px;"
+						maxlength=1024 value="<%= replyContent %>"> <input
+						type="button" onclick="send(<%=b_ID %>,<%=replyID %>)" value="수정">
+					<br> <br>
 				</form>
 			</div>
 		</div>

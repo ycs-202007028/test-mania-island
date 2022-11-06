@@ -1,21 +1,24 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="java.sql.*" %>
-<%@ page import="java.lang.*" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*"%>
+<%@ page import="java.lang.*"%>
 <!DOCTYPE html>
 <html>
 <head>
 <title>T.M.I</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="layout/styles/layout.css" rel="stylesheet" type="text/css"
+	media="all">
 </head>
 <body id="top">
-<!-- Top Background Image Wrapper -->
- <jsp:include page = "top.jsp" flush = "false"/>
- 
-<!-- End Top Background Image Wrapper -->
-<div class="wrapper row3">
+	<!-- Top Background Image Wrapper -->
+	<jsp:include page="top.jsp" flush="false" />
 
-<%
+	<!-- End Top Background Image Wrapper -->
+	<div class="wrapper row3">
+
+		<%
 	String kind = (String)request.getParameter("kind");
 	String category = "";
 	String s_page = request.getParameter("page");
@@ -42,14 +45,14 @@
 		break;
 	}
 	%>
-  <main class="hoc container clear"> 
-    <!-- main body -->
-    <div class="content"> 
-      <div id="gallery">
-        <figure>
-          <header class="introfont"><%=category %></header>
-          <ul class="nospace clear">
-	<%
+		<main class="hoc container clear">
+			<!-- main body -->
+			<div class="content">
+				<div id="gallery">
+					<figure>
+						<header class="introfont"><%=category %></header>
+						<ul class="nospace clear">
+							<%
 	
 	double total = 0.0; //게시판마다 게시글이 총 몇개인지 확인
 	int board_num; //한페이지에 10개씩 몇 페이지 나오는지 확인 올림처리 
@@ -102,68 +105,73 @@
 			if(i % 4 == 0){
 %>
 
-            <li class="one_quarter first"><a href="testinfo.jsp?t_id=<%=t_id%>">
-            	<img src=<%=t_img %> alt=""/><div> </div>
-            	<div style="font-size:130%; font-weight:BOLD;"><%=t_title %></div>
-            	<div><%=t_content %></div>
-            </a></li>
-            <% 	
+							<li class="one_quarter first"><a
+								href="testinfo.jsp?t_id=<%=t_id%>"> <img src=<%=t_img %>
+									alt="" />
+									<div></div>
+									<div style="font-size: 130%; font-weight: BOLD;"><%=t_title %></div>
+									<div><%=t_content %></div>
+							</a></li>
+							<% 	
 			}
 			else {
 				%>
-				<li class="one_quarter"><a href="testinfo.jsp?t_id=<%=t_id%>">
-            	<img src=<%=t_img %> alt=""/><div> </div>
-            	<div style="font-size:130%; font-weight:BOLD;"><%=t_title %></div>
-            	<div><%=t_content %></div>
-            	</a></li>
-				<%
+							<li class="one_quarter"><a
+								href="testinfo.jsp?t_id=<%=t_id%>"> <img src=<%=t_img %>
+									alt="" />
+									<div></div>
+									<div style="font-size: 130%; font-weight: BOLD;"><%=t_title %></div>
+									<div><%=t_content %></div>
+							</a></li>
+							<%
 			}
 			i++;
 		}
             %>
-          </ul>
-        </figure>
-      </div>
-      <nav class="pagination">
-        <ul>
-          <li><a href="#">&laquo; 이전</a></li>
-            <%
+						</ul>
+					</figure>
+				</div>
+				<nav class="pagination">
+					<ul>
+						<li><a href="#">&laquo; 이전</a></li>
+						<%
 			for(i=1; i<=board_num; i++){
 				if(i == page_num){
 					%>
-					<li class="current">
-					<a href="gallery.jsp?kind=<%=kind%>&page=<%=i%>"><%=i%></a>
-	      			</li>
-					<%
+						<li class="current"><a
+							href="gallery.jsp?kind=<%=kind%>&page=<%=i%>"><%=i%></a></li>
+						<%
 				}else{
 			%>
-          <li>
-			<a href="gallery.jsp?kind=<%=kind%>&page=<%=i%>"><%=i%></a>
-	      </li>
-	      <%
+						<li><a href="gallery.jsp?kind=<%=kind%>&page=<%=i%>"><%=i%></a>
+						</li>
+						<%
 				}
 	      	} 
 	      %>
-          <li><a href="#">다음 &raquo;</a></li>
-        </ul>
-      </nav>
-    </div>
-    <!-- / main body -->
-    <div class="clear"></div>
-  </main>
-</div>
+						<li><a href="#">다음 &raquo;</a></li>
+					</ul>
+				</nav>
+			</div>
+			<!-- / main body -->
+			<div class="clear"></div>
+		</main>
+	</div>
 
-<div class="wrapper row5">
-  <div id="copyright" class="hoc clear"> 
-    <p class="fl_left">Copyright &copy; 2022 - All Rights Reserved - <a target="_blank" href="#" title="3학년 1반 - 1조">Disease</a></p>
-  </div>
-</div>
-<a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
-<!-- JAVASCRIPTS -->
-<script src="layout/scripts/jquery.min.js"></script>
-<script src="layout/scripts/jquery.backtotop.js"></script>
-<script src="layout/scripts/jquery.flexslider-min.js"></script>
-<%
+	<div class="wrapper row5">
+		<div id="copyright" class="hoc clear">
+			<p class="fl_left">
+				Copyright &copy; 2022 - All Rights Reserved - <a target="_blank"
+					href="#" title="3학년 1반 - 1조">Disease</a>
+			</p>
+		</div>
+	</div>
+	<a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
+	<!-- JAVASCRIPTS -->
+	<script src="layout/scripts/jquery.min.js"></script>
+	<script src="layout/scripts/jquery.backtotop.js"></script>
+	<script src="layout/scripts/jquery.flexslider-min.js"></script>
+	<%
     }catch(SQLException ex){
     	ex.printStackTrace();
     } finally {

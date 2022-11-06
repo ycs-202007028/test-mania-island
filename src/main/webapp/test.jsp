@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ page import="java.sql.*" %>
+	pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,9 +8,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<!-- Top Background Image Wrapper -->
-<jsp:include page = "top.jsp" flush = "false"/>
-<%
+	<!-- Top Background Image Wrapper -->
+	<jsp:include page="top.jsp" flush="false" />
+	<%
   Connection conn = null;
   PreparedStatement pstmt = null;
   ResultSet rs = null;
@@ -50,24 +50,26 @@
   	
   	String[] Array_content= content.split(",");
   	String[] Array_select = select.split(",");
-  	%><div style="text-align:center">
-  	<div><%=i + 1%> / <%=Array_content.length + 1 %></div>
-  	<progress class="progress" value=<%=i %> min="1" max=<%=Array_content.length %>></progress>
-  	<br>
-  	<img src=<%=img %>>
-  	<%
+  	%><div style="text-align: center">
+		<div><%=i + 1%>
+			/
+			<%=Array_content.length + 1 %></div>
+		<progress class="progress" value=<%=i %> min="1"
+			max=<%=Array_content.length %>></progress>
+		<br> <img src=<%=img %>>
+		<%
   	
   	if(i < Array_content.length){
   		%>
-  			<div style="inline-block"><%=Array_content[i] %><br>
-  			<a href="test.jsp?t_id=<%=id%>&img=<%=img%>&i=<%=i%>"><%=Array_select[i+i] %></a><br>
-  			<a href="test.jsp?t_id=<%=id%>&img=<%=img%>&i=<%=i%>"><%=Array_select[i+i+1] %></a><br>
-  			</div>
-  			<%
+		<div style=""><%=Array_content[i] %><br> <a
+				href="test.jsp?t_id=<%=id%>&img=<%=img%>&i=<%=i%>"><%=Array_select[i+i] %></a><br>
+			<a href="test.jsp?t_id=<%=id%>&img=<%=img%>&i=<%=i%>"><%=Array_select[i+i+1] %></a><br>
+		</div>
+		<%
   	}else{
   		%>
-		<div style="inline-block">
-		<a href="testresult.jsp?t_id=<%=id%>">결과 보러 가기</a><br>
+		<div style="">
+			<a href="testresult.jsp?t_id=<%=id%>">결과 보러 가기</a><br>
 		</div>
 		<%
   	}
@@ -88,6 +90,6 @@
 	}
 	}
 %>
-</div>
+	</div>
 </body>
 </html>

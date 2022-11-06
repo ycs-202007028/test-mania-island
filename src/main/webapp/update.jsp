@@ -14,9 +14,9 @@
 </head>
 <body>
 	<!-- Top 호출-->
-	<jsp:include page = "top.jsp" flush = "false"/>
+	<jsp:include page="top.jsp" flush="false" />
 	<hr>
-	
+
 	<%
 		String userID = null;
 		if (session.getAttribute("userID") != null) {
@@ -53,7 +53,7 @@
 			script.println("</script>");
 		}
 	%>
-	
+
 	<!-- 게시판 시작 -->
 
 	<div class="container">
@@ -65,14 +65,15 @@
 					<thead>
 						<tr>
 							<th colspan="2"
-								style="background-color: #eeeeee; text-align: center;"><font color="black">게시판
-								글 수정</font> </th>
+								style="background-color: #eeeeee; text-align: center;"><font
+								color="black">게시판 글 수정</font></th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
 							<td><input type="text" class="form-control"
-								placeholder="글 제목" name="b_Title" maxlength="50" value="<%= bbs.getB_Title() %>" /></td>
+								placeholder="글 제목" name="b_Title" maxlength="50"
+								value="<%= bbs.getB_Title() %>" /></td>
 						</tr>
 						<tr>
 							<td><textarea class="form-control" placeholder="글 내용"

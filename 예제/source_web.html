@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="css/bootstrap.css" />
-<jsp:include page = "top.jsp" flush = "false"/>
+<jsp:include page="top.jsp" flush="false" />
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Login Page</title>
- <script type="text/javascript">
+<script type="text/javascript">
     
         function checkValue()
         {
@@ -35,14 +35,14 @@
 			<header class="major">
 				<h2>로그인</h2>
 			</header>
-			<form action="loginOK.jsp" method="post"  onsubmit="return checkValue()" name="loginInfo">
+			<form action="loginOK.jsp" method="post"
+				onsubmit="return checkValue()" name="loginInfo">
 				<div class="row gtr-uniform">
 					<h4>ID</h4>
 					<div class="col-12">
-						<input type="text" name="id"
-							value="<%if (session.getAttribute("id") != null)
-				out.println(session.getAttribute("id"));%>"
-							placeholder="ID" />
+						<input type="text" name="id" value="<%if (session.getAttribute("
+							id") !=null)out.println(session.getAttribute("id"));%>"
+						placeholder="ID" />
 					</div>
 					<h4>PW</h4>
 					<div class="col-12">
@@ -57,7 +57,7 @@
 					</div>
 				</div>
 			</form>
-			</div>
+		</div>
 	</section>
 
 </body>

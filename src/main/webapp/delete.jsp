@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ page import="java.sql.*" %>
+	pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 </head>
 <body>
-<%    
+	<%    
 	String chk[] = request.getParameterValues("chk"); //manageform.jsp에서 넘어온 boardid값 배열
 	String id = request.getParameter("id"); //modify.jsp에서 받아온 boardid값
     String writer = (String)session.getAttribute("Name"); //로그인 한 사람의 이름
@@ -24,11 +24,11 @@
     
     if(writer == null && manager == null){
     	%>
-    	<script>
+	<script>
     	alert("로그인 후 이용 가능합니다.");
     	location.href="AI.jsp?kind=type";
     	</script>
-    	<%
+	<%
     }
     else{
     
@@ -58,14 +58,14 @@
 		}
 
 		%>
-		<script>
+	<script>
 		var check = <%=i_check%>;
 		if(check == 0)
     		location.href="AI.jsp?kind=<%=type%>";
 		else
 			location.href="manageform.jsp";
     	</script>
-		<%
+	<%
 	    }catch(SQLException ex){
 	    	ex.printStackTrace();
 	    } finally {

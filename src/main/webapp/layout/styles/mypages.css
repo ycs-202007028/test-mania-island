@@ -1,137 +1,133 @@
 @charset "EUC-KR";
 
-h2{ margin:30px;}
+h2 {
+	margin: 30px;
+}
 
-
-
-.div1, .div2{
+.div1, .div2 {
 	display: flex;
 	justify-content: center;
 }
 /*박스별 크기 지정*/
-.box1{
-	width:30%;
+.box1 {
+	width: 30%;
 	margin: 20px;
-	background : rgb(255,242,204);
+	background: rgb(255, 242, 204);
 	border-radius: 40px;
 	padding: 20px;
 	text-align: center;
-	}
-	
-.box2{
-	width:70%;
+}
+
+.box2 {
+	width: 70%;
 	margin: 10px;
-	background : rgb(255,242,204);
+	background: rgb(255, 242, 204);
 	border-radius: 40px;
 	padding: 30px;
 	text-align: center;
-	}
+}
 
-.box3{
-	width:60%;
+.box3 {
+	width: 60%;
 	margin: 20px;
-	background : rgb(255,242,204);
+	background: rgb(255, 242, 204);
 	border-radius: 40px;
 	padding: 20px;
 	text-align: center;
-	}
-	
-.box4{
-	width:40%;
+}
+
+.box4 {
+	width: 40%;
 	margin: 20px;
-	background : rgb(255,242,204);
+	background: rgb(255, 242, 204);
 	border-radius: 40px;
 	padding: 10px;
 	text-align: center;
-	}	
+}
 /*이미지 부분 원 만드는 부*/
 .profile {
-	border-radius:50%;
+	border-radius: 50%;
 }
 /*프로그레스바 수정부*/
 .progress {
-    -webkit-appearance: none;
-    height: 30px;
-    width: 90%;
+	-webkit-appearance: none;
+	height: 30px;
+	width: 90%;
 }
+
 ::-webkit-progress-bar {
-    background:#f0f0f0;
-    border-radius:30px;
-    box-shadow: inset 3px 3px 10px #bcbcbc;
+	background: #f0f0f0;
+	border-radius: 30px;
+	box-shadow: inset 3px 3px 10px #bcbcbc;
 }
 
 ::-webkit-progress-value {
-    border-radius:30px;
-    background: rgb(255,242,204);
-    background: -webkit-linear-gradient(to right, #FEC163 , #F7AD19);
-    background: linear-gradient(to right, #FEC163, #F7AD19); 
+	border-radius: 30px;
+	background: rgb(255, 242, 204);
+	background: -webkit-linear-gradient(to right, #FEC163, #F7AD19);
+	background: linear-gradient(to right, #FEC163, #F7AD19);
 }
-    
+
 /*버튼 수정, 테이블 수정*/
 table {
 	margin: 0px !important;
-	width : 100%;
+	width: 100%;
 	height: 96%;
 	text-align: left;
 	font-size: large;
 	border: none !important;
-	
 }
 
-tr, td{
-	height:20px;
-	background-color:rgb(255,242,204); 
+tr, td {
+	height: 20px;
+	background-color: rgb(255, 242, 204);
 	border: none !important;
-	vertical-align : middle !important;
+	vertical-align: middle !important;
 }
-td:first-child, td:nth-child(3){
-	text-align:right !important;
+
+td:first-child, td:nth-child(3) {
+	text-align: right !important;
 	width: 105px;
 }
 
-.update{
+.update {
 	display: block;
 	margin-left: auto;
-	
-	border: 2px solid #F7AD19;	
-	background-color: #F7AD19;
-	padding-right:50px;
-	padding-left:50px;
-  	color: white;
-  	text-align: center;
-  	font-size : large;
-  	border-radius: 12px;
-
-}
-
-.bn{
-	display:inline-block;
-	
 	border: 2px solid #F7AD19;
 	background-color: #F7AD19;
-	padding-right:50px;
-	padding-left:50px;
-	padding-top:10px;
-	padding-bottom:10px;
-	margin-top : 20px;
-	margin-bottom : 20px;
-  	color: white;
-  	text-align: center;
-  	font-size : large;
-  	border-radius: 18px;
+	padding-right: 50px;
+	padding-left: 50px;
+	color: white;
+	text-align: center;
+	font-size: large;
+	border-radius: 12px;
 }
 
-.ps{	
+.bn {
+	display: inline-block;
 	border: 2px solid #F7AD19;
 	background-color: #F7AD19;
-	padding-right:20px;
-	padding-left:20px;
-	padding-top:3px;
-	padding-bottom:3px;
-  	color: white;
-  	text-align: center;
-  	font-size : large;
-  	border-radius: 12px;
+	padding-right: 50px;
+	padding-left: 50px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	color: white;
+	text-align: center;
+	font-size: large;
+	border-radius: 18px;
 }
-	
 
+.ps {
+	border: 2px solid #F7AD19;
+	background-color: #F7AD19;
+	padding-right: 20px;
+	padding-left: 20px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	color: white;
+	text-align: center;
+	font-size: large;
+	border-radius: 12px;
+}

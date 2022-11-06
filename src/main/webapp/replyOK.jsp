@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ page import="reply.ReplyDAO" %>
-<%@ page import="java.io.PrintWriter" %>
+	pageEncoding="UTF-8"%>
+<%@ page import="reply.ReplyDAO"%>
+<%@ page import="java.io.PrintWriter"%>
 <% request.setCharacterEncoding("UTF-8"); %>
-<jsp:useBean id="reply" class="reply.Reply" scope="page"/>
-<jsp:setProperty name="reply" property="replyContent"/>
+<jsp:useBean id="reply" class="reply.Reply" scope="page" />
+<jsp:setProperty name="reply" property="replyContent" />
 <!DOCTYPE html>
 <html>
 <head>
