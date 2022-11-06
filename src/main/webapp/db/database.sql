@@ -18,6 +18,7 @@ create table board(
 	primary key (b_ID)
 ) charset = 'utf8';
 
+drop table reply;
 create table reply(
 	replyID int,
 	id VARCHAR(20),
@@ -53,6 +54,7 @@ create table test(
 drop table test_result;
 create table test_result(
 	t_id varchar(20) not null,
+	s_id varchar(20) not null,
 	r_content varchar(1200),
 	r_img varchar(2048) not null
 )default character set utf8 collate utf8_general_ci;

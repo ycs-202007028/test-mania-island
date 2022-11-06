@@ -10,8 +10,8 @@ import bbs.Bbs;
 
 public class ReplyDAO {
 
-	private Connection conn;
-	private ResultSet rs;
+	public Connection conn;
+	public ResultSet rs;
 	
 	public ReplyDAO() {
 		try {
@@ -117,8 +117,8 @@ public class ReplyDAO {
 			return pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
+			return -1;
 		}
-		return -1;
 	}
 	public String getUpdateReply(int replyID) {
 		String SQL = "SELECT replyContent FROM reply WHERE replyID = ?";
@@ -141,7 +141,8 @@ public class ReplyDAO {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
 			pstmt.setString(1, replyContent);
 			pstmt.setInt(2, replyID);
-			return pstmt.executeUpdate();
+			pstmt.executeUpdate();
+			return 0;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

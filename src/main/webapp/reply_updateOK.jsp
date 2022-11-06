@@ -14,12 +14,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>댓글 수정 완료</title>
-<script type="text/javascript">
-	window.name='commentUpdate';
-</script>
+
 </head>
 <body>
 	<%
+	ReplyDAO replyDAO = new ReplyDAO();
+	int result;
 	
 		String userID = null;
 		if (session.getAttribute("userID") != null) {//유저아이디이름으로 세션이 존재하는 회원들은 
@@ -50,16 +50,16 @@
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('유효하지 않은 글 입니다.')");
-			script.println("location.href = 'bbs.jsp'");
+			script.println("location.href = 'main.jsp'");
 			script.println("</script>");
 		}
-		Reply reply = new ReplyDAO().getReply(replyID);
+		Reply reply = new ReplyDAO().getReply(b_ID);
 
 		if (!userID.equals(reply.getUserID())) {
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('권한이 없습니다.')");
-			script.println("location.href = 'bbs.jsp'");
+			script.println("location.href = 'main.jsp'");
 			script.println("</script>");				
 		} else {
 	 		if (reply.getReplyContent().equals("")){
@@ -69,8 +69,8 @@
 				script.println("history.back()");
 				script.println("</script>");
 			} else {
-				ReplyDAO replyDAO = new ReplyDAO();
-				int result = ReplyDAO.update(replyID, replyContent);
+				
+				result = replyDAO.update(replyID, replyContent);
 				if (result == -1) {
 					PrintWriter script = response.getWriter();
 					script.println("<script>");
@@ -80,10 +80,11 @@
 				} else {
 					PrintWriter script = response.getWriter();
 					script.println("<script>");
-					script.println("location.href= \'view.jsp?b_ID="+b_ID+"\'");
+					script.println("location.href='view.jsp?b_ID="+b_ID+"'");
 					script.println("</script>");
 				}
 			}
+		}
 	 		
 	%>
 </body>

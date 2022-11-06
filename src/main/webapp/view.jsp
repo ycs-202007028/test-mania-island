@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="java.io.PrintWriter"%>
 <%@ page import="java.util.ArrayList"%>
+<%@ page import="java.sql.*"%>
 <%@ page import="bbs.Bbs"%>
 <%@ page import="bbs.BbsDAO"%>
 <%@ page import="reply.Reply"%>
@@ -44,6 +45,21 @@
 	<jsp:include page="top.jsp" flush="false" />
 	<hr>
 	<%
+	Connection conn = null;
+	PreparedStatement pstmt = null;
+	ResultSet rs = null;
+	String sql;
+
+	try{
+		String jdbcUrl = "jdbc:mysql://localhost:3306/BBS?useUnicode=yes&characterEncoding=UTF8";
+		String dbId = "root";
+		String dbPass = "root";
+		Class.forName("com.mysql.jdbc.Driver");
+		conn = DriverManager.getConnection(jdbcUrl, dbId, dbPass);
+		
+		
+	int replyID = 0;
+	
 		String userID = null;
 		if(session.getAttribute("userID") != null){
 			userID = (String) session.getAttribute("userID");
@@ -56,7 +72,6 @@
 			script.println("</script>");
 		}else{
 			PrintWriter script = response.getWriter();
-			script.println("location.href = 'view'.jsp'");
 		}
 		
 		int b_ID = 0;
@@ -133,9 +148,18 @@
 			<!-- 데이터 불러오기 -->
 			<%
 			ReplyDAO replyDAO=new ReplyDAO();
+			Reply reply = new Reply();
 			ArrayList<Reply> list=replyDAO.getList(b_ID, pageNumber);
 			for(int i=list.size()-1;i>=0;i--){
-							
+				//test에서 타이틀, 테스트 종류, 테스트 상세, 테스트 이미지 불러오기
+				sql = "select replyID from reply where replyContent = ?";
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, list.get(i).getReplyContent());
+				rs = pstmt.executeQuery();
+				
+				while(rs.next()){
+					replyID = Integer.parseInt(rs.getString("replyID"));
+				}		
 		%>
 			<table>
 				<tr>
@@ -144,7 +168,7 @@
 					<td style="text-align: left;"><%= list.get(i).getReplyContent() %></td>
 					<td><%= list.get(i).getR_Date().substring(0, 11) + list.get(i).getR_Date().substring(11, 13) + "시" + list.get(i).getR_Date().substring(14, 16) + "분" %>
 					</td>
-					<td><a href="reply_update.jsp?b_ID=<%=b_ID%>"
+					<td><a href="reply_update.jsp?b_ID=<%=b_ID%>&replyID=<%=replyID%>"
 						class="btn btn-primary">수정</a> <a
 						onclick="return confirm('정말로 삭제하시겠습니까?')"
 						href="reply_deleteOK.jsp?b_ID=<%=b_ID%>" class="btn btn-primary">삭제</a>
@@ -154,6 +178,7 @@
 
 				<%
 			}
+			
 		%>
 			</table>
 			<table>
@@ -170,5 +195,22 @@
 
 	<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+	<%
+	}catch(SQLException ex){
+		ex.printStackTrace();
+	} finally {
+		if (pstmt != null)
+		try {
+			pstmt.close();
+		} catch (SQLException sqle) {
+		}
+
+		if (conn != null)
+		try {
+			conn.close();
+		} catch (SQLException sqle) {
+		}
+		}
+	%>
 </body>
 </html>

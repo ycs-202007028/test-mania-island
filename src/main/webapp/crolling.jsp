@@ -30,6 +30,8 @@ try{
 	Class.forName("com.mysql.jdbc.Driver");
 	conn = DriverManager.getConnection(dbURL,  dbID, dbPassword);
     
+	String mbti[] = {"ENFJ", "ENFP", "ENTJ", "ENTP", "ESFJ", "ESFP", "ESTJ", "ESTP", "INFJ", "INFP", "INTJ", "INTP", "ISFJ", "ISFP", "ISTJ", "ISTP"};
+	
     String title;
     String kind;
     String content;
@@ -120,7 +122,7 @@ try{
           		t_src = rs.getString("t_src");
           		
           		t_src = t_src + "/list-type";
-          	
+          		i = 1;
           		
           		Document doc3 = Jsoup.connect(t_src).get();
             	
@@ -132,13 +134,15 @@ try{
                 	String content1 = e2.select("div.item-info h4").text();
                 	img = e2.select("figure.thumb img").attr("src");
             	    
-                	SQL = "insert into test_result(t_id,r_content,r_img) values(?,?,?)";
+                	SQL = "insert into test_result(t_id,s_id,r_content,r_img) values(?,?,?,?)";
                 	
                 	pstmt = conn.prepareStatement(SQL);
                 	pstmt.setString(1, t_id);
-                	pstmt.setString(2, content1);
-                	pstmt.setString(3, img);
+                	pstmt.setString(2, Integer.toString(i));
+                	pstmt.setString(3, content1);
+                	pstmt.setString(4, img);
                 	pstmt.executeUpdate();
+                	i++;
                 }
     		}
           	
@@ -147,7 +151,7 @@ try{
 	SQL = "select t_id, t_src from test where t_kind = 'ktest'";
 	pstmt = conn.prepareStatement(SQL);
 	rs = pstmt.executeQuery();
-  	String mbti[] = {"ENFJ", "ENFP", "ENTJ", "ENTP", "ESFJ", "ESFP", "ESTJ", "ESTP", "INFJ", "INFP", "INTJ", "INTP", "ISFJ", "ISFP", "ISTJ", "ISTP"};
+  	
 	String skin[] = {"DRNT", "DRNW", "DRPT", "DRPW", "DSNT", "DSNW", "DSPT", "DSPW", "ORNT", "ORNW", "ORPT", "ORPW", "OSNT", "OSNW", "OSPT", "OSPW"};
   	String half[] = {"S-result", "N-result"};
 	
@@ -158,11 +162,12 @@ try{
   		if(Integer.parseInt(t_id) == 6){
   			for(i = 0; i < 16; i++ ){
   				img = "https://images.ktestone.com/resultImages" + t_src.substring(38) + skin[i] + ".png";
-  				SQL = "insert into test_result(t_id,r_img) values(?,?)";
+  				SQL = "insert into test_result(t_id,s_id,r_img) values(?,?,?)";
   	        	
   	        	pstmt = conn.prepareStatement(SQL);
   	        	pstmt.setString(1, t_id);
-  	        	pstmt.setString(2, img);
+  	        	pstmt.setString(2, Integer.toString(i+1));
+  	        	pstmt.setString(3, img);
   	        	pstmt.executeUpdate();
   	        	
   			}
@@ -170,33 +175,36 @@ try{
   		else if(Integer.parseInt(t_id) == 7){
   			for(i = 0; i<16; i++){
   				img = "https://images.ktestone.com/resultImages" + t_src.substring(38) + mbti[i] + ".png";
-				SQL = "insert into test_result(t_id,r_img) values(?,?)";
+				SQL = "insert into test_result(t_id,s_id,r_img) values(?,?,?)";
 				
   	        	pstmt = conn.prepareStatement(SQL);
   	        	pstmt.setString(1, t_id);
-  	        	pstmt.setString(2, img);
+  	        	pstmt.setString(2, Integer.toString(i+1));
+  	        	pstmt.setString(3, img);
   	        	pstmt.executeUpdate();
   			}
   		}
   		else if(Integer.parseInt(t_id) == 10){
   			for(i = 0; i<2; i++){
   				img = "https://images.ktestone.com/resultImages" + t_src.substring(38) + half[i] + ".jpg";
-				SQL = "insert into test_result(t_id,r_img) values(?,?)";
+				SQL = "insert into test_result(t_id,s_id,r_img) values(?,?,?)";
 				
   	        	pstmt = conn.prepareStatement(SQL);
   	        	pstmt.setString(1, t_id);
-  	        	pstmt.setString(2, img);
+  	        	pstmt.setString(2, Integer.toString(i+1));
+  	        	pstmt.setString(3, img);
   	        	pstmt.executeUpdate();
   			}
   		}
   		else{
   			for(i = 0; i<16; i++){
   				img = "https://images.ktestone.com/resultImages" + t_src.substring(38) + mbti[i] + ".jpg";
-				SQL = "insert into test_result(t_id,r_img) values(?,?)";
+				SQL = "insert into test_result(t_id,s_id,r_img) values(?,?,?)";
 				
   	        	pstmt = conn.prepareStatement(SQL);
   	        	pstmt.setString(1, t_id);
-  	        	pstmt.setString(2, img);
+  	        	pstmt.setString(2, Integer.toString(i+1));
+  	        	pstmt.setString(3, img);
   	        	pstmt.executeUpdate();
   			}
   		}
@@ -261,11 +269,12 @@ try{
         	img = e3.select(".Result__ResultWrapper-sc-1quf7h1-0 img").attr("src");
         	if(img != ""){
         	img = "https://personality.frip.co.kr" + img;
-        	SQL = "insert into test_result(t_id,r_img) values(?,?)";
+        	SQL = "insert into test_result(t_id,s_id,r_img) values(?,?,?)";
         	
         	pstmt = conn.prepareStatement(SQL);
         	pstmt.setString(1, t_id);
-        	pstmt.setString(2, img);
+        	pstmt.setString(2, Integer.toString(i+1));
+        	pstmt.setString(3, img);
         	pstmt.executeUpdate();
         	
         	}else{
@@ -293,12 +302,13 @@ try{
 				
   	        	img = "https://mbti.yplabs.net" + img;
   	        	
-  	        	SQL = "insert into test_result(t_id,r_content, r_img) values(?,?,?)";
+  	        	SQL = "insert into test_result(t_id,s_id,r_content, r_img) values(?,?,?,?)";
   	        	
   	        	pstmt = conn.prepareStatement(SQL);
   	        	pstmt.setString(1, t_id);
-  	        	pstmt.setString(2, content2);
-  	        	pstmt.setString(3, img);
+  	        	pstmt.setString(2, Integer.toString(i+1));
+  	        	pstmt.setString(3, content2);
+  	        	pstmt.setString(4, img);
   	        	pstmt.executeUpdate();
   	        	
   	        	//div태그 같이 들어가는데 어차피 출력하면 div 태그 우리가 안넣어도 자동으로 넣어지는거니까 가공 안하구 넣을겡
@@ -326,18 +336,18 @@ try{
   	        	img = "https://doguri.kr" + img;
   	        	content3 = file6.select("p.main__stit").text() + "<br>" + file6.select("p.main__tit span").text() + "<br>" + file6.select("ul.main__list").text() + "<br>";
   	        	  	
-  	        	SQL = "insert into test_result(t_id, r_content, r_img) values(?,?,?)";
+  	        	SQL = "insert into test_result(t_id,s_id, r_content, r_img) values(?,?,?,?)";
   	        	
   	        	pstmt = conn.prepareStatement(SQL);
   	        	pstmt.setString(1, t_id);
-  	        	pstmt.setString(2, content3);
-  	        	pstmt.setString(3, img);
+  	        	pstmt.setString(2, Integer.toString(i+1));
+  	        	pstmt.setString(3, content3);
+  	        	pstmt.setString(4, img);
   	        	pstmt.executeUpdate();
   	    	    
   	  		}
   		*/
-  		String mbti[] = {"ENFJ", "ENFP", "ENTJ", "ENTP", "ESFJ", "ESFP", "ESTJ", "ESTP", "INFJ", "INFP", "INTJ", "INTP", "ISFJ", "ISFP", "ISTJ", "ISTP"};
-
+  		
     	t_id = "14";
 		String content4 = "";
   		
@@ -353,12 +363,13 @@ try{
 				img = file7.select(".img-result img").attr("src");
 				img = "https://www.lifeplus.co.kr/pet/mbti/" + img;
 				
-  	        	SQL = "insert into test_result(t_id,r_content, r_img) values(?,?,?)";
+  	        	SQL = "insert into test_result(t_id,s_id,r_content, r_img) values(?,?,?,?)";
   	        	
   	        	pstmt = conn.prepareStatement(SQL);
   	        	pstmt.setString(1, t_id);
-  	        	pstmt.setString(2, content4);
-  	        	pstmt.setString(3, img);
+  	        	pstmt.setString(2, Integer.toString(i+1));
+  	        	pstmt.setString(3, content4);
+  	        	pstmt.setString(4, img);
   	        	pstmt.executeUpdate();
   	        
   	  	}

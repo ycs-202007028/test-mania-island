@@ -108,9 +108,11 @@ ul {
   ResultSet rs = null;
 
   String id = request.getParameter("t_id");
-  String title = "";
+  String content = "";
   String img = "";
+  String title = "";
   String sql;
+  int count;
   int i = 0;
 
   try{
@@ -120,51 +122,72 @@ ul {
   	Class.forName("com.mysql.jdbc.Driver");
   	conn = DriverManager.getConnection(jdbcUrl, dbId, dbPass);
   	
+  	sql = "select count(*) from test_result where t_id = ?";
+  	pstmt = conn.prepareStatement(sql);
+  	pstmt.setString(1,id);
+  	rs = pstmt.executeQuery();
+  	
+  	while(rs.next()){
+  		count = Integer.parseInt(rs.getString(1));
+  	}
+  	
   	//test에서 타이틀, 테스트 종류, 테스트 상세, 테스트 이미지 불러오기
-  	sql = "select t_img, t_title from test where t_id = ?";
+  	sql = "select r_content, r_img from test_result where t_id = ? and s_id = ?";
+  	pstmt = conn.prepareStatement(sql);
+  	pstmt.setString(1, id);
+  	pstmt.setString(2, Integer.toString(i+1));
+  	rs = pstmt.executeQuery();
+  	
+  	while(rs.next()){
+  		content = rs.getString("r_content");
+  		img = rs.getString("r_img");  		
+  	}
+  	
+  	sql = "select t_title from test where t_id = ?";
   	pstmt = conn.prepareStatement(sql);
   	pstmt.setString(1, id);
   	rs = pstmt.executeQuery();
   	
   	while(rs.next()){
-  		title = rs.getString("t_title");
-  		img = rs.getString("t_img");  		
+  		title = rs.getString("t_title");		
   	}
+  	if(content != null){
   %>
 	
 	<div style="padding: 60px 20px 40px 50px;">
+		<b style="font-size : 150%"><%=title %></b><br>
 		<img src=<%=img %> alt="크롤링부분" align="left" width="400" height="400"
-			style="margin-right: 2%"> <span
-			style="margin-top: 20px; font-size: 20px; color: #FFC000;"><b><%=title %></b></span>
-		<br> <span style="margin-top: 20px; font-size: 30px;"><b>보기만
-				해도 상큼 시원한<br>반전 매력 레몬
-		</b></span> <br> <br> <br> <span style="font-size: 25px;">"그래서
-			결론이 뭔데?"</span> <br> <br> <br> <span style="font-size: 20px;"><b>#평소에
-				나는..</b></span> <br> <span style="font-size: 20px;">현실적이고 객관적인 판단으로
-			주위 사람들에게 팩폭을 날리는 상큼 시큼 레몬의 과즙미가 가득해요!<br>언제나 최고 효율적인 판단을 하기 때문에
-			어정쩡한 논리로 나에게 반박하는 사람을 이해 못 해요.<br>
-		</span> <br> <br> <span style="font-size: 20px;"><b>#내가
-				달콤해지는 순간은..</b></span> <br> <span style="font-size: 20px;">모두가 결론만
-			딱딱 말해서 순식간에 팀플이 마무리되었어요.<br>불합리한 상황에서 나의 논리적인 말로 문제를 해결했어요.
-		</span>
+			style="margin-right: 2%"/> <br>
+		<span><%=content %></span>
 		<!--<footer><a class="btn" href="######">크롤링부분</a></footer><br>-->
 		<button id="rego" align="right" onclick='testinfo.jsp?t_id=<%=id%>'>테스트
 			다시하기</button>
 	</div>
-	</p>
-
+<%
+  	}else{
+  		%>
+  		<div style="padding: 60px 20px 40px 50px;">
+  		<b style="font-size : 150%"><%=title %></b><br>
+		<img src=<%=img %> alt="크롤링부분" align="left" width="400" height="400"
+			style="margin-right: 2%"/> 
+		
+		<button id="rego" align="right" onclick='testinfo.jsp?t_id=<%=id%>'>테스트
+			다시하기</button>
+	</div>
+  		<%
+  	}
+%>
 	<fieldset style="margin: 2.7%">
 		<legend> 다른 테스트 하러가기 </legend>
-		<img
-			src="https://cdn.banggooso.com/assets/images/uploadImg/1664416656(PC).png"
+		<img src="https://cdn.banggooso.com/assets/images/uploadImg/1664416656(PC).png"
 			width="350" height="350" href="https://www.banggooso.com/gl/136/"
-			style="margin: 2%"> <img
-			src="https://cdn.banggooso.com/assets/images/uploadImg/1665044743(PC).jpg"
+			style="margin: 2%"/>
+		<img src="https://cdn.banggooso.com/assets/images/uploadImg/1665044743(PC).jpg"
 			width="350" height="350" href="https://www.banggooso.com/gl/138/"
-			style="margin: 2%"> <img
-			src="https://cdn.banggooso.com/assets/images/uploadImg/1663055970(PC).jpg"
+			style="margin: 2%"/>
+		<img src="https://cdn.banggooso.com/assets/images/uploadImg/1663055970(PC).jpg"
 			width="350" height="350"
-			href="https://www.metavv.com/content/10039931" style="margin: 2%">
+			href="https://www.metavv.com/content/10039931" style="margin: 2%"/>
 	</fieldset>
 
 	<%

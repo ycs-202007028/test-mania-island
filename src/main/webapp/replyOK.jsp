@@ -13,6 +13,7 @@
 </head>
 <body>
 	<%
+	
 		int b_ID=1;
 		if(request.getParameter("b_ID")!=null){
 			b_ID=Integer.parseInt(request.getParameter("b_ID"));

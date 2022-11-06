@@ -66,10 +66,12 @@
 				<h3>
 					<br>댓글 수정
 				</h3>
-				<form name=c_commentUpdate>
+				<form action="reply_updateOK.jsp" name=c_commentUpdate>
 					<input type="text" id="update" style="width: 400px; height: 50px;"
-						maxlength=1024 value="<%= replyContent %>"> <input
-						type="button" onclick="send(<%=b_ID %>,<%=replyID %>)" value="수정">
+						maxlength=1024 value="<%= replyContent %>" name="replyContent">
+					<input type="hidden" value="<%=b_ID %>" name="b_ID">
+					<input type="hidden" value="<%=replyID %>" name="replyID">
+					<input type="submit" value="수정">
 					<br> <br>
 				</form>
 			</div>
@@ -77,15 +79,5 @@
 		<div class="col-lg-10"></div>
 	</div>
 </body>
-<script>
-	var upload = document.querySelector('#updatePicture');
-	updatePicture.addEvent
-	function send(b_ID,replyID){
-		var sb;
-		var commentText = document.c_commentUpdate.update.value;
-		sb = "commentUpdateAction.jsp?b_ID="+b_ID+"&b_ID="+b_ID+"&replyID="+replyID+"&replyContent="+replyContent;
-		window.opener.location.href= sb;
-		window.close();
-	}
-</script>
+
 </html>
