@@ -117,7 +117,7 @@ while(rs.next()){
     <article class="group btmspace-80">
     </article>
     <hr class="btmspace-80">
-    <div style="border-radius:10px; width:67px; background-color:#F7AD19; color:#FFFFFF; font-size:150%; padding:5px;text-align:center;">연애</div>
+    <div style="border-radius:10px; width:67px; background-color:#F7AD19; color:#FFFFFF; font-size:150%; padding:5px;text-align:center;">방구석 연구소</div>
     <figure id="introblocks">
     <ul class="nospace group overview">
 <%
@@ -145,7 +145,7 @@ while(rs.next()){
       </li>
      </ul>
      </figure>
-     <div style="border-radius:10px; width:67px; background-color:#F7AD19; color:#FFFFFF; font-size:150%; padding:5px;text-align:center;">유형</div>
+     <div style="border-radius:10px; width:67px; background-color:#F7AD19; color:#FFFFFF; font-size:150%; padding:5px;text-align:center;">ktest</div>
      <figure id="introblocks">
      <ul class="nospace group overview">
 <%
@@ -173,12 +173,12 @@ while(rs.next()){
       </li>
      </ul>
      </figure>
-     <div style="border-radius:10px; width:67px; background-color:#F7AD19; color:#FFFFFF; font-size:150%; padding:5px;text-align:center;">퀴즈</div>
+     <div style="border-radius:10px; width:67px; background-color:#F7AD19; color:#FFFFFF; font-size:150%; padding:5px;text-align:center;">기타</div>
      <figure id="introblocks">
      <ul class="nospace group overview">
      <%
 	//test에서 타이틀, 테스트 종류, 테스트 상세, 테스트 이미지 불러오기
-	sql = "select t_img, t_title, t_id from test where t_kind ='방구석 연구소' limit 3";
+	sql = "select t_img, t_title, t_id from test where t_kind ='기타' limit 3";
 	pstmt = conn.prepareStatement(sql);
 	rs = pstmt.executeQuery();
 	i = 0;
@@ -201,34 +201,7 @@ while(rs.next()){
       </li>
      </ul>
      </figure>
-     <div style="border-radius:10px; width:67px; background-color:#F7AD19; color:#FFFFFF; font-size:150%; padding:5px;text-align:center;">심리</div>
-     <figure id="introblocks">
-     <ul class="nospace group overview">
-     <%
-	//test에서 타이틀, 테스트 종류, 테스트 상세, 테스트 이미지 불러오기
-	sql = "select t_img, t_title, t_id from test where t_kind = 'ktest' limit 3";
-	pstmt = conn.prepareStatement(sql);
-	rs = pstmt.executeQuery();
-	i = 0;
-
-	while(rs.next()){
-		id[i] = rs.getString("t_id");
-		title[i] = rs.getString("t_title");
-		n_img[i] = rs.getString("t_img");
-		i++;	
-	}
-%>
-      <li class="one_third">
-        <a href="testinfo.jsp?t_id=<%=id[0]%>"><img src=<%=n_img[0]%> alt=""><%=title[0] %></a>
-      </li>
-      <li class="one_third">
-        <a href="testinfo.jsp?t_id=<%=id[1]%>"><img src=<%=n_img[1]%> alt=""><%=title[1] %></a>
-      </li>
-      <li class="one_third">
-        <a href="testinfo.jsp?t_id=<%=id[2]%>"><img src=<%=n_img[2]%> alt=""><%=title[2] %></a>
-      </li>
-    </ul>
-    </figure>
+     
     <!-- / main body -->
     <div class="clear"></div>
   </main>

@@ -50,16 +50,17 @@ create table test(
 	t_src varchar(2048) not null
 ) default character set utf8 collate utf8_general_ci;
 
+drop table test_result;
+create table test_result(
+	t_id varchar(20) not null,
+	r_content varchar(1200),
+	r_img varchar(2048) not null
+)default character set utf8 collate utf8_general_ci;
+
 create table test_select(
 	t_id varchar(20) primary key,
 	s_content varchar(2048) not null,
 	s_select varchar(10000) not null
-)default character set utf8 collate utf8_general_ci;
-
-create table test_result(
-	t_id varchar(20) not null,
-	r_content varchar(1000),
-	r_img varchar(2048) not null
 )default character set utf8 collate utf8_general_ci;
 
 insert into test_select values(1, '지금의 내가 돈을 버는 이유는?, 지나가다가 으리으리한 건물을 발견했다 내 머릿속에는.., 건물주 되려면 절약부터! 나만의 킹받는 절약 방법은?, 솔직히 더 맞는 말은?, 그러던 어느 날 로또에 당첨되었다..!! 내가 가장 먼 저 할 일은?, 드디어 꿈 실현..! 내가 살 건물은.., 건물주가 된 나는.., 내가 더 해보고 싶은 FLEX는?, 건물자가 된 내가 방송에 나온다면 얻고 싶은 타이틀은?', '인생은 지금이야~ 오늘만 사는 나를 위해서, 꼭 부자가 돼야지... 미래의 나를 위해서, 와.. 저 건물 얼마일까?, 와.. 저 건물주는 무슨 일할끼?, 매일 안 씻고 집에 누워 있으면서 수도세 아끼기, 매일 하루도 안 빠지고 외출해서 전기세 아끼기, 티끌 모아봤자 티끌이다, 내 소비는 틀리지 않았다. 내 월급의 액수가 틀린 거다., 대략적인 앞으로의 소비 계획부터 짜기, 그동안 사지 못한 눈에 밟혔던 물건부터 사기, 친구들 1일 1초대 가능한 화려한 도시 속 건물, 혼자 멍 때리기 좋은 물 좋고 뷰 좋은 건물, 내일 당장 퇴사/자퇴할 수 있는 삶에 짜릿함을 느끼는 중!, 고정적으로 월세 받는 삶에 짜릿함을 느끼는 중!, 일본가서  초밥만 먹고오기, 일본 미슐랭 3스타의 초밥 집 앞으로 배달시키기, 하루 아침에 인생 역전된 행운의 주인공!, 00동 XX억 건물 매수한 성공의 주인공!');

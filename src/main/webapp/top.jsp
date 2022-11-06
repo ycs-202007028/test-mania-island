@@ -48,8 +48,7 @@
             <ul>
               <li><a href="gallery.jsp?kind=banggoosuk">방구석 연구소</a></li>
               <li><a href="gallery.jsp?kind=ktest">ktest</a></li>
-              <li><a href="gallery.jsp?kind=mind">심리</a></li>
-              <li><a href="gallery.jsp?kind=cate">유형</a></li>
+              <li><a href="gallery.jsp?kind=etc">기타</a></li>
             </ul>
           </li>
           <li><a href="board.jsp">커뮤니티</a></li>

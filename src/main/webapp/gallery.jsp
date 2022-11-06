@@ -36,13 +36,9 @@
 		category = "ktest";
 		name = category;
 		break;
-	case "mind" :
-		category = "심리";
-		name = "미궁";
-		break;
-	case "cate" :
-		category = "유형";
-		name = category;
+	case "etc" :
+		category = "기타";
+		name = "기타";
 		break;
 	}
 	%>

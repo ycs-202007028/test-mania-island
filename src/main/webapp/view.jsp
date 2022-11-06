@@ -116,7 +116,7 @@
 		
 			<td style="text-align: left;"><%= list.get(i).getUserID() %></td>
 			<td style="text-align: left;"><%= list.get(i).getReplyContent() %></td>
-			<td ><%= list.get(i).getR_Date().substring(0, 11) + list.get(i).getR_Date().substring(11, 13) + "시" + list.get(i).getR_Date().substring(14, 16) + "분" %>
+			<td ><%= list.get(i).getDate().substring(0, 11) + list.get(i).getDate().substring(11, 13) + "시" + list.get(i).getDate().substring(14, 16) + "분" %>
 			</td>
 			<td>			
 			<a href="reply_update.jsp?b_ID=<%=b_ID%>" class="btn btn-primary">수정</a>
