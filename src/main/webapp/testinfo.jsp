@@ -7,11 +7,6 @@
 <head>
 <meta charset="EUC-KR">
 <style>
-ul {
-	background: #FFC000;
-	padding: 6px;
-	text-align: right;
-}
 
 #mar {
 	margin: 15px 25px 15px 0px;

@@ -30,6 +30,12 @@
 	  i++;
   }
   
+  int score;
+  if(request.getParameter("score") != null)
+		  score = Integer.parseInt(request.getParameter("score"));
+  else
+	  score = 0;
+  
   try{
   	String jdbcUrl = "jdbc:mysql://localhost:3306/BBS?useUnicode=yes&characterEncoding=UTF8";
   	String dbId = "root";
@@ -62,14 +68,15 @@
   	if(i < Array_content.length){
   		%>
 		<div style=""><%=Array_content[i] %><br> <a
-				href="test.jsp?t_id=<%=id%>&img=<%=img%>&i=<%=i%>"><%=Array_select[i+i] %></a><br>
-			<a href="test.jsp?t_id=<%=id%>&img=<%=img%>&i=<%=i%>"><%=Array_select[i+i+1] %></a><br>
+				href="test.jsp?t_id=<%=id%>&img=<%=img%>&i=<%=i%>&score=<%=score+1%>">
+				<%=Array_select[i+i] %></a><br>
+			<a href="test.jsp?t_id=<%=id%>&img=<%=img%>&i=<%=i%>&score=<%=score+3%>"><%=Array_select[i+i+1] %></a><br>
 		</div>
 		<%
   	}else{
   		%>
 		<div style="">
-			<a href="testresult.jsp?t_id=<%=id%>">결과 보러 가기</a><br>
+			<a href="testresult.jsp?t_id=<%=id%>&score=<%=score%>">결과 보러 가기</a><br>
 		</div>
 		<%
   	}

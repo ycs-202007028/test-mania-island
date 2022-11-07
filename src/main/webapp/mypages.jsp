@@ -29,13 +29,15 @@ String birth = null;
 String email = null;
 String gender = null;
 String mbti = null;
+int t_count = 0;
+int r_count = 0;
 String img = ""; //mbti별 이미지를 저장하기 위한 변수
+String t_id = null;
 
 //나이 저장 변수
 String year = null;
 String month = null;
 String date = null;
-
 
 try{
 	String jdbcUrl = "jdbc:mysql://localhost:3306/BBS?useUnicode=yes&characterEncoding=UTF8";
@@ -45,7 +47,7 @@ try{
 	conn = DriverManager.getConnection(jdbcUrl, dbId, dbPass);
 	
 	//test에서 타이틀, 테스트 종류, 테스트 상세, 테스트 이미지 불러오기
-	sql = "select name, birth, email, gender, mbti from user where id = ?";
+	sql = "select name, birth, email, gender, mbti, t_id from user where id = ?";
 	pstmt = conn.prepareStatement(sql);
 	pstmt.setString(1, userID);
 	rs = pstmt.executeQuery();
@@ -56,34 +58,84 @@ try{
 		email = rs.getString("email");
 		gender = rs.getString("gender");
 		mbti = rs.getString("mbti");
-		
+		t_id = rs.getString("t_id");
+
+		if(t_id == null){
+			r_count = 0;
+			}
+		else if (t_id != null){
+			String array_t[] = t_id.split(",");
+			r_count = array_t.length;
+		}
 	}
+	
+	sql = "select count(*) from test";
+	pstmt = conn.prepareStatement(sql);
+	rs = pstmt.executeQuery();
+	
+	while(rs.next()){
+		t_count = rs.getInt(1);
+	}
+	
 	mbti = (String)mbti.toUpperCase().trim();
 	
-	if(mbti == "ENFJ") img = "images/mbti/ENFJ.jpg";
-	else if(mbti == "ENFP") img = "images/mbti/ENFP.jpg";
-	else if(mbti == "ENTJ") img = "images/mbti/ENTJ.jpg";
-	else if(mbti == "ENTP") img = "images/mbti/ENTP.jpg";
-	else if(mbti == "ESFJ") img = "images/mbti/ESFJ.jpg";
-	else if(mbti == "ESFP") img = "images/mbti/ESFP.jpg";
-	else if(mbti == "ESTJ") img = "images/mbti/ESTJ.jpg";
-	else if(mbti == "ESTP") img = "images/mbti/ESTP.jpg";
-	else if(mbti == "INFJ") img = "images/mbti/INFJ.jpg";
-	else if(mbti == "INFP") img = "images/mbti/INFP.jpg";
-	else if(mbti == "INTJ") img = "images/mbti/INTJ.jpg";
-	else if(mbti == "INTP") img = "images/mbti/INTP.jpg";
-	else if(mbti == "ISFJ") img = "images/mbti/ISFJ.jpg";
-	else if(mbti == "ISFP") img = "images/mbti/ISFP.jpg";
-	else if(mbti == "ISTJ") img = "images/mbti/ISTJ.jpg";
-	else img = "images/mbti/ISTP.jpg";
+	switch(mbti){
+	case "ENFJ" :
+		img = "images/mbti/ENFJ.jpg";
+		break;
+	case "ENFP" :
+		img = "images/mbti/ENFP.jpg";
+		break;
+	case "ENTJ" :
+		img = "images/mbti/ENTJ.jpg";
+		break;
+	case "ENTP" :
+		img = "images/mbti/ENTP.jpg";
+		break;
+	case "ESFJ" :
+		img = "images/mbti/ESFJ.jpg";
+		break;
+	case "ESFP" :
+		img = "images/mbti/ESFP.jpg";
+		break;
+	case "ESTJ" :
+		img = "images/mbti/ESTJ.jpg";
+		break;
+	case "ESTP" :
+		img = "images/mbti/ESTP.jpg";
+		break;
+	case "INFJ" :
+		img = "images/mbti/INFJ.jpg";
+		break;
+	case "INFP" :
+		img = "images/mbti/INFP.jpg";
+		break;
+	case "INTJ" :
+		img = "images/mbti/INTJ.jpg";
+		break;
+	case "INTP" :
+		img = "images/mbti/INTP.jpg";
+		break;
+	case "ISFJ" :
+		img = "images/mbti/ISFJ.jpg";
+		break;
+	case "ISFP" :
+		img = "images/mbti/ISFP.jpg";
+		break;
+	case "ISTJ" :
+		img = "images/mbti/ISTJ.jpg";
+		break;
+	default :
+		img = "images/mbti/ISTP.jpg";
+		break;
+	}
 
 	year = birth.substring(0,4);
-	month = birth. substring(4,6);
-	date = birth.substring(6,8);
+	month = birth. substring(5,7);
+	date = birth.substring(8,10);
 	
 	int old = 2022 - Integer.parseInt(year) + 1;
 	%>
-
 		<!-- 상단 두개 -->
 		<div class="div1">
 
@@ -125,11 +177,11 @@ try{
 
 			<!-- 프로그레스 -->
 			<div class="box3">
-				<h2 style="text-align: left; margin-left: 30px;">테스트 진행률</h2>
-				<progress class="progress" value="60" min="0" max="100"></progress>
+				<h2 style="text-align: left; margin-left: 30px;">테스트 진행률 &nbsp; &nbsp; <%=r_count %> / <%=t_count %></h2>
+				<progress class="progress" value=<%=r_count %> min="0" max=<%=t_count %>></progress>
 				<hr>
 				<button class="bn" type="button">내가 쓴 글 / 댓글</button>
-				<button class="bn" type="button">테스트 결과 보기</button>
+				<button class="bn" type="button" onclick = "location.href='t_result.jsp'">테스트 결과 보기</button>
 			</div>
 
 			<!--  변경버튼 모아놓음 -->
