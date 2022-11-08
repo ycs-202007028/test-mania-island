@@ -9,13 +9,12 @@
 <title>T.M.I</title>
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<link href="layout/styles/layout.css" rel="stylesheet" type="text/css"
-	media="all">
+<link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
 </head>
 <body id="top">
 	<!-- Top Background Image Wrapper -->
 	<jsp:include page="top.jsp" flush="false" />
-	<hr>
+	
 	<div id="pageintro" class="hoc clear">
 		<div class="introfont2">
 			<p>NEW</p>
@@ -107,17 +106,24 @@ while(rs.next()){
 %>
 	<div class="wrapper">
 		<div class="hoc clear">
-			<div
-				style="border-radius: 15px; width: 130px; background-color: #F7AD19; color: #FFFFFF; font-size: 150%; padding: 5px; text-align: center;">Best3</div>
+			<div style="color: #F7AD19;font-size: 150%;  padding: 10px; text-align: left; font-weight: bold;">
+			BEST 3</div>
 			<figure id="introblocks">
 				<ul class="nospace group">
-					<li class="one_third first"><a
-						href="testinfo.jsp?t_id=<%=id[0]%>"><img src=<%=n_img[0] %>
-							alt=""><%=title[0] %></a></li>
-					<li class="one_third"><a href="testinfo.jsp?t_id=<%=id[1]%>"><img
-							src=<%=n_img[1] %> alt=""><%=title[1] %></a></li>
-					<li class="one_third"><a href="testinfo.jsp?t_id=<%=id[2]%>"><img
-							src=<%=n_img[2] %> alt=""><%=title[2] %></a></li>
+					<li class="one_third first"><a href="testinfo.jsp?t_id=<%=id[0]%>">
+					<img src=<%=n_img[0] %> alt="" /></a>
+					<div class="fontall"><a class="fonttitle"><%=title[0] %></a>
+					<a class="fontsub"><%=content[0] %></a></div></li>
+					
+					<li class="one_third"><a href="testinfo.jsp?t_id=<%=id[1]%>">
+					<img src=<%=n_img[1] %> alt="" /></a>
+					<div class="fontall"><a class="fonttitle"><%=title[1] %><br></a>
+					<a class="fontsub"><%=content[1] %></a></div></li>
+					
+					<li class="one_third"><a href="testinfo.jsp?t_id=<%=id[2]%>">
+					<img src=<%=n_img[2] %> alt="" /></a>
+					<div class="fontall"><a class="fonttitle"><%=title[2] %><br></a>
+					<a class="fontsub"><%=content[2] %></a></div></li>
 				</ul>
 			</figure>
 		</div>
@@ -125,13 +131,12 @@ while(rs.next()){
 
 
 	<div class="wrapper row3">
-		<main class="hoc container clear">
+		<main class="hoc container clear" style="padding-top:0px">
 			<!-- main body -->
-			<article class="group btmspace-80"></article>
-			<hr class="btmspace-80">
-			<div
-				style="border-radius: 10px; width: 67px; background-color: #F7AD19; color: #FFFFFF; font-size: 150%; padding: 5px; text-align: center;">방구석
-				연구소</div>
+			<article class="group"></article>
+			<hr>
+			<div style="color: #F7AD19;font-size: 150%; margin-top:20px; padding: 10px; text-align: left; font-weight: bold;">
+			방구석 연구소</div>
 			<figure id="introblocks">
 				<ul class="nospace group overview">
 					<%
@@ -148,16 +153,24 @@ while(rs.next()){
 		i++;	
 	}
 %>
-					<li class="one_third"><a href="testinfo.jsp?t_id=<%=id[0]%>"><img
-							src=<%=n_img[0] %> alt=""><%=title[0] %></a></li>
-					<li class="one_third"><a href="testinfo.jsp?t_id=<%=id[1]%>"><img
-							src=<%=n_img[1] %> alt=""><%=title[1] %></a></li>
-					<li class="one_third"><a href="testinfo.jsp?t_id=<%=id[2]%>"><img
-							src=<%=n_img[2] %> alt=""><%=title[2] %></a></li>
+					<li class="one_third first"><a href="testinfo.jsp?t_id=<%=id[0]%>">
+					<img src=<%=n_img[0] %> alt="" /></a>
+					<div class="fontall"><a class="fonttitle"><%=title[0] %></a>
+					<a class="fontsub"><%=content[0] %></a></div></li>
+					
+					<li class="one_third"><a href="testinfo.jsp?t_id=<%=id[1]%>">
+					<img src=<%=n_img[1] %> alt="" /></a>
+					<div class="fontall"><a class="fonttitle"><%=title[1] %><br></a>
+					<a class="fontsub"><%=content[1] %></a></div></li>
+					
+					<li class="one_third"><a href="testinfo.jsp?t_id=<%=id[2]%>">
+					<img src=<%=n_img[2] %> alt="" /></a>
+					<div class="fontall"><a class="fonttitle"><%=title[2] %><br></a>
+					<a class="fontsub"><%=content[2] %></a></div></li>
 				</ul>
 			</figure>
-			<div
-				style="border-radius: 10px; width: 67px; background-color: #F7AD19; color: #FFFFFF; font-size: 150%; padding: 5px; text-align: center;">ktest</div>
+			<div style="color: #F7AD19;font-size: 150%; margin-top:20px; padding: 10px; text-align: left; font-weight: bold;">
+			Ktest</div>
 			<figure id="introblocks">
 				<ul class="nospace group overview">
 					<%
@@ -175,15 +188,17 @@ while(rs.next()){
 	}
 %>
 					<li class="one_third"><a href="testinfo.jsp?t_id=<%=id[0]%>"><img
-							src=<%=n_img[0] %> alt=""><%=title[0] %></a></li>
+							src=<%=n_img[0] %> alt=""></a></li>
 					<li class="one_third"><a href="testinfo.jsp?t_id=<%=id[1]%>"><img
-							src=<%=n_img[1] %> alt=""><%=title[1] %></a></li>
+							src=<%=n_img[1] %> alt=""></a></li>
 					<li class="one_third"><a href="testinfo.jsp?t_id=<%=id[2]%>"><img
-							src=<%=n_img[2] %> alt=""><%=title[2] %></a></li>
+							src=<%=n_img[2] %> alt=""></a></li>
 				</ul>
 			</figure>
-			<div
-				style="border-radius: 10px; width: 67px; background-color: #F7AD19; color: #FFFFFF; font-size: 150%; padding: 5px; text-align: center;">기타</div>
+			
+			
+			<div style="color: #F7AD19;font-size: 150%; margin-top:20px; padding: 10px; text-align: left; font-weight: bold;">
+			OTHER</div>
 			<figure id="introblocks">
 				<ul class="nospace group overview">
 					<%
@@ -200,12 +215,20 @@ while(rs.next()){
 		i++;	
 	}
 %>
-					<li class="one_third"><a href="testinfo.jsp?t_id=<%=id[0]%>"><img
-							src=<%=n_img[0]%> alt=""><%=title[0] %></a></li>
-					<li class="one_third"><a href="testinfo.jsp?t_id=<%=id[1]%>"><img
-							src=<%=n_img[1]%> alt=""><%=title[1] %></a></li>
-					<li class="one_third"><a href="testinfo.jsp?t_id=<%=id[2]%>"><img
-							src=<%=n_img[2]%> alt=""><%=title[2] %></a></li>
+					<li class="one_third first"><a href="testinfo.jsp?t_id=<%=id[0]%>">
+					<img src=<%=n_img[0] %> alt="" style="height:80%;"/></a>
+					<div class="fontall"><a class="fonttitle"><%=title[0] %></a>
+					<a class="fontsub"><%=content[0] %></a></div></li>
+					
+					<li class="one_third"><a href="testinfo.jsp?t_id=<%=id[1]%>">
+					<img src=<%=n_img[1] %> alt="" /></a>
+					<div class="fontall"><a class="fonttitle"><%=title[1] %><br></a>
+					<a class="fontsub"><%=content[1] %></a></div></li>
+					
+					<li class="one_third"><a href="testinfo.jsp?t_id=<%=id[2]%>">
+					<img src=<%=n_img[2] %> alt="" /></a>
+					<div class="fontall"><a class="fonttitle"><%=title[2] %><br></a>
+					<a class="fontsub"><%=content[2] %></a></div></li>
 				</ul>
 			</figure>
 

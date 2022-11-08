@@ -47,10 +47,10 @@
 
 				<h1>
 					<a href="main.jsp"><img alt="logo" src="images/logo.png"
-						style="width: 120px" /></a>
+						style="width: 120px;" /></a>
 				</h1>
 			</div>
-			<nav id="mainav" class="fl_right">
+			<nav id="mainav" class="fl_right"">
 				<ul class="clear">
 					<li class="active"><a href="main.jsp">Home</a></li>
 					<li><a class="drop" href="#">테스트</a>
@@ -65,5 +65,6 @@
 			</nav>
 		</header>
 	</div>
+	<hr>
 </body>
 </html>

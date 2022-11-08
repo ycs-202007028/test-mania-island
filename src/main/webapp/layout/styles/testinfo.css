@@ -1,0 +1,95 @@
+@charset "EUC-KR";
+@charset "utf-8";
+
+.div1, .div2 {
+	display: flex;
+	justify-content: flex-start;
+}
+.div1{
+	margin-top: 25px;
+	margin-bottom: 25px;
+}
+
+.div2{
+	margin-top: 15px;
+	width : 100%;
+}
+
+.box1{
+	display: flex;
+	justify-content: flex-start;
+	margin-right: 25px;	
+	width: 100%;
+}
+
+.comment{
+	display: flex;
+	justify-content: flex-start;
+	width: 50%;
+}
+
+.puzzle{
+	margin-left: 20px; 
+	width: 50%;
+}
+
+.titlefont{
+	font-size: xx-large;
+	font-weight: bold;
+	letter-spacing:1px;
+	margin-bottom: 15px;
+	margin-top: 5px;
+}
+
+.subfont{
+	margin:0px;
+	padding:0px;
+	font-size: medium; 
+	font-weight: lighter;
+	height: 250px;
+}
+
+button {
+	border: none;
+	border-radius: 20px;
+	width: 200px;
+	height: 50px;
+	background: #FFC000;
+	top: 450px;
+	left: 1300px;
+	text-align: center;
+	color: white;
+	display: block;
+	vertical-align: middle;
+	font-size: 15pt;
+	font-weight: bold;
+}
+
+.imgbox{
+	 width:50%;
+}
+
+.profile {
+	border-radius: 50%;
+	width: 50px;
+	height: 50px; 
+	margin :5px;
+
+}
+
+#go{
+	margin-left: auto;
+}
+
+#comment-input {
+	border-style: bold;
+	border-bottom-color: #FFC000;
+	border-right: 0px;
+	border-top: 0px;
+	border-left: 0px;	
+	margin-top: auto;
+	margin-bottom: auto;
+	
+	width: 100%;
+	height: 50px;
+}

@@ -155,27 +155,11 @@ img {
 	clear: right;
 }
 
-/* Fonts
---------------------------------------------------------------------------------------------------------------- */
-body, input, textarea, select {
-	font-family: Verdana, Geneva, sans-serif;
-}
-
-h1, h2, h3, h4, h5, h6, .heading {
-	font-family: Georgia, "Times New Roman", Times, serif;
-}
 
 /* Forms
 --------------------------------------------------------------------------------------------------------------- */
-form, fieldset, legend {
-	margin: 0;
-	padding: 0;
-	border: none;
-}
 
-legend {
-	display: none;
-}
+
 
 label, input, textarea, select, button {
 	display: block;
@@ -198,15 +182,6 @@ label {
 
 /* Generalise
 --------------------------------------------------------------------------------------------------------------- */
-h1, h2, h3, h4, h5, h6, .heading {
-	margin: 0 0 20px 0;
-	font-size: 22px;
-	line-height: normal;
-	font-weight: normal;
-	font-style: italic;
-	text-transform: capitalize;
-}
-
 .heading.nospace {
 	margin: 0;
 }
@@ -256,7 +231,7 @@ hr {
 
 /* HTML 5 Overrides
 --------------------------------------------------------------------------------------------------------------- */
-address, article, aside, figcaption, figure, footer, header, main, nav,
+address, aside, figcaption, figure, footer, header, main, nav,
 	section {
 	display: block;
 	margin: 0;
