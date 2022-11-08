@@ -34,6 +34,9 @@ try{
 	<%=userID %>
 	님의 테스트 결과 내역
 	<table>
+	<tr>
+	<td>1</td><td><a href = "t_resultView.jsp">test이름</a></td>
+	</tr>
 		<%
 //user테이블에서 테스트 아이디, 결과 아이디 가져옴
 sql = "select t_id from user where id = ?";
@@ -44,8 +47,10 @@ rs = pstmt.executeQuery();
 while(rs.next()){
 	t_id = rs.getString("t_id");
 	int i = 1;
+	String test_array[] = t_id.split(",");
 	if(t_id == null){
 		%>
+		<%=test_array[i-1] %>
 		<div>테스트 결과 내역이 없습니다!</div>
 		<button type="button" onclick="location.href='main.jsp'">테스트
 			하러 가기</button>
@@ -54,21 +59,20 @@ while(rs.next()){
 	//test테이블에서 테스트 아이디로 테스트 제목 가져옴
 	sql = "select t_title from test where t_id = ?";
 	pstmt = conn.prepareStatement(sql);
-	pstmt.setString(1, t_id);
+	pstmt.setString(1, test_array[i-1]);
 	rs = pstmt.executeQuery();
 
 	while(rs.next()){
 		t_test = rs.getString("t_test");
-		
+	}
 		%>
+		<%=test_array[i-1] %>
 		<tr>
-			<td><%=i %></td>
-			<td><a href="t_resultView.jsp?t_id=<%=t_id%>"></a></td>
+			<td><%=i %></td><td><a href="t_resultView.jsp?t_id=<%=test_array[i-1]%>"><%=t_test %></a></td>
 		</tr>
 		<%
-		
-	}i++;
 	}
+	i++;
 }
 %>
 	</table>
