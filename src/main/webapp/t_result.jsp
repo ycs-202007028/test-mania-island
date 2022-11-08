@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ page import="java.sql.*"%>
+	pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,8 +10,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<jsp:include page="top.jsp" flush="false" />
-<%
+	<jsp:include page="top.jsp" flush="false" />
+	<%
 String userID = (String)session.getAttribute("userID");
 
 Connection conn = null;
@@ -31,7 +31,8 @@ String t_test = null;
 
 try{
 	%>
-	<%=userID %> 님의 테스트 결과 내역
+	<%=userID %>
+	님의 테스트 결과 내역
 	<table>
 		<%
 //user테이블에서 테스트 아이디, 결과 아이디 가져옴
@@ -46,7 +47,8 @@ while(rs.next()){
 	if(t_id == null){
 		%>
 		<div>테스트 결과 내역이 없습니다!</div>
-		<button type="button" onclick="location.href='main.jsp'">테스트 하러 가기</button>
+		<button type="button" onclick="location.href='main.jsp'">테스트
+			하러 가기</button>
 		<%
 	}else{
 	//test테이블에서 테스트 아이디로 테스트 제목 가져옴
@@ -59,16 +61,17 @@ while(rs.next()){
 		t_test = rs.getString("t_test");
 		
 		%>
-			<tr>
-				<td><%=i %></td><td><a href ="t_resultView.jsp?t_id=<%=t_id%>"></a></td>
-			</tr>
+		<tr>
+			<td><%=i %></td>
+			<td><a href="t_resultView.jsp?t_id=<%=t_id%>"></a></td>
+		</tr>
 		<%
 		
 	}i++;
 	}
 }
 %>
-</table>
+	</table>
 	<%
 }catch(SQLException ex){
 	ex.printStackTrace();

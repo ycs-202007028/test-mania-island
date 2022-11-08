@@ -155,12 +155,8 @@ img {
 	clear: right;
 }
 
-
 /* Forms
 --------------------------------------------------------------------------------------------------------------- */
-
-
-
 label, input, textarea, select, button {
 	display: block;
 	resize: none;
@@ -231,8 +227,7 @@ hr {
 
 /* HTML 5 Overrides
 --------------------------------------------------------------------------------------------------------------- */
-address, aside, figcaption, figure, footer, header, main, nav,
-	section {
+address, aside, figcaption, figure, footer, header, main, nav, section {
 	display: block;
 	margin: 0;
 	padding: 0;

@@ -177,11 +177,17 @@ try{
 
 			<!-- 프로그레스 -->
 			<div class="box3">
-				<h2 style="text-align: left; margin-left: 30px;">테스트 진행률 &nbsp; &nbsp; <%=r_count %> / <%=t_count %></h2>
-				<progress class="progress" value=<%=r_count %> min="0" max=<%=t_count %>></progress>
+				<h2 style="text-align: left; margin-left: 30px;">
+					테스트 진행률 &nbsp; &nbsp;
+					<%=r_count %>
+					/
+					<%=t_count %></h2>
+				<progress class="progress" value=<%=r_count %> min="0"
+					max=<%=t_count %>></progress>
 				<hr>
 				<button class="bn" type="button">내가 쓴 글 / 댓글</button>
-				<button class="bn" type="button" onclick = "location.href='t_result.jsp'">테스트 결과 보기</button>
+				<button class="bn" type="button"
+					onclick="location.href='t_result.jsp'">테스트 결과 보기</button>
 			</div>
 
 			<!--  변경버튼 모아놓음 -->

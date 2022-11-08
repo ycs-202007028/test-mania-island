@@ -1,49 +1,46 @@
 @charset "EUC-KR";
 
-.box{
-	display:block;
-	justify-content:center;
+.box {
+	display: block;
+	justify-content: center;
 	text-align: center;
-	margin-left:auto;
-	margin-right:auto;
-	margin-top:10%;
-	
-	height:350px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10%;
+	height: 350px;
 	width: 40%;
 }
 
-.divlog{
+.divlog {
 	display: flex;
 	justify-content: center;
 }
 
-.allform{
+.allform {
 	margin-top: 25px;
 	height: 100%;
-	border: 3px solid #F7AD19;	
+	border: 3px solid #F7AD19;
 	border-radius: 15px;
 	padding-top: 25px;
-	
 }
 
-.user,.ps{
-	margin-left:auto;
-	margin-right:auto;
+.user, .ps {
+	margin-left: auto;
+	margin-right: auto;
 	margin-top: 5px;
 	height: 50px;
 	width: 90%;
-	font-size: medium;	
+	font-size: medium;
 }
 
-.btnlogin{
+.btnlogin {
 	margin-top: 10px;
 	margin-right: 15px;
 }
 
-.btnlogin{
+.btnlogin {
 	margin-top: 10px;
 	margin-left: 15px;
-	
 }
 
 legend {
@@ -52,12 +49,11 @@ legend {
 	color: #F7AD19;
 }
 
-INPUT{
+INPUT {
 	border: none;
 }
 
-
-.btnlogin, .btnsign{
+.btnlogin, .btnsign {
 	border: 2px solid #F7AD19;
 	background-color: #F7AD19;
 	padding-right: 30px;
@@ -70,21 +66,18 @@ INPUT{
 	text-align: center;
 	font-size: large;
 	border-radius: 18px;
-	width: 150px; 
+	width: 150px;
 }
 
-hr{
+hr {
 	width: 90% !important;
 }
 
-input:focus{
-    outline: none;
-    border-color: #F7AD19;
+input:focus {
+	outline: none;
+	border-color: #F7AD19;
 }
 
-img{
-	
+img {
 	height: 100px !important;
 }
-
-

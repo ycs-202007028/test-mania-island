@@ -69,10 +69,9 @@
 				<form action="reply_updateOK.jsp" name=c_commentUpdate>
 					<input type="text" id="update" style="width: 400px; height: 50px;"
 						maxlength=1024 value="<%= replyContent %>" name="replyContent">
-					<input type="hidden" value="<%=b_ID %>" name="b_ID">
-					<input type="hidden" value="<%=replyID %>" name="replyID">
-					<input type="submit" value="수정">
-					<br> <br>
+					<input type="hidden" value="<%=b_ID %>" name="b_ID"> <input
+						type="hidden" value="<%=replyID %>" name="replyID"> <input
+						type="submit" value="수정"> <br> <br>
 				</form>
 			</div>
 		</div>

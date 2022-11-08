@@ -43,37 +43,36 @@ h3 {
 	font-family: 'Poppins', sans-serif;
 }
 
-.fontsub{
-	margin:0px;
-	padding:0px;
-	font-size: small; 
+.fontsub {
+	margin: 0px;
+	padding: 0px;
+	font-size: small;
 	font-weight: lighter;
 	text-indent: 15px !important;
 	display: block;
 	justify-content: flex-start;
 }
 
-.fonttitle{
-	margin-top:5px;
+.fonttitle {
+	margin-top: 5px;
 	font-size: large;
 	font-weight: bold;
-	letter-spacing:1px;
-	
+	letter-spacing: 1px;
 }
 
-.fontall{
+.fontall {
 	margin-top: 15px !important;
 	text-indent: 15px;
 }
 
-
 /* Header
 ---------------------------------------------------------------------------- */
 #header {
+	
 }
 
 #header #logo {
-
+	
 }
 
 #header #logo h1 {
@@ -146,7 +145,7 @@ h3 {
 	position: relative;
 	margin: 50px 0px 0px 0px;
 	padding: 30px;
-	border-radius: 10px;	
+	border-radius: 10px;
 }
 
 #introblocks>ul>li {
@@ -398,7 +397,6 @@ nav ul, nav ol {
 	font-family: "FontAwesome";
 	font-size: 10px;
 	line-height: 10px;
-	
 }
 
 /* Top Navigation */
@@ -916,7 +914,8 @@ table a, #comments a {
 
 /* Media Queries
 --------------------------------------------------------------------------------------------------------------- */
-@-ms-viewport {
+@
+-ms-viewport {
 	width: device-width;
 }
 

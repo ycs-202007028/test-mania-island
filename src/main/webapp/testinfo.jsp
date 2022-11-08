@@ -10,14 +10,16 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
-<link href="layout/styles/testinfo.css" rel="stylesheet" type="text/css" media="all">
+<link href="layout/styles/layout.css" rel="stylesheet" type="text/css"
+	media="all">
+<link href="layout/styles/testinfo.css" rel="stylesheet" type="text/css"
+	media="all">
 </head>
 <body id="top">
 	<!-- Top Background Image Wrapper -->
 	<jsp:include page="top.jsp" flush="false" />
 	<div class="hoc clear">
-	<%
+		<%
   Connection conn = null;
   PreparedStatement pstmt = null;
   ResultSet rs = null;
@@ -53,29 +55,31 @@
 			<tr></tr>
 			<tr></tr>
 		</table>
-	
-	<div class="div1">
-		<div class="imgbox">
-			<img src=<%=img %> >
-		</div> 
-		<div class="puzzle">
-		<div class="titlefont"><%=title %></div>
-		<div class="subfont"><%=content %></div>				
-		<button id="go" onclick="location.href='test.jsp?t_id=<%=id%>&img=<%=img%>'">테스트 시작하기</button>
-		</div>	
-	</div>
-	<hr>
-	<div class="div2">
-	<div class="comment">
-	<div class="box1">
-				<img src="images/demo/avatar.png" class="profile" />
-				<input id="comment-input" placeholder="댓글을 입력해 주세요." />
-			</div>			
-		<button id="submit">등록</button>			
-	</div>
-		
-	<script src="js/scripts.js?ver=123"></script>
-	<%
+
+		<div class="div1">
+			<div class="imgbox">
+				<img src=<%=img %>>
+			</div>
+			<div class="puzzle">
+				<div class="titlefont"><%=title %></div>
+				<div class="subfont"><%=content %></div>
+				<button id="go"
+					onclick="location.href='test.jsp?t_id=<%=id%>&img=<%=img%>'">테스트
+					시작하기</button>
+			</div>
+		</div>
+		<hr>
+		<div class="div2">
+			<div class="comment">
+				<div class="box1">
+					<img src="images/demo/avatar.png" class="profile" /> <input
+						id="comment-input" placeholder="댓글을 입력해 주세요." />
+				</div>
+				<button id="submit">등록</button>
+			</div>
+
+			<script src="js/scripts.js?ver=123"></script>
+			<%
 	
 }catch(SQLException ex){
 	ex.printStackTrace();
@@ -93,7 +97,7 @@
 	}
 	}
 %>
+		</div>
 	</div>
-</div>
 </body>
 </html>

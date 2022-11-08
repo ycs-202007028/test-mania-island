@@ -69,8 +69,8 @@
   		%>
 		<div style=""><%=Array_content[i] %><br> <a
 				href="test.jsp?t_id=<%=id%>&img=<%=img%>&i=<%=i%>&score=<%=score+1%>">
-				<%=Array_select[i+i] %></a><br>
-			<a href="test.jsp?t_id=<%=id%>&img=<%=img%>&i=<%=i%>&score=<%=score+3%>"><%=Array_select[i+i+1] %></a><br>
+				<%=Array_select[i+i] %></a><br> <a
+				href="test.jsp?t_id=<%=id%>&img=<%=img%>&i=<%=i%>&score=<%=score+3%>"><%=Array_select[i+i+1] %></a><br>
 		</div>
 		<%
   	}else{

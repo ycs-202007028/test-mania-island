@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ page import="java.sql.*"%>
+	pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,7 +22,7 @@
 	<jsp:include page="top.jsp" flush="false" />
 
 	<hr>
-		<%
+	<%
   Connection conn = null;
   PreparedStatement pstmt = null;
   ResultSet rs = null;
@@ -92,35 +92,44 @@
   		title = rs.getString("t_title");		
   	}
   	%>
-  	<fieldset>
-  	<legend><%=title %></legend>
- <%
+	<fieldset>
+		<legend><%=title %></legend>
+		<%
   	if(content != null){
   %>
-	<div style="padding: 20px;">
-		<img src=<%=img %> alt="크롤링부분" style="margin-right: 2%;  width:400; height:400"/> <br>
-		<span><%=content %></span>
-		<button type="button" id="rego" onclick="location.href='testinfo.jsp?t_id='+<%=id%>">테스트 다시하기</button>
-	</div>
-<%
+		<div style="padding: 20px;">
+			<img src=<%=img %> alt="크롤링부분"
+				style="margin-right: 2%; width: 400; height: 400" /> <br> <span><%=content %></span>
+			<button type="button" id="rego"
+				onclick="location.href='testinfo.jsp?t_id='+<%=id%>">테스트
+				다시하기</button>
+		</div>
+		<%
   	}else{
   		%>
-  		<div style="padding: 20px;">
-		<img src=<%=img %> alt="크롤링부분" style="margin-right: 2%;  width:400; height:400"/> 
-		<button type="button" id="rego" onclick="location.href='testinfo.jsp?t_id='+<%=id%>">테스트 다시하기</button>
-	</div>
-  		<%
+		<div style="padding: 20px;">
+			<img src=<%=img %> alt="크롤링부분"
+				style="margin-right: 2%; width: 400; height: 400" />
+			<button type="button" id="rego"
+				onclick="location.href='testinfo.jsp?t_id='+<%=id%>">테스트
+				다시하기</button>
+		</div>
+		<%
   	}
 %>
-</fieldset>
+	</fieldset>
 	<fieldset style="margin: 2.7%">
 		<legend> 다른 테스트 하러가기 </legend>
-		<img src="https://cdn.banggooso.com/assets/images/uploadImg/1664416656(PC).png"
-			 href="https://www.banggooso.com/gl/136/" style="margin: 2%; width:350px; height:350px;"/>
-		<img src="https://cdn.banggooso.com/assets/images/uploadImg/1665044743(PC).jpg"
-			href="https://www.banggooso.com/gl/138/" style="margin: 2%; width:350px; height:350px;"/>
-		<img src="https://cdn.banggooso.com/assets/images/uploadImg/1663055970(PC).jpg"
-			href="https://www.metavv.com/content/10039931" style="margin: 2%; width:350px; height:350px;"/>
+		<img
+			src="https://cdn.banggooso.com/assets/images/uploadImg/1664416656(PC).png"
+			href="https://www.banggooso.com/gl/136/"
+			style="margin: 2%; width: 350px; height: 350px;" /> <img
+			src="https://cdn.banggooso.com/assets/images/uploadImg/1665044743(PC).jpg"
+			href="https://www.banggooso.com/gl/138/"
+			style="margin: 2%; width: 350px; height: 350px;" /> <img
+			src="https://cdn.banggooso.com/assets/images/uploadImg/1663055970(PC).jpg"
+			href="https://www.metavv.com/content/10039931"
+			style="margin: 2%; width: 350px; height: 350px;" />
 	</fieldset>
 
 	<%
