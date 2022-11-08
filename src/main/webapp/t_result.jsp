@@ -34,9 +34,10 @@ try{
 	<%=userID %>
 	님의 테스트 결과 내역
 	<table>
-	<tr>
-	<td>1</td><td><a href = "t_resultView.jsp">test이름</a></td>
-	</tr>
+		<tr>
+			<td>1</td>
+			<td><a href="t_resultView.jsp">test이름</a></td>
+		</tr>
 		<%
 //user테이블에서 테스트 아이디, 결과 아이디 가져옴
 sql = "select t_id from user where id = ?";
@@ -68,7 +69,8 @@ while(rs.next()){
 		%>
 		<%=test_array[i-1] %>
 		<tr>
-			<td><%=i %></td><td><a href="t_resultView.jsp?t_id=<%=test_array[i-1]%>"><%=t_test %></a></td>
+			<td><%=i %></td>
+			<td><a href="t_resultView.jsp?t_id=<%=test_array[i-1]%>"><%=t_test %></a></td>
 		</tr>
 		<%
 	}
