@@ -51,6 +51,7 @@
 				<div id="gallery">
 					<figure>
 						<header class="introfont"><%=category %></header>
+						<figure id="introblocks">
 						<ul class="nospace clear">
 							<%
 	
@@ -129,6 +130,7 @@
 		}
             %>
 						</ul>
+						</figure>
 					</figure>
 				</div>
 				<nav class="pagination">
