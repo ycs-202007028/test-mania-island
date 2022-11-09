@@ -35,19 +35,12 @@ try{
 	<div><%=userID %>
 	님의 테스트 결과 내역</div>
 	<table>
-<<<<<<< HEAD
 	<tr>
 	<td>1</td><td><a href = "t_resultView.jsp">test이름</a></td>
 	</tr>
 	<tr>
 	<td>2</td><td><a href = "t_resultView.jsp">test이름1</a></td>
 	</tr>
-=======
-		<tr>
-			<td>1</td>
-			<td><a href="t_resultView.jsp">test이름</a></td>
-		</tr>
->>>>>>> 1bc5f1c1dae6b86b5a7391327e0c455e0a6b292f
 		<%
 	//user테이블에서 테스트 아이디, 결과 아이디 가져옴
 	sql = "select t_id, s_id from user where id = ?";
@@ -80,17 +73,9 @@ try{
 		}
 	}else{
 		%>
-<<<<<<< HEAD
 		<div>테스트 결과 내역이 없습니다!</div>
 		<button type="button" onclick="location.href='main.jsp'">테스트
 			하러 가기</button>
-=======
-		<%=test_array[i-1] %>
-		<tr>
-			<td><%=i %></td>
-			<td><a href="t_resultView.jsp?t_id=<%=test_array[i-1]%>"><%=t_test %></a></td>
-		</tr>
->>>>>>> 1bc5f1c1dae6b86b5a7391327e0c455e0a6b292f
 		<%
 	}
 %>
