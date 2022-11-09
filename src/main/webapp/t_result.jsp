@@ -28,52 +28,56 @@ conn = DriverManager.getConnection(jdbcUrl, dbId, dbPass);
 String t_id = null;
 String s_id = null;
 String t_test = null;
+int i;
 
 try{
 	%>
-	<%=userID %>
-	님의 테스트 결과 내역
+	<div><%=userID %>
+	님의 테스트 결과 내역</div>
 	<table>
 	<tr>
 	<td>1</td><td><a href = "t_resultView.jsp">test이름</a></td>
 	</tr>
+	<tr>
+	<td>2</td><td><a href = "t_resultView.jsp">test이름1</a></td>
+	</tr>
 		<%
-//user테이블에서 테스트 아이디, 결과 아이디 가져옴
-sql = "select t_id from user where id = ?";
-pstmt = conn.prepareStatement(sql);
-pstmt.setString(1, userID);
-rs = pstmt.executeQuery();
+	//user테이블에서 테스트 아이디, 결과 아이디 가져옴
+	sql = "select t_id, s_id from user where id = ?";
+	pstmt = conn.prepareStatement(sql);
+	pstmt.setString(1, userID);
+	rs = pstmt.executeQuery();
+	
+	while(rs.next()){
+		t_id = rs.getString("t_id");
+		s_id = rs.getString("s_id");
+	}
 
-while(rs.next()){
-	t_id = rs.getString("t_id");
-	int i = 1;
-	String test_array[] = t_id.split(",");
-	if(t_id == null){
+	if(t_id != null){
+		String test_array[] = t_id.split(",");
+		String result_array[] = s_id.split(",");
+		for(i = 0; i < test_array.length; i++){
+			sql = "select t_title from test where t_id = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, Integer.parseInt(test_array[i]));
+			rs = pstmt.executeQuery();
+
+			while(rs.next()){
+				t_test = rs.getString("t_title");
+			}
+			%>
+			<tr>
+				<td><%=i+1 %></td><td><a href = "t_resultView.jsp?t_id=<%=test_array[i]%>&s_id=<%=result_array[i]%>"><%=t_test %></a></td>
+			</tr>
+			<%
+		}
+	}else{
 		%>
-		<%=test_array[i-1] %>
 		<div>테스트 결과 내역이 없습니다!</div>
 		<button type="button" onclick="location.href='main.jsp'">테스트
 			하러 가기</button>
 		<%
-	}else{
-	//test테이블에서 테스트 아이디로 테스트 제목 가져옴
-	sql = "select t_title from test where t_id = ?";
-	pstmt = conn.prepareStatement(sql);
-	pstmt.setString(1, test_array[i-1]);
-	rs = pstmt.executeQuery();
-
-	while(rs.next()){
-		t_test = rs.getString("t_test");
 	}
-		%>
-		<%=test_array[i-1] %>
-		<tr>
-			<td><%=i %></td><td><a href="t_resultView.jsp?t_id=<%=test_array[i-1]%>"><%=t_test %></a></td>
-		</tr>
-		<%
-	}
-	i++;
-}
 %>
 	</table>
 	<%
