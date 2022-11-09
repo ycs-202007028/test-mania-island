@@ -5,64 +5,64 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="stylesheet" href="css/bootstrap.css" />
-<link rel="stylesheet" href="css/custom.css" />
+<link href="layout/styles/join.css" rel="stylesheet" type="text/css"
+	media="all">
+<link href="layout/styles/layout.css" rel="stylesheet" type="text/css"
+	media="all">
 <meta charset="UTF-8">
 <title>회원가입</title>
 </head>
 <body>
 	<!-- Top 호출-->
 	<jsp:include page="top.jsp" flush="false" />
-	<hr>
 
-	<div class="container">
-		<div class="col-lg-4"></div>
-		<div class="col-lg-4">
-			<div class="jumbotron" style="padding-top: 20px;">
-				<form action="joinOK.jsp" method="post">
-					<h3 style="text-align: center;">회원가입</h3>
-					<div class="form-group">
-						<input type="text" class="form-control" placeholder="이름"
-							name="name" maxlength="20" />
+<div class="hoc clear">
+	<div class="box">
+	<fieldset class="allform">
+	<legend >회원가입</legend>
+	
+		<form action="joinOK.jsp" method="post">
+						<input type="text" class="na" placeholder="이름"
+							name="name" maxlength="20" /><hr>
+						<input type="text" class="user" placeholder="아이디"
+							name="id" maxlength="20" /><hr>
+						<input type="password" class="ps" placeholder="비밀번호"
+							name="pw" maxlength="20" /><hr>
+						<input type="date" class="da" placeholder="날짜"
+							name="birth" maxlength="20" /><hr>
+						<input type="email" class="em" placeholder="e-mail"
+							name="email" maxlength="20" /><hr>
+					<div class="">
+						<div class="div">
+						<div class="box1" data-toggle="buttons"> 
+							<input type="radio" class="ra" id="male" name="gender" autocomplete="off" value="male" />
+							<label for="male">남자</label></div>
+						<div class="box2" data-toggle="buttons">
+							<input type="radio" class="ra" id="female" name="gender" autocomplete="off" value="female" />
+							<label for="female">여자</label></div>
+						
+					</div><hr>
 					</div>
-					<div class="form-group">
-						<input type="text" class="form-control" placeholder="아이디"
-							name="id" maxlength="20" />
-					</div>
-					<div class="form-group">
-						<input type="password" class="form-control" placeholder="비밀번호"
-							name="pw" maxlength="20" />
-					</div>
-					<div class="form-group">
-						<input type="date" class="form-control" placeholder="날짜"
-							name="birth" maxlength="20" />
-					</div>
-					<div class="form-group">
-						<input type="email" class="form-control" placeholder="e-mail"
-							name="email" maxlength="20" />
-					</div>
-					<div class="form-group" style="text-align: left:">
-						<div class="btn-group" data-toggle="buttons">
-							<label class="btn btn-primary active"> <input
-								type="radio" name="gender" autocomplete="off" value="male"
-								checked />남자
-							</label> <label class="btn btn-primary"> <input type="radio"
-								name="gender" autocomplete="off" value="female" />여자
-							</label>
-						</div>
-					</div>
-					<div class="form-group">
-						<input type="text" class="form-control" placeholder="MBTI"
-							name="mbti" maxlength="20" />
-					</div>
-					<input type="submit" class="btn btn-primary form-control"
-						value="회원가입" />
-				</form>
+					<div class="mb">
+						<input type="text" placeholder="MBTI" name="mbti" maxlength="20" /></div><hr>
+					<input type="submit" class="btnok" value="회원가입" />
+		</form>
+			
+	</fieldset>
+	</div>
+</div>
+
+<div class="footer" id="footer">
+		<div class="wrapper row5">
+			<div id="copyright" class="hoc clear">
+				<p class="fl_left">
+					Copyright &copy; 2022 컴퓨터소프트웨어학과 - <a target="_blank"
+						href="https://github.com/ycs-202007028/test-mania-island"
+						title="3학년 1반 - 1조">T.M.I</a>
+				</p>
 			</div>
 		</div>
-		<div class="col-lg-4"></div>
 	</div>
-
 	<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 </body>

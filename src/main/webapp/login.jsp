@@ -30,8 +30,8 @@
 						maxlength="20" />
 					<hr>
 					<div class="divlog">
-						<button type="submit" class="btnlogin" value="로그인">로그인</button>
-						<button type="submit" class="btnsign" value="회원가입">회원가입</button>
+						<button type="submit"  class="btnlogin" value="로그인">로그인</button>
+						<button type="button" onclick="location.href='join.jsp'" class="btnsign" value="회원가입">회원가입</button>
 					</div>
 				</form>
 			</fieldset>
