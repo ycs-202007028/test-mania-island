@@ -38,13 +38,13 @@ public class Test_ReplyDAO {
 	}
 	
 	// 댓글 목록 페이지
-	public ArrayList<Test_Reply> getList(int t_ID, int pageNumber){ String
-		SQL="SELECT * FROM test_REPLY WHERE tr_ID<? AND tr_Available=1 AND t_ID=? ORDER BY tr_ID DESC LIMIT 10"; 
+	public ArrayList<Test_Reply> getList(int t_id, int pageNumber){ String
+		SQL="SELECT * FROM test_REPLY WHERE tr_ID<? AND tr_Available=1 AND t_id=? ORDER BY tr_ID DESC LIMIT 10"; 
 		ArrayList<Test_Reply> list =new ArrayList<Test_Reply>(); 
 		try { 
 			PreparedStatement pstmt=conn.prepareStatement(SQL);
 			pstmt.setInt(1,getNext()-(pageNumber-1)*10); 
-			pstmt.setInt(2, t_ID);
+			pstmt.setInt(2, t_id);
 			rs=pstmt.executeQuery(); 
 			while(rs.next()) { 
 				Test_Reply test_reply = new Test_Reply();
@@ -52,7 +52,7 @@ public class Test_ReplyDAO {
 				test_reply.setUserID(rs.getString(2));
 				test_reply.setTr_Content(rs.getString(3));
 				test_reply.setTr_Date(rs.getString(4)); 
-				test_reply.setT_id(t_ID);
+				test_reply.setT_id(t_id);
 				test_reply.setTr_Available(1); 
 				list.add(test_reply);
 			} 
@@ -78,11 +78,11 @@ public class Test_ReplyDAO {
 	}
 	
 	// 댓글 목록
-	public Test_Reply gettest_Reply(int t_ID) {
-		String SQL = "select * from test_reply where t_ID = ?";
+	public Test_Reply getTest_Reply(int t_id) {
+		String SQL = "select * from test_reply where t_id = ?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
-			pstmt.setInt(1, t_ID);
+			pstmt.setInt(1, t_id);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				Test_Reply test_reply = new Test_Reply();
@@ -100,7 +100,7 @@ public class Test_ReplyDAO {
 		return null;
 	}
 	//댓글 작성
-	public int write(int t_ID, String tr_Content, String userID) {
+	public int write(int t_id, String tr_Content, String userID) {
 		String SQL="INSERT INTO TEST_REPLY VALUES(?,?,?,?,?,?)";
 		
 		try {
@@ -109,7 +109,7 @@ public class Test_ReplyDAO {
 			pstmt.setString(2, userID);
 			pstmt.setString(3, tr_Content);
 			pstmt.setString(4, getDate());
-			pstmt.setInt(5, t_ID);
+			pstmt.setInt(5, t_id);
 			pstmt.setInt(6,1);
 			return pstmt.executeUpdate();
 		} catch (Exception e) {
@@ -117,7 +117,7 @@ public class Test_ReplyDAO {
 		}
 		return -1;
 	}
-	public String getUpdateReply(int tr_ID) {
+	public String getUpdateTest_Reply(int tr_ID) {
 		String SQL = "SELECT tr_Content FROM test_reply WHERE tr_ID = ?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
@@ -146,11 +146,11 @@ public class Test_ReplyDAO {
 	}
 	
 	//댓글 삭제
-	public int delete(int t_ID) {
-		String SQL = "update test_reply set tr_Available = 0 where t_ID = ?";
+	public int delete(int t_id) {
+		String SQL = "update test_reply set tr_Available = 0 where t_id = ?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
-			pstmt.setInt(1, t_ID);
+			pstmt.setInt(1, t_id);
 			return pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();

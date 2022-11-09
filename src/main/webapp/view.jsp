@@ -12,6 +12,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+<link href="layout/styles/testinfo.css" rel="stylesheet" type="text/css" media="all">
 <style>
 #submit {
 	border: none;
@@ -43,12 +45,20 @@
 <body>
 	<!-- Top 호출-->
 	<jsp:include page="top.jsp" flush="false" />
-	<hr>
+
 	<%
-	Connection conn = null;
-	PreparedStatement pstmt = null;
-	ResultSet rs = null;
-	String sql;
+	  Connection conn = null;
+	  PreparedStatement pstmt = null;
+	  ResultSet rs = null;
+	  String id = request.getParameter("t_id");
+	  String title = "";
+	  String content = "";
+	  String img = "";
+	  String sql;
+	  // 댓글 사용자 이미지 가져오기 
+	  String userID = (String)session.getAttribute("userID");
+	  String mbti = null;
+	  String img1 = ""; 
 
 	try{
 		String jdbcUrl = "jdbc:mysql://localhost:3306/BBS?useUnicode=yes&characterEncoding=UTF8";
@@ -57,10 +67,70 @@
 		Class.forName("com.mysql.jdbc.Driver");
 		conn = DriverManager.getConnection(jdbcUrl, dbId, dbPass);
 		
+		sql = "select mbti from user where id = ?";
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, userID);
+		rs = pstmt.executeQuery();
+		
+		while(rs.next()){
+			mbti = rs.getString("mbti");
+		}
+		mbti = (String)mbti.toUpperCase().trim();
+		
+		switch(mbti){
+		case "ENFJ" :
+			img1 = "images/mbti/ENFJ.jpg";
+			break;
+		case "ENFP" :
+			img1 = "images/mbti/ENFP.jpg";
+			break;
+		case "ENTJ" :
+			img1 = "images/mbti/ENTJ.jpg";
+			break;
+		case "ENTP" :
+			img1 = "images/mbti/ENTP.jpg";
+			break;
+		case "ESFJ" :
+			img1 = "images/mbti/ESFJ.jpg";
+			break;
+		case "ESFP" :
+			img1 = "images/mbti/ESFP.jpg";
+			break;
+		case "ESTJ" :
+			img1 = "images/mbti/ESTJ.jpg";
+			break;
+		case "ESTP" :
+			img1 = "images/mbti/ESTP.jpg";
+			break;
+		case "INFJ" :
+			img1 = "images/mbti/INFJ.jpg";
+			break;
+		case "INFP" :
+			img1 = "images/mbti/INFP.jpg";
+			break;
+		case "INTJ" :
+			img1 = "images/mbti/INTJ.jpg";
+			break;
+		case "INTP" :
+			img1 = "images/mbti/INTP.jpg";
+			break;
+		case "ISFJ" :
+			img1 = "images/mbti/ISFJ.jpg";
+			break;
+		case "ISFP" :
+			img1 = "images/mbti/ISFP.jpg";
+			break;
+		case "ISTJ" :
+			img1 = "images/mbti/ISTJ.jpg";
+			break;
+		default :
+			img1 = "images/mbti/ISTP.jpg";
+			break;
+		}
+		
 		
 	int replyID = 0;
-	
-		String userID = null;
+
 		if(session.getAttribute("userID") != null){
 			userID = (String) session.getAttribute("userID");
 		}
@@ -144,11 +214,9 @@
 	<!-- 댓글 -->
 	<div style="padding: 10px 20px 40px 50px;">
 		<form action="replyOK.jsp?b_ID=<%= b_ID %>" method="post">
-			<div id="comment-count">댓글 0</div>
 			<!-- 데이터 불러오기 -->
 			<%
 			ReplyDAO replyDAO=new ReplyDAO();
-			Reply reply = new Reply();
 			ArrayList<Reply> list=replyDAO.getList(b_ID, pageNumber);
 			for(int i=list.size()-1;i>=0;i--){
 				//test에서 타이틀, 테스트 종류, 테스트 상세, 테스트 이미지 불러오기
@@ -159,43 +227,35 @@
 				
 				while(rs.next()){
 					replyID = Integer.parseInt(rs.getString("replyID"));
-				}		
-		%>
-			<table>
-				<tr>
-
-					<td style="text-align: left;"><%= list.get(i).getUserID() %></td>
-					<td style="text-align: left;"><%= list.get(i).getReplyContent() %></td>
-					<td><%= list.get(i).getR_Date().substring(0, 11) + list.get(i).getR_Date().substring(11, 13) + "시" + list.get(i).getR_Date().substring(14, 16) + "분" %>
-					</td>
-					<td><a
-						href="reply_update.jsp?b_ID=<%=b_ID%>&replyID=<%=replyID%>"
-						class="btn btn-primary">수정</a> <a
-						onclick="return confirm('정말로 삭제하시겠습니까?')"
-						href="reply_deleteOK.jsp?b_ID=<%=b_ID%>" class="btn btn-primary">삭제</a>
-
-					</td>
-				</tr>
-
+				}	
+							
+		%><hr>
+		<h1><img src=<%=img1 %> class="profile" /><%= list.get(i).getUserID() %></h1>
+		<p><%= list.get(i).getR_Date().substring(0, 11) + list.get(i).getR_Date().substring(11, 13) + "시" + list.get(i).getR_Date().substring(14, 16) + "분" %>
+		</p>
+		<%= list.get(i).getReplyContent() %>
+		<p><a href="reply_update.jsp?b_ID=<%=b_ID%>&replyID=<%=replyID%>"
+						class="btn btn-primary">수정</a> 
+		</p><br>
+		
 				<%
 			}
-			
 		%>
-			</table>
-			<table>
-				<tr>
-					<td><%=userID %></td>
-					<td><input id="comment-input" type="text" name="replyContent"
-						maxlength="50" placeholder="댓글 남기기 어때?"
-						style="width: 1200px; height: 70px; font-size: 25px;"></td>
-					<td><a href="replyOK.jsp"><input id="submit" type="submit"
-							value="등록" /></a></td>
-			</table>
-		</form>
+		<div class="comment">
+		<img src=<%=img1 %> class="profile" />
+		<input id="comment-input" type="text" name="replyContent"
+						maxlength="150" placeholder="댓글을 입력해 주세요."
+						style="width: 1600px; height: 70px; font-size: 25px;">
+		<a href="replyOK.jsp"><input id="submit" type="submit"
+							value="등록" /></a>	
+			
 	</div>
-
+	
+	<script src="js/scripts.js?ver=123"></script>
 	<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+	
+	
 	<%
 	}catch(SQLException ex){
 		ex.printStackTrace();
@@ -213,5 +273,6 @@
 		}
 		}
 	%>
+	</div>
 </body>
 </html>

@@ -10,9 +10,7 @@
 </head>
 <body>
 	<jsp:include page="top.jsp" flush="false" />
-	<br>
-	<hr>
-	<br>
+	<br>	<br>
 	<%-- 엠비티아이란? --%>
 	<div
 		style="border-radius: 10px; width: 80px; background-color: #F7AD19; color: #FFFFFF; font-size: 150%; padding: 5px; text-align: center; margin-left: 10%;">MBTI?</div>

@@ -4,7 +4,7 @@
 <%@ page import="java.io.PrintWriter"%>
 <% request.setCharacterEncoding("UTF-8"); %>
 <jsp:useBean id="test_reply" class="reply.Test_Reply" scope="page" />
-<jsp:setProperty name="test_reply" property="Tr_Content" />
+<jsp:setProperty name="test_reply" property="tr_Content" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,9 +13,9 @@
 </head>
 <body>
 	<%
-		int t_ID=1;
-		if(request.getParameter("t_ID")!=null){
-			t_ID=Integer.parseInt(request.getParameter("t_ID"));
+		int t_id=1;
+		if(request.getParameter("t_id")!=null){
+			t_id=Integer.parseInt(request.getParameter("t_id"));
 		}
 	
 		String userID=null;
@@ -39,7 +39,7 @@
 			}
 			else{
 				Test_ReplyDAO test_replyDAO=new Test_ReplyDAO();
-				int result = test_replyDAO.write(t_ID, test_reply.getTr_Content(), userID);
+				int result = test_replyDAO.write(t_id, test_reply.getTr_Content(), userID);
 				if(result==-1){
 					PrintWriter script= response.getWriter();
 					script.println("<script>");
@@ -48,7 +48,7 @@
 					script.println("</script>");
 				}
 				else{
-					String url="testinfo.jsp?t_ID="+t_ID;
+					String url="testinfo.jsp?t_id="+t_id;
 					PrintWriter script= response.getWriter();
 					script.println("<script>");
 					script.println("location.href='"+url+"'");

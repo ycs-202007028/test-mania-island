@@ -22,7 +22,7 @@ a, a:hover {
 <body>
 	<!-- Top 호출-->
 	<jsp:include page="top.jsp" flush="false" />
-	<hr>
+
 
 	<%
 		String userID = null;
