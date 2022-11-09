@@ -59,6 +59,19 @@
 	  String userID = (String)session.getAttribute("userID");
 	  String mbti = null;
 	  String img1 = ""; 
+	  
+	  if(session.getAttribute("userID") != null){
+			userID = (String) session.getAttribute("userID");
+		}
+		if(userID == null){
+			PrintWriter script = response.getWriter();
+			script.println("<script>");
+			script.println("alert('로그인을 하세요.')");
+			script.println("location.href = 'login.jsp'");
+			script.println("</script>");
+		}else{
+			PrintWriter script = response.getWriter();
+		}
 
 	try{
 		String jdbcUrl = "jdbc:mysql://localhost:3306/BBS?useUnicode=yes&characterEncoding=UTF8";
@@ -75,6 +88,7 @@
 		while(rs.next()){
 			mbti = rs.getString("mbti");
 		}
+		
 		mbti = (String)mbti.toUpperCase().trim();
 		
 		switch(mbti){
@@ -129,21 +143,8 @@
 		}
 		
 		
-	int replyID = 0;
+		int replyID = 0;
 
-		if(session.getAttribute("userID") != null){
-			userID = (String) session.getAttribute("userID");
-		}
-		if(userID == null){
-			PrintWriter script = response.getWriter();
-			script.println("<script>");
-			script.println("alert('로그인을 하세요.')");
-			script.println("location.href = 'login.jsp'");
-			script.println("</script>");
-		}else{
-			PrintWriter script = response.getWriter();
-		}
-		
 		int b_ID = 0;
 		// url에 b_ID가 넘어온다면 b_ID 변수에 정보 저장
 		if(request.getParameter("b_ID") != null){
