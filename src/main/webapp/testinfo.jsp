@@ -64,6 +64,19 @@
   String sql;
   int i = 0;
 
+	if(session.getAttribute("userID") != null){
+		userID = (String) session.getAttribute("userID");
+	}
+	if(userID == null){
+		PrintWriter script = response.getWriter();
+		script.println("<script>");
+		script.println("alert('로그인을 하세요.')");
+		script.println("location.href = 'login.jsp'");
+		script.println("</script>");
+	}else{
+		PrintWriter script = response.getWriter();
+	}
+	
   try{
   	String jdbcUrl = "jdbc:mysql://localhost:3306/BBS?useUnicode=yes&characterEncoding=UTF8";
   	String dbId = "root";
@@ -147,19 +160,6 @@
 		break;
 	}
 	int tr_ID = 0;
-
-	if(session.getAttribute("userID") != null){
-		userID = (String) session.getAttribute("userID");
-	}
-	if(userID == null){
-		PrintWriter script = response.getWriter();
-		script.println("<script>");
-		script.println("alert('로그인을 하세요.')");
-		script.println("location.href = 'login.jsp'");
-		script.println("</script>");
-	}else{
-		PrintWriter script = response.getWriter();
-	}
 	
 	int t_id = 0;
 	
@@ -172,7 +172,7 @@
 		pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
 	}
 	
-	Test_Reply test_reply = new Test_ReplyDAO().getTest_Reply(t_id);
+	
   	
   %>
 
