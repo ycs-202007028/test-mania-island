@@ -133,35 +133,98 @@
 	</fieldset>
 
 	<%
-	sql = "select t_id, s_id from user where id = ?";
+	sql = "select t_id, s_id from user where id=?";
   	pstmt = conn.prepareStatement(sql);
-  	pstmt.setString(1,userID);
+  	pstmt.setString(1, userID);
   	rs = pstmt.executeQuery();
   	
-  	String t_id = null;
-  	String s_id2 = null;
+  	String t_id = null; //진행한 테스트 아이디 저장 ex)'1,2,3,4'
+  	String s_id2 = null; //테스트 결과 아이디 저장 ex)'2,5,6,8'
   	while(rs.next()){
   		t_id = rs.getString("t_id");
   		s_id2 = rs.getString("s_id");
   	}
-	if(t_id == null){
-	sql = "update user set t_id = ?, s_id = ? where id = ?";
-  	pstmt = conn.prepareStatement(sql);
-  	pstmt.setString(1, id);
-  	pstmt.setString(2, s_id);
-  	pstmt.setString(3, userID);
-  	pstmt.executeUpdate();
-  	}else{
-  		id = id + "," + t_id;
-  		s_id = s_id + "," + s_id2;
+  	
+  	if(t_id == null){
+  		t_id = id;
+  		s_id2 = s_id;
   		sql = "update user set t_id = ?, s_id = ? where id = ?";
-  	  	pstmt = conn.prepareStatement(sql);
-  	  	pstmt.setString(1, id);
-  	  	pstmt.setString(2, s_id);
-  	  	pstmt.setString(3, userID);
-  	  	pstmt.executeUpdate();
+	  	pstmt = conn.prepareStatement(sql);
+	  	pstmt.setString(1, t_id);
+	  	pstmt.setString(2, s_id2);
+	  	pstmt.setString(3, userID);
+	  	pstmt.executeUpdate();
+  	}else if(t_id != null){
+  		String t_array[] = t_id.split(",");
+	  	String s_array[] = s_id2.split(",");
+	  	if(Integer.parseInt(t_array[0]) == Integer.parseInt(id)){
+	  		//테스트를 처음 하고 한번 더 했을 때 결과 재저장
+	  		if(t_array.length == 1){
+	  			t_id = id;
+	  			s_id2 = s_id;
+	  			sql = "update user set t_id = ?, s_id = ? where id = ?";
+	  		  	pstmt = conn.prepareStatement(sql);
+	  		  	pstmt.setString(1, t_id);
+	  		  	pstmt.setString(2, s_id2);
+	  		  	pstmt.setString(3, userID);
+	  		  	pstmt.executeUpdate();
+	  		//다른 테스트 실행 후 처음 한 테스트 한번 더 했을 때 결과 재저장
+	  		}else{
+		  		t_id = id;
+		  		s_id2 = s_id;
+		  		for(i=1; i<t_array.length; i++){
+		  			t_id = t_id + "," + t_array[i];
+		  			s_id2 = s_id2 + "," + s_array[i];
+		  		}
+		  		sql = "update user set t_id = ?, s_id = ? where id = ?";
+			  	pstmt = conn.prepareStatement(sql);
+			  	pstmt.setString(1, t_id);
+			  	pstmt.setString(2, s_id2);
+			  	pstmt.setString(3, userID);
+			  	pstmt.executeUpdate();
+	  		}
+	  	//첫번째 테스트랑 현재 진행한 테스트가 다를 때
+	  	}else if(Integer.parseInt(t_array[0]) != Integer.parseInt(id)){
+	  		if(t_array.length == 1){
+	  			t_id = t_array[0] + "," + id;
+		  		s_id2 = s_array[0] + "," + s_id;
+		  		sql = "update user set t_id = ?, s_id = ? where id = ?";
+			  	pstmt = conn.prepareStatement(sql);
+			  	pstmt.setString(1, t_id);
+			  	pstmt.setString(2, s_id2);
+			  	pstmt.setString(3, userID);
+			  	pstmt.executeUpdate();
+	  		}
+	  		else if(t_array.length > 1){
+	  			t_id = t_array[0];
+		  		s_id2 = s_array[0];
+		  		int flag = 0; //현재 테스트를 이전에도 진행한 적 있는지 확인
+		  		for(i=1; i<t_array.length; i++){
+		  			//이전에 진행한 테스트와 현재 테스트가 같을 때
+		  			if(Integer.parseInt(t_array[i]) == Integer.parseInt(id)){
+		  				t_array[i] = id;
+		  				s_array[i] = s_id;
+		  				flag = 1;
+		  			}
+		  			t_id = t_id + "," + t_array[i];
+		  			s_id2 = s_id2 + "," + s_array[i];
+		  			//이전에 진행한 테스트와 현재 테스트가 다를 때
+		  			if(Integer.parseInt(t_array[i]) != Integer.parseInt(id) && i == t_array.length-1 && flag == 0){
+			  			t_id = t_id + "," + id;
+			  			s_id2 = s_id2 + "," + s_id;
+		  			}
+		  			
+		  		}
+		  		sql = "update user set t_id = ?, s_id = ? where id = ?";
+			  	pstmt = conn.prepareStatement(sql);
+			  	pstmt.setString(1, t_id);
+			  	pstmt.setString(2, s_id2);
+			  	pstmt.setString(3, userID);
+			  	pstmt.executeUpdate();
+	  		}
+	  	}
   	}
-  		
+
 }catch(SQLException ex){
 	ex.printStackTrace();
 } finally {
