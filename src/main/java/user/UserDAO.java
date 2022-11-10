@@ -46,7 +46,7 @@ public class UserDAO {
 	}
 	
 	public int join(User user) {
-		String SQL = "insert into user values (?, ?, ?, ?, ?, ?, ?)";
+		String SQL = "insert into user values (?, ?, ?, ?, ?, ?, ?, null, null)";
 		try {
 			pstmt = conn.prepareStatement(SQL);
 			pstmt.setString(1,  user.getId());
@@ -56,6 +56,8 @@ public class UserDAO {
 			pstmt.setString(5,  user.getGender());
 			pstmt.setString(6,  user.getMbti());
 			pstmt.setString(7,  user.getBirth());
+			pstmt.setString(7,  user.getT_id());
+			pstmt.setString(7,  user.getS_id());
 			return pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();

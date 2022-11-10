@@ -8,6 +8,8 @@ public class User {
 	private String email;
 	private String gender;
 	private String mbti;
+	private String t_id;
+	private String s_id;
 	
 	public String getId() {
 		return id;
@@ -50,6 +52,18 @@ public class User {
 	}
 	public void setMbti(String mbti) {
 		this.mbti = mbti;
+	}
+	public String getT_id() {
+		return t_id;
+	}
+	public void setT_id(String t_id) {
+		this.t_id = t_id;
+	}
+	public String getS_id() {
+		return s_id;
+	}
+	public void setS_id(String s_id) {
+		this.s_id = s_id;
 	}
 	
 }

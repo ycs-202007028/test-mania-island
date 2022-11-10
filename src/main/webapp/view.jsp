@@ -43,7 +43,7 @@
 	border-left: 50px;
 }
 </style>
-<title>Insert title here</title>
+<title>게시판 글 보기</title>
 </head>
 <body>
 	<!-- Top 호출-->
