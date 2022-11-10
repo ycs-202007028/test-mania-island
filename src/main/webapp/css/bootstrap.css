@@ -2581,6 +2581,7 @@ caption {
 
 th {
 	text-align: left;
+	background-color: rgba(247, 173, 25, 1);
 }
 
 .table {

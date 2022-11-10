@@ -12,8 +12,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="css/bootstrap.css" />
+<link rel="stylesheet" href="css/custom.css" />
 <link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
 <link href="layout/styles/testinfo.css" rel="stylesheet" type="text/css" media="all">
+<link href="layout/styles/view.css" rel="sylesheet" type="text/css" media="all">
 <style>
 #submit {
 	border: none;
@@ -169,8 +172,7 @@
 
 	<div class="container">
 		<div class="row">
-			<table class="table table-striped"
-				style="text-align: center; border: 1px solid #dddddd">
+			<table class="list-table" >
 				<thead>
 					<tr>
 						<th colspan="3"
@@ -213,7 +215,7 @@
 	</div>
 
 	<!-- 댓글 -->
-	<div style="padding: 10px 20px 40px 50px;">
+	<div style="padding: 10px 20px 40px 50px;" class="container">
 		<form action="replyOK.jsp?b_ID=<%= b_ID %>" method="post">
 			<!-- 데이터 불러오기 -->
 			<%
@@ -274,6 +276,16 @@
 		}
 		}
 	%>
+	</div>
+	<br><br><br><br>
+	<div class="wrapper row5">
+		<div id="copyright" class="hoc clear">
+			<p class="fl_left">
+				Copyright &copy; 2022 컴퓨터소프트웨어학과 - <a target="_blank"
+					href="https://github.com/ycs-202007028/test-mania-island"
+					title="3학년 1반 - 1조">T.M.I</a>
+			</p>
+		</div>
 	</div>
 </body>
 </html>

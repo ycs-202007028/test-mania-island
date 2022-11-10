@@ -10,13 +10,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="css/bootstrap.css" />
 <link rel="stylesheet" href="css/custom.css" />
+<link href="layout/styles/view.css" rel="sylesheet" type="text/css" media="all">
 <title>게시물 수정</title>
 </head>
 <body>
 	<!-- Top 호출-->
 	<jsp:include page="top.jsp" flush="false" />
-	<hr>
-
+	
 	<%
 		String userID = null;
 		if (session.getAttribute("userID") != null) {

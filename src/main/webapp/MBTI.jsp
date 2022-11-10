@@ -417,7 +417,15 @@
 		<br>
 	</div>
 	<br>
-
+	<div class="wrapper row5">
+		<div id="copyright" class="hoc clear">
+			<p class="fl_left">
+				Copyright &copy; 2022 컴퓨터소프트웨어학과 - <a target="_blank"
+					href="https://github.com/ycs-202007028/test-mania-island"
+					title="3학년 1반 - 1조">T.M.I</a>
+			</p>
+		</div>
+	</div>
 
 </body>
 </html>
