@@ -52,12 +52,10 @@ public class UserDAO {
 			pstmt.setString(1,  user.getId());
 			pstmt.setString(2,  user.getName());
 			pstmt.setString(3,  user.getPw());
-			pstmt.setString(4,  user.getEmail());
-			pstmt.setString(5,  user.getGender());
-			pstmt.setString(6,  user.getMbti());
-			pstmt.setString(7,  user.getBirth());
-			pstmt.setString(7,  user.getT_id());
-			pstmt.setString(7,  user.getS_id());
+			pstmt.setString(4,  user.getBirth());
+			pstmt.setString(5,  user.getEmail());
+			pstmt.setString(6,  user.getGender());
+			pstmt.setString(7,  user.getMbti());
 			return pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
