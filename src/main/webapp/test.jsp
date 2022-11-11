@@ -7,9 +7,12 @@
 <meta charset="UTF-8">
 <title>T.M.I</title>
 </head>
+<link href="layout/styles/mypages.css" rel="stylesheet" type="text/css"	media="all">
+<link href="layout/styles/test.css" rel="stylesheet" type="text/css"	media="all">
 <body>
 	<!-- Top Background Image Wrapper -->
 	<jsp:include page="top.jsp" flush="false" />
+	<div class="hoc clear">
 	<%
   Connection conn = null;
   PreparedStatement pstmt = null;
@@ -56,27 +59,33 @@
   	
   	String[] Array_content= content.split(",");
   	String[] Array_select = select.split(",");
-  	%><div style="text-align: center">
+  	%>
+  	
+  	<div style="text-align: center">
 		<div><%=i + 1%>
 			/
 			<%=Array_content.length + 1 %></div>
 		<progress class="progress" value=<%=i %> min="1"
 			max=<%=Array_content.length %>></progress>
-		<br> <img src=<%=img %>>
+			
+		<!-- 테스트 이미지 출력 -->
+			<img class="testimg" src=<%=img %>>
 		<%
   	
   	if(i < Array_content.length){
   		%>
-		<div style=""><%=Array_content[i] %><br> <a
-				href="test.jsp?t_id=<%=id%>&img=<%=img%>&i=<%=i%>&score=<%=score+1%>">
-				<%=Array_select[i+i] %></a><br> <a
-				href="test.jsp?t_id=<%=id%>&img=<%=img%>&i=<%=i%>&score=<%=score+3%>"><%=Array_select[i+i+1] %></a><br>
-		</div>
-		<%
-  	}else{
-  		%>
-		<div style="">
-			<a href="testresult.jsp?t_id=<%=id%>&score=<%=score%>">결과 보러 가기</a><br>
+		<div class="qanda">
+  		
+  		<!-- 질문 출력  -->
+		<div class="q"><%=Array_content[i] %><br> </div>
+		<!-- 선택지(1) -->
+		<div class="a1">
+				<a href="test.jsp?t_id=<%=id%>&img=<%=img%>&i=<%=i%>&score=<%=score+1%>">
+				<%=Array_select[i+i] %></a><br> </div>
+		<!-- 선택지(2) -->	
+		<div class="a2">	
+				<a href="test.jsp?t_id=<%=id%>&img=<%=img%>&i=<%=i%>&score=<%=score+3%>">
+				<%=Array_select[i+i+1] %></a><br> </div>
 		</div>
 		<%
   	}
@@ -97,6 +106,7 @@
 	}
 	}
 %>
+	</div>
 	</div>
 </body>
 </html>

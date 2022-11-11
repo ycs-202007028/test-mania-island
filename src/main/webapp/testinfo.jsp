@@ -14,38 +14,10 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<style>
-#submit {
-	border: none;
-	border-radius: 20px;
-	width: 100px;
-	height: 50px;
-	background: #FFC000;
-	text-align: center;
-	color: white;
-	display: block;
-	vertical-align: middle;
-	top: 550px;
-	left: 900px;
-	font-size: 15pt;
-	font-weight: bold;
-}
-
-#comment-input {
-	border-style: bold;
-	border-bottom-color: #FFC000;
-	align: center;
-	border-right: 0px;
-	border-top: 0px;
-	border-left: 50px;
-}
-</style>
-<link href="layout/styles/layout.css" rel="stylesheet" type="text/css"
-	media="all">
-<link href="layout/styles/testinfo.css" rel="stylesheet" type="text/css"
-	media="all">
 </head>
-<body id="top">
+<link href="layout/styles/mypages.css" rel="stylesheet" type="text/css"	media="all">
+<link href="layout/styles/testinfo.css" rel="stylesheet" type="text/css"	media="all">
+<body>
 	<!-- Top Background Image Wrapper -->
 	<jsp:include page="top.jsp" flush="false" />
 	<div class="hoc clear">
@@ -183,20 +155,25 @@
 
 		<div class="div1">
 			<div class="imgbox">
-				<img src=<%=img %>>
+				<img style="width:100% !important;" src=<%=img %>>
 			</div>
 			<div class="puzzle">
 				<div class="titlefont"><%=title %></div>
 				<div class="subfont"><%=content %></div>
-				<button id="go"
-					onclick="location.href='test.jsp?t_id=<%=id%>&img=<%=img%>'">테스트
-					시작하기</button>
+				<button id="go" onclick="location.href='test.jsp?t_id=<%=id%>&img=<%=img%>'">테스트 시작하기</button>
+
 			</div>
 		</div>
 		<hr>
 		<!-- 테스트 댓글 부분 -->
-		<div style="padding: 10px 20px 40px 50px;">
 		<form action="test_replyOK.jsp?t_id=<%= t_id %>" method="post">
+		
+		<div class="comment">
+		<img src=<%=img1 %> class="profile" />
+		<input id="comment-input" type="text" name="tr_Content" maxlength="150" placeholder="댓글을 입력해 주세요.">
+		<a style="margin-top:auto; margin-bottom:20px; width: 150px; height: 30px;" href="test_replyOK.jsp">
+		<input class="submit1" type="submit" value="등록" /></a>				
+		</div>
 			<!-- 데이터 불러오기 -->
 			<%
 			Test_ReplyDAO test_replyDAO=new Test_ReplyDAO();
@@ -213,27 +190,31 @@
 				}	
 							
 		%>
-		<h1><img src=<%=img1 %> class="profile" /><%= list.get(j).getUserID() %></h1>
-		<p><%= list.get(j).getTr_Date().substring(0, 11) + list.get(j).getTr_Date().substring(11, 13) + "시" + list.get(j).getTr_Date().substring(14, 16) + "분" %>
+		<div class="div3">
+		<!-- 사용자 이미지 프로 -->
+		<img src=<%=img1 %> class="profile" />
+		
+		<div class="div5">
+		<div class="div4">
+		<!-- 사용자 이름 -->
+		<h1 class="username"><%= list.get(j).getUserID() %></h1>
+		<!-- 작성 날짜 -->
+		<p class="comdate"><%= list.get(j).getTr_Date().substring(0, 11) + list.get(j).getTr_Date().substring(11, 13) + "시" + list.get(j).getTr_Date().substring(14, 16) + "분" %>
 		</p>
-		<%= list.get(i).getTr_Content() %>
-		<p><a href="test_reply_update.jsp?t_id=<%=t_id%>&tr_ID=<%=tr_ID%>"
-						class="btn btn-primary">수정</a> 
-		</p><br>
+		<!-- 수정 버튼 -->
+		<p><a href="test_reply_update.jsp?t_id=<%=t_id%>&tr_ID=<%=tr_ID%>" class="btnupdate">수정</a> </p>
+		</div>	
+		
+		<div class="comfont">
+		 <%= list.get(i).getTr_Content() %> 
+		</div>
+		
+		</div>
+		</div>
 		<hr>
-				<%
+			<%
 			}
 		%>
-		<div class="comment">
-		<img src=<%=img1 %> class="profile" />
-		<input id="comment-input" type="text" name="tr_Content"
-						maxlength="150" placeholder="댓글을 입력해 주세요."
-						style="width: 1600px; height: 70px; font-size: 25px;">
-		<a href="test_replyOK.jsp"><input id="submit" type="submit"
-							value="등록" /></a>	
-			
-	</div>
-	
 	<script src="js/scripts.js?ver=123"></script>
 	<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
