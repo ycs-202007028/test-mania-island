@@ -20,7 +20,7 @@
 Connection conn = null;
 PreparedStatement pstmt = null;
 ResultSet rs = null;
-String sql;
+String sql = null;
 
 //마이페이지에 들어가는 정보를 저장하기 위한 변수
 String userID = (String)session.getAttribute("userID");
