@@ -204,6 +204,8 @@
 		</p>
 		<!-- 수정 버튼 -->
 		<p><a href="test_reply_update.jsp?t_id=<%=t_id%>&tr_ID=<%=tr_ID%>" class="btnupdate">수정</a> </p>
+		<!-- 삭제 버튼 -->
+		<p><a href="test_reply_depleteOK.jsp?t_ID=<%=t_id%>&tr_ID=<%=tr_ID%>"class="btnupdate">삭제</a> </p>
 		</div>	
 		
 		<div class="comfont">

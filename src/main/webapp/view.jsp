@@ -216,7 +216,16 @@
 
 	<!-- 댓글 -->
 	<div style="padding: 10px 20px 40px 50px;" class="container">
-		<form action="replyOK.jsp?b_ID=<%= b_ID %>" method="post">
+		<form action="replyOK.jsp?b_ID=<%= b_ID %>" method="post">	
+		<div class="comment">
+		<img src=<%=img1 %> class="profile" />
+		<input id="comment-input" type="text" name="replyContent"
+						maxlength="150"  placeholder="댓글을 입력해 주세요.">
+		<a style="margin-top:auto; margin-bottom:40px; width: 150px; height: 30px;" 
+			href="replyOK.jsp"><input id="submit" type="submit"
+							value="등록" /></a>	
+			
+		</div><br><br><br>
 			<!-- 데이터 불러오기 -->
 			<%
 			ReplyDAO replyDAO=new ReplyDAO();
@@ -232,27 +241,35 @@
 					replyID = Integer.parseInt(rs.getString("replyID"));
 				}	
 							
-		%><hr>
-		<h1><img src=<%=img1 %> class="profile" /><%= list.get(i).getUserID() %></h1>
-		<p><%= list.get(i).getR_Date().substring(0, 11) + list.get(i).getR_Date().substring(11, 13) + "시" + list.get(i).getR_Date().substring(14, 16) + "분" %>
-		</p>
-		<%= list.get(i).getReplyContent() %>
-		<p><a href="reply_update.jsp?b_ID=<%=b_ID%>&replyID=<%=replyID%>"
-						class="btn btn-primary">수정</a> 
-		</p><br>
+		%>
+		<div class="div3">
+		<!-- 사용자 이미지 프로 -->
+		<img src=<%=img1 %> class="profile" />
 		
+		<div class="div5">
+		<div class="div4">
+		<!-- 사용자 이름 -->
+		<h1 class="username"><%= list.get(i).getUserID() %></h1>
+		<!-- 작성 날짜 -->
+		<p class="comdate"><%= list.get(i).getR_Date().substring(0, 11) + list.get(i).getR_Date().substring(11, 13) + "시" + list.get(i).getR_Date().substring(14, 16) + "분" %>
+		</p>
+		<!-- 수정 버튼 -->
+		<p><a href="reply_update.jsp?b_ID=<%=b_ID%>&replyID=<%=replyID%>"class="btnupdate">수정</a> </p>
+		<!-- 삭제 버튼 -->
+		<p><a href="reply_depleteOK.jsp?b_ID=<%=b_ID%>&replyID=<%=replyID%>"class="btnupdate">삭제</a> </p>
+		</div>	
+		
+		<div class="comfont">
+		 <%= list.get(i).getReplyContent() %> 
+		</div>
+		
+		</div>
+		</div>
+		<hr>
 				<%
 			}
 		%>
-		<div class="comment">
-		<img src=<%=img1 %> class="profile" />
-		<input id="comment-input" type="text" name="replyContent"
-						maxlength="150" placeholder="댓글을 입력해 주세요."
-						style="width: 1600px; height: 70px; font-size: 25px;">
-		<a href="replyOK.jsp"><input id="submit" type="submit"
-							value="등록" /></a>	
-			
-	</div>
+		
 	
 	<script src="js/scripts.js?ver=123"></script>
 	<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>

@@ -2,8 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="bbs.Bbs"%>
 <%@ page import="bbs.BbsDAO"%>
-<%@ page import="reply.Reply"%>
-<%@ page import="reply.ReplyDAO"%>
+<%@ page import="reply.Test_Reply"%>
+<%@ page import="reply.Test_ReplyDAO"%>
 <%@ page import="java.io.PrintWriter"%>
 <%@ page import="java.io.File"%>
 <% request.setCharacterEncoding("UTF-8");%>
@@ -15,9 +15,9 @@
 </head>
 <body>
 	<%
-		int b_ID=0;
-		if(request.getParameter("b_ID")!=null){
-			b_ID=Integer.parseInt(request.getParameter("b_ID"));
+		int t_id=0;
+		if(request.getParameter("t_id")!=null){
+			t_id=Integer.parseInt(request.getParameter("t_id"));
 		}
 
 		String userID = null;
@@ -32,16 +32,16 @@
 			script.println("</script>");
 		} 
 
-		Reply reply = new ReplyDAO().getReply(b_ID);
-		if(!userID.equals(reply.getUserID())){
+		Test_Reply test_reply = new Test_ReplyDAO().getTest_Reply(t_id);
+		if(!userID.equals(test_reply.getUserID())){
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('권한이 없습니다.')");
-			script.println("location.href = 'board.jsp'");
+			script.println("location.href = 'main.jsp'");
 			script.println("</script>");
 		} else {
-				ReplyDAO ReplyDAO = new ReplyDAO();
-				int result = ReplyDAO.delete(b_ID);
+				Test_ReplyDAO Test_ReplyDAO = new Test_ReplyDAO();
+				int result = Test_ReplyDAO.delete(t_id);
 				if(result == -1){
 					PrintWriter script = response.getWriter();
 					script.println("<script>");
