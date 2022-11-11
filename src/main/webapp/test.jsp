@@ -88,6 +88,14 @@
 				<%=Array_select[i+i+1] %></a><br> </div>
 		</div>
 		<%
+  	}else{
+  		%>
+  		
+		<div class="a3">
+			<a href="testresult.jsp?t_id=<%=id%>&score=<%=score%>">결과 보러 가기</a><br>
+		</div>
+		<%
+		
   	}
 	
 }catch(SQLException ex){
