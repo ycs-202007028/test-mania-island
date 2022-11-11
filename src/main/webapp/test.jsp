@@ -59,6 +59,13 @@
   	
   	String[] Array_content= content.split(",");
   	String[] Array_select = select.split(",");
+  	for(int a = 0; a<Array_content.length; a++){
+  		%>
+  		<%=Array_content[a] %><br>
+  		<%=Array_select[a+a] %><br>
+  		<%=Array_select[a+a+1] %><hr>
+  		<%
+  	}
   	%>
   	
   	<div style="text-align: center">
@@ -70,33 +77,10 @@
 			
 		<!-- 테스트 이미지 출력 -->
 			<img class="testimg" src=<%=img %>>
-		<%
-  	
-  	if(i < Array_content.length){
-  		%>
-		<div class="qanda">
-  		
-  		<!-- 질문 출력  -->
-		<div class="q"><%=Array_content[i] %><br> </div>
-		<!-- 선택지(1) -->
-		<div class="a1">
-				<a href="test.jsp?t_id=<%=id%>&img=<%=img%>&i=<%=i%>&score=<%=score+1%>">
-				<%=Array_select[i+i] %></a><br> </div>
-		<!-- 선택지(2) -->	
-		<div class="a2">	
-				<a href="test.jsp?t_id=<%=id%>&img=<%=img%>&i=<%=i%>&score=<%=score+3%>">
-				<%=Array_select[i+i+1] %></a><br> </div>
-		</div>
-		<%
-  	}else{
-  		%>
-  		
-		<div class="a3">
-			<a href="testresult.jsp?t_id=<%=id%>&score=<%=score%>">결과 보러 가기</a><br>
-		</div>
+
 		<%
 		
-  	}
+  	//}
 	
 }catch(SQLException ex){
 	ex.printStackTrace();
