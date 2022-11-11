@@ -12,7 +12,7 @@ public class UserDAO {
 	private ResultSet rs;
 	
 	public UserDAO() {
-		//UserDAO 객체가 생성될때 바로 데이터베이스 접근하도록 생성자 설정
+		//UserDAO 媛앹껜媛� �깮�꽦�맆�븣 諛붾줈 �뜲�씠�꽣踰좎씠�뒪 �젒洹쇳븯�룄濡� �깮�꽦�옄 �꽕�젙
 		try {
 			String dbURL = "jdbc:mysql://localhost:3306/BBS??useUnicode=yes&characterEncoding=UTF8";
 			String dbID = "root";
@@ -33,41 +33,41 @@ public class UserDAO {
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				if(rs.getString(1).equals(userPassword)) {
-					return 1; // 로그인 성공
+					return 1; // 濡쒓렇�씤 �꽦怨�
 				} else {
-					return 0; // 비밀번호 불일치
+					return 0; // 鍮꾨�踰덊샇 遺덉씪移�
 				}
 			}
-			return -1; // 아이디 없음
+			return -1; // �븘�씠�뵒 �뾾�쓬
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
-		return -2; // DB오류
+		return -2; // DB�삤瑜�
 	}
 	
 	public int join(User user) {
-		String SQL = "insert into user values (?, ?, ?, ?, ?, ?, ?, null, null)";
+		String SQL = "insert into user values (?, ?, ?, ?, ?, ?, ?)";
 		try {
 			pstmt = conn.prepareStatement(SQL);
 			pstmt.setString(1,  user.getId());
 			pstmt.setString(2,  user.getName());
 			pstmt.setString(3,  user.getPw());
-			pstmt.setString(4,  user.getBirth());
-			pstmt.setString(5,  user.getEmail());
-			pstmt.setString(6,  user.getGender());
-			pstmt.setString(7,  user.getMbti());
+			pstmt.setString(4,  user.getEmail());
+			pstmt.setString(5,  user.getGender());
+			pstmt.setString(6,  user.getMbti());
+			pstmt.setString(7,  user.getBirth());
 			return pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return -1; // DB 오류
+		return -1; // DB �삤瑜�
 	}
-
-		public int delete(int b_ID) { //ReplyDAO.java 참고하고 만든거
+	
+	public int deleteUser(String b_ID) { //ReplyDAO.java 참고하고 만든거
 		String SQL = "delete from user where id = ?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
-			pstmt.setInt(1, b_ID);
+			pstmt.setString(1, b_ID);
 			return pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();

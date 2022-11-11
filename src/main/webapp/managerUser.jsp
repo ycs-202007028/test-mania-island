@@ -16,7 +16,7 @@
 	<fieldset>
 		<legend align="center">&nbsp;항목 관리</legend>
 		<table class="table text-center">
-		<button type="submit" class="user_delete" value="회원 삭제" onclick="javascript: form.action='user_deleteOK.jsp';">회원 삭제</button>
+		<button type="submit" class="user_delete" value="회원 삭제" onclick="javascript: form.action='user_delete.jsp';">회원 삭제</button>
 		<button type="submit" class="board_delete" value="게시글 삭제" onclick="javascript: form.action='b_deleteOK.jsp';">게시글 삭제</button>
 		<button type="submit" class="comments_delete" value="댓글 삭제">댓글 삭제</button>
 	</fieldset>
