@@ -46,8 +46,8 @@
 			<div id="logo" class="fl_left">
 
 				<h1>
-					<a href="main.jsp"><img alt="logo" src="images/logo.png"
-						style="width: 120px;" /></a>
+					<a href="main.jsp">
+					<img alt="logo" src="images/logo.png" style="margin-top: 15% !important; margin-bottom: 10% !important; width: 120px;" /></a>
 				</h1>
 			</div>
 			<nav id="mainav" class="fl_right"">

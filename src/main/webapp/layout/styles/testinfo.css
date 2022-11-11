@@ -17,11 +17,42 @@
 	width: 100%;
 }
 
+.div3 {
+	display: flex;
+	justify-content: flex-start;
+}
+.div4 {
+	display: flex;
+	justify-content: flex-start;
+	padding: 0;
+	margin: 0;
+}
+
+.comfont{
+	font-size: x-large;
+	font-weight: lighter;
+}
+
 .box1 {
 	display: flex;
 	justify-content: flex-start;
 	margin-right: 25px;
 	width: 100%;
+}
+
+.username{
+	margin-top: 15px;
+	margin-bottom: auto;
+	font-size: large;
+}
+
+.comdate{
+	display : flex;
+	justify-content:flex-start;
+	margin-left: 15px;
+	margin-right: 0px;
+	padding-right:0px;
+	width: 150px;
 }
 
 .comment {
@@ -48,7 +79,7 @@
 	padding: 0px;
 	font-size: medium;
 	font-weight: lighter;
-	height: 250px;
+	height: 80%;
 }
 
 button {
@@ -60,11 +91,42 @@ button {
 	top: 450px;
 	left: 1300px;
 	text-align: center;
-	color: white;
+	color: black;
 	display: block;
-	vertical-align: middle;
 	font-size: 15pt;
 	font-weight: bold;
+}
+
+.submit1 {
+	border: none;
+	border-radius: 20px;
+	width: 100px;
+	height: 30px;
+	background: #FFC000;
+	text-align: center;
+	color: black;
+	display: block;
+	margin-left:25px;
+	margin-top : auto;
+	margin-bottom : auto;
+	font-size: 15pt;
+}
+
+.btnupdate {
+	border: none;
+	border-radius: 20px;
+	
+	background: #FFC000;
+	text-align: center;
+	color: black;
+	padding-left : 20px;
+	padding-right : 20px;
+	padding-bottom : 1px;
+	padding-top : 1px;
+	margin-bottom :auto;
+	margin-top :auto;
+	
+	font-size: small;
 }
 
 .imgbox {
@@ -73,13 +135,19 @@ button {
 
 .profile {
 	border-radius: 50%;
-	width: 50px;
-	height: 50px;
+	width: 100px;
+	height: 100px;
 	margin: 5px;
+}
+
+h1{
+	margin: 0;
+	padding: 0;
 }
 
 #go {
 	margin-left: auto;
+	margin-top:  auto;
 }
 
 #comment-input {
@@ -91,5 +159,6 @@ button {
 	margin-top: auto;
 	margin-bottom: auto;
 	width: 100%;
-	height: 50px;
+	height: 70px;
+	font-size: 25px;
 }
