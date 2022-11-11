@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<% request.setCharacterEncoding("UTF-8"); %>
 <%@ page import="java.io.PrintWriter"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="java.sql.*"%>
@@ -9,7 +8,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
 <title>T.M.I</title>
 <meta charset="utf-8">
 <meta name="viewport"
@@ -26,29 +24,19 @@
   PreparedStatement pstmt = null;
   ResultSet rs = null;
 
-  String userID = (String)session.getAttribute("userID");
   String id = request.getParameter("t_id");
   String title = "";
   String content = "";
   String img = "";
+  
+  //댓글 사용자 이미지 가져오기 
+  String userID = (String)session.getAttribute("userID");
   String mbti = null;
-  String img1 = ""; //테스트 댓글별 프로필이미지를 저장하기 위한 변수
+  String img1 = ""; 
+
   String sql;
   int i = 0;
 
-	if(session.getAttribute("userID") != null){
-		userID = (String) session.getAttribute("userID");
-	}
-	if(userID == null){
-		PrintWriter script = response.getWriter();
-		script.println("<script>");
-		script.println("alert('로그인을 하세요.')");
-		script.println("location.href = 'login.jsp'");
-		script.println("</script>");
-	}else{
-		PrintWriter script = response.getWriter();
-	}
-	
   try{
   	String jdbcUrl = "jdbc:mysql://localhost:3306/BBS?useUnicode=yes&characterEncoding=UTF8";
   	String dbId = "root";
@@ -70,68 +58,81 @@
   	
   //test reply에서 프로필 이미지 불러오기
   	sql = "select mbti from user where id = ?";
-  	pstmt = conn.prepareStatement(sql);
-  	pstmt.setString(1, userID);
-  	rs = pstmt.executeQuery();
-  	
-  	while(rs.next()){
-  		mbti = rs.getString("mbti");
-  	}
-  	
-  	mbti = (String)mbti.toUpperCase().trim();
-  	
-
-	switch(mbti){
-	case "ENFJ" :
-		img1 = "images/mbti/ENFJ.jpg";
-		break;
-	case "ENFP" :
-		img1 = "images/mbti/ENFP.jpg";
-		break;
-	case "ENTJ" :
-		img1 = "images/mbti/ENTJ.jpg";
-		break;
-	case "ENTP" :
-		img1 = "images/mbti/ENTP.jpg";
-		break;
-	case "ESFJ" :
-		img1 = "images/mbti/ESFJ.jpg";
-		break;
-	case "ESFP" :
-		img1 = "images/mbti/ESFP.jpg";
-		break;
-	case "ESTJ" :
-		img1 = "images/mbti/ESTJ.jpg";
-		break;
-	case "ESTP" :
-		img1 = "images/mbti/ESTP.jpg";
-		break;
-	case "INFJ" :
-		img1 = "images/mbti/INFJ.jpg";
-		break;
-	case "INFP" :
-		img1 = "images/mbti/INFP.jpg";
-		break;
-	case "INTJ" :
-		img1 = "images/mbti/INTJ.jpg";
-		break;
-	case "INTP" :
-		img1 = "images/mbti/INTP.jpg";
-		break;
-	case "ISFJ" :
-		img1 = "images/mbti/ISFJ.jpg";
-		break;
-	case "ISFP" :
-		img1 = "images/mbti/ISFP.jpg";
-		break;
-	case "ISTJ" :
-		img1 = "images/mbti/ISTJ.jpg";
-		break;
-	default :
-		img1 = "images/mbti/ISTP.jpg";
-		break;
-	}
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, userID);
+		rs = pstmt.executeQuery();
+		
+		while(rs.next()){
+			mbti = rs.getString("mbti");
+		}
+		
+		mbti = (String)mbti.toUpperCase().trim();
+		
+		switch(mbti){
+		case "ENFJ" :
+			img1 = "images/mbti/ENFJ.jpg";
+			break;
+		case "ENFP" :
+			img1 = "images/mbti/ENFP.jpg";
+			break;
+		case "ENTJ" :
+			img1 = "images/mbti/ENTJ.jpg";
+			break;
+		case "ENTP" :
+			img1 = "images/mbti/ENTP.jpg";
+			break;
+		case "ESFJ" :
+			img1 = "images/mbti/ESFJ.jpg";
+			break;
+		case "ESFP" :
+			img1 = "images/mbti/ESFP.jpg";
+			break;
+		case "ESTJ" :
+			img1 = "images/mbti/ESTJ.jpg";
+			break;
+		case "ESTP" :
+			img1 = "images/mbti/ESTP.jpg";
+			break;
+		case "INFJ" :
+			img1 = "images/mbti/INFJ.jpg";
+			break;
+		case "INFP" :
+			img1 = "images/mbti/INFP.jpg";
+			break;
+		case "INTJ" :
+			img1 = "images/mbti/INTJ.jpg";
+			break;
+		case "INTP" :
+			img1 = "images/mbti/INTP.jpg";
+			break;
+		case "ISFJ" :
+			img1 = "images/mbti/ISFJ.jpg";
+			break;
+		case "ISFP" :
+			img1 = "images/mbti/ISFP.jpg";
+			break;
+		case "ISTJ" :
+			img1 = "images/mbti/ISTJ.jpg";
+			break;
+		default :
+			img1 = "images/mbti/ISTP.jpg";
+			break;
+		}
+		
 	int tr_ID = 0;
+	
+	if(session.getAttribute("userID") != null){
+		userID = (String) session.getAttribute("userID");
+	}
+	if(userID == null){
+		PrintWriter script = response.getWriter();
+		script.println("<script>");
+		script.println("alert('로그인을 하세요.')");
+		script.println("location.href = 'login.jsp'");
+		script.println("</script>");
+	}else{
+		PrintWriter script = response.getWriter();
+	}
 	
 	int t_id = 0;
 	
