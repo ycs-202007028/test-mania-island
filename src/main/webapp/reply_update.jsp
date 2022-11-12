@@ -41,19 +41,19 @@
 			script.println("location.href = 'board.jsp'");
 			script.println("</script>");
 		}
+		int replyID = 0;
+		if (request.getParameter("replyID") != null){
+			replyID = Integer.parseInt(request.getParameter("replyID"));
+		}
 		
-		//작성한 글이 작성한 자 본인인지 확인 
-		Bbs bbs = new BbsDAO().getBbs(b_ID);
-		if(!userID.equals(bbs.getId())){
+		//작성한 댓글이 작성한 자 본인인지 확인 
+		Reply reply = new ReplyDAO().getReply(replyID);
+		if(!userID.equals(reply.getUserID())){
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('권한이 없습니다.')");
 			script.println("location.href = 'board.jsp'");
 			script.println("</script>");
-		}
-		int replyID = 0;
-		if (request.getParameter("replyID") != null){
-			replyID = Integer.parseInt(request.getParameter("replyID"));
 		}
 		
 		ReplyDAO replyDAO = new ReplyDAO();

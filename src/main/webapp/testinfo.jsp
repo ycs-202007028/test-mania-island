@@ -9,12 +9,11 @@
 <html>
 <head>
 <title>T.M.I</title>
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-</head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="layout/styles/mypages.css" rel="stylesheet" type="text/css"	media="all">
 <link href="layout/styles/testinfo.css" rel="stylesheet" type="text/css"	media="all">
+</head>
 <body>
 	<!-- Top Background Image Wrapper -->
 	<jsp:include page="top.jsp" flush="false" />
@@ -173,7 +172,7 @@
 		<img src=<%=img1 %> class="profile" />
 		<input id="comment-input" type="text" name="tr_Content" maxlength="150" placeholder="댓글을 입력해 주세요.">
 		<a style="margin-top:auto; margin-bottom:20px; width: 150px; height: 30px;" href="test_replyOK.jsp">
-		<input class="submit1" type="submit" value="등록" /></a>				
+		<input id="submit" class="submit1" type="submit" value="등록" /></a>				
 		</div>
 			<!-- 데이터 불러오기 -->
 			<%
@@ -209,7 +208,7 @@
 		</div>	
 		
 		<div class="comfont">
-		 <%= list.get(i).getTr_Content() %> 
+		 <%= list.get(j).getTr_Content() %> 
 		</div>
 		
 		</div>
@@ -240,7 +239,7 @@
 	}
 %>
 		</div>
-	</div>
+
 	<br><br><br><br>
 	<div class="wrapper row5">
 		<div id="copyright" class="hoc clear">

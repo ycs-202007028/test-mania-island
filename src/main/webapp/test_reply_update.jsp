@@ -37,17 +37,7 @@
 		if (t_id == 0){
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
-			script.println("alert('유효하지 않은 글입니다.')");
-			script.println("location.href = 'board.jsp'");
-			script.println("</script>");
-		}
-		
-		//작성한 글이 작성한 자 본인인지 확인 
-		Test_Reply test_reply = new Test_ReplyDAO().getTest_Reply(t_id);
-		if(!userID.equals(test_reply.getUserID())){
-			PrintWriter script = response.getWriter();
-			script.println("<script>");
-			script.println("alert('권한이 없습니다.')");
+			script.println("alert('유효하지 않은 테스트입니다.')");
 			script.println("location.href = 'main.jsp'");
 			script.println("</script>");
 		}
@@ -55,6 +45,17 @@
 		if (request.getParameter("tr_ID") != null){
 			tr_ID = Integer.parseInt(request.getParameter("tr_ID"));
 		}
+		
+		//작성한 댓글이 작성한 자 본인인지 확인 
+		Test_Reply test_reply = new Test_ReplyDAO().getTest_Reply(tr_ID);
+		if(!userID.equals(test_reply.getUserID())){
+			PrintWriter script = response.getWriter();
+			script.println("<script>");
+			script.println("alert('권한이 없습니다.')");
+			script.println("location.href = 'main.jsp'");
+			script.println("</script>");
+		}
+		
 		
 		Test_ReplyDAO test_replyDAO = new Test_ReplyDAO();
 		String tr_Content = test_replyDAO.getUpdateTest_Reply(tr_ID);

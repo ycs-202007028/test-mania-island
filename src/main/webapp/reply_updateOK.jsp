@@ -53,8 +53,7 @@
 			script.println("location.href = 'main.jsp'");
 			script.println("</script>");
 		}
-		Reply reply = new ReplyDAO().getReply(b_ID);
-
+		Reply reply = new ReplyDAO().getReply(replyID);
 		if (!userID.equals(reply.getUserID())) {
 			PrintWriter script = response.getWriter();
 			script.println("<script>");

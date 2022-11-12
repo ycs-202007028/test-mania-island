@@ -34,7 +34,7 @@
 						<tr>
 							<th colspan="2"
 								style="background-color: #eeeeee; text-align: center;"><font
-								color="black"> 게시판 글쓰기 </th>
+								color="black"> 게시판 글쓰기 </font></th>
 						</tr>
 					</thead>
 					<tbody>

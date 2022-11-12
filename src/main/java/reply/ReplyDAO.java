@@ -81,11 +81,11 @@ public class ReplyDAO {
 	}
 	
 	// 댓글 목록
-	public Reply getReply(int b_ID) {
-		String SQL = "select * from reply where b_ID = ?";
+	public Reply getReply(int replyID) {
+		String SQL = "select * from reply where replyID = ?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
-			pstmt.setInt(1, b_ID);
+			pstmt.setInt(1, replyID);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				Reply reply = new Reply();
@@ -150,11 +150,11 @@ public class ReplyDAO {
 	}
 	
 	//댓글 삭제
-	public int delete(int b_ID) {
-		String SQL = "update reply set b_Available = 0 where b_ID = ?";
+	public int delete(int replyID) {
+		String SQL = "update reply set b_Available = 0 where replyID = ?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
-			pstmt.setInt(1, b_ID);
+			pstmt.setInt(1, replyID);
 			return pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();

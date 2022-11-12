@@ -31,8 +31,12 @@
 			script.println("location.href = 'login.jsp'");
 			script.println("</script>");
 		} 
-
-		Reply reply = new ReplyDAO().getReply(b_ID);
+		int replyID = 0;
+		if (request.getParameter("replyID") != null){
+			replyID = Integer.parseInt(request.getParameter("replyID"));
+		}
+		
+		Reply reply = new ReplyDAO().getReply(replyID);
 		if(!userID.equals(reply.getUserID())){
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
@@ -41,7 +45,7 @@
 			script.println("</script>");
 		} else {
 				ReplyDAO ReplyDAO = new ReplyDAO();
-				int result = ReplyDAO.delete(b_ID);
+				int result = ReplyDAO.delete(replyID);
 				if(result == -1){
 					PrintWriter script = response.getWriter();
 					script.println("<script>");

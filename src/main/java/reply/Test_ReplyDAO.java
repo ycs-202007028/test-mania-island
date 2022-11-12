@@ -78,11 +78,11 @@ public class Test_ReplyDAO {
 	}
 	
 	// 댓글 목록
-	public Test_Reply getTest_Reply(int t_id) {
-		String SQL = "select * from test_reply where t_id = ?";
+	public Test_Reply getTest_Reply(int tr_id) {
+		String SQL = "select * from test_reply where tr_id = ?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
-			pstmt.setInt(1, t_id);
+			pstmt.setInt(1, tr_id);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				Test_Reply test_reply = new Test_Reply();
@@ -146,11 +146,11 @@ public class Test_ReplyDAO {
 	}
 	
 	//댓글 삭제
-	public int delete(int t_id) {
-		String SQL = "update test_reply set tr_Available = 0 where t_id = ?";
+	public int delete(int tr_id) {
+		String SQL = "update test_reply set tr_Available = 0 where tr_id = ?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
-			pstmt.setInt(1, t_id);
+			pstmt.setInt(1, tr_id);
 			return pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
