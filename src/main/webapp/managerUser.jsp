@@ -118,7 +118,34 @@
 		%>		
 				<tr>
 					<td><input type="checkbox" name="replyck" value="<%=r_id%>"></td>
-					<td><%=r_id %></td>
+					<td>게시판 댓글 ID : <%=r_id %></td>
+					<td><%=id%></td>
+					<td><%=content%></td>
+					<td><%=date%></td>
+				</tr>
+		<%
+			}
+			
+			if(manager != null){
+				sql = "select id, tr_Content, tr_Date, tr_ID from test_reply";
+				pstmt = conn.prepareStatement(sql);
+			}else if(user != null){
+				sql = "select id, tr_Content, tr_Date, tr_ID from test_reply where id = ?";
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, user);
+			}
+			result = pstmt.executeQuery();
+
+			// 결과 레코드 하나씩마다 ID PW 이름 변수에 입력
+			while (result.next()) {
+				id = result.getString("id");
+				content = result.getString("tr_Content");
+				date = result.getString("tr_Date");
+				r_id = result.getInt("tr_ID");
+		%>		
+				<tr>
+					<td><input type="checkbox" name="trck" value="<%=r_id%>"></td>
+					<td>테스트 댓글 ID : <%=r_id %></td>
 					<td><%=id%></td>
 					<td><%=content%></td>
 					<td><%=date%></td>
