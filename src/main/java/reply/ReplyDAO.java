@@ -151,7 +151,7 @@ public class ReplyDAO {
 	
 	//댓글 삭제
 	public int delete(int replyID) {
-		String SQL = "update reply set b_Available = 0 where replyID = ?";
+		String SQL = "update reply set replyAvailable = 0 where replyID = ?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
 			pstmt.setInt(1, replyID);

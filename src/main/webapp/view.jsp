@@ -151,7 +151,7 @@
 		
 		
 		int replyID = 0;
-
+		
 		int b_ID = 0;
 		// url에 b_ID가 넘어온다면 b_ID 변수에 정보 저장
 		if(request.getParameter("b_ID") != null){
@@ -160,7 +160,7 @@
 		if(b_ID==0){
 			PrintWriter script=response.getWriter();
 			script.println("<script>");
-			script.println("alert('유효하지 않은 글입니다.')");
+			script.println("alert('유효하지 않은 댓글입니다.')");
 			script.println("location.href='board.jsp'");
 			script.println("</script>");	
 		}
@@ -260,7 +260,7 @@
 		<!-- 수정 버튼 -->
 		<p><a href="reply_update.jsp?b_ID=<%=b_ID%>&replyID=<%=replyID%>"class="btnupdate">수정</a> </p>
 		<!-- 삭제 버튼 -->
-		<p><a href="reply_depleteOK.jsp?b_ID=<%=b_ID%>&replyID=<%=replyID%>"class="btnupdate">삭제</a> </p>
+		<p><a onclick="return confirm('정말로 삭제하시겠습니까?')" href="reply_deleteOK.jsp?replyID=<%=replyID%>"class="btnupdate">삭제</a> </p>
 		</div>	
 		
 		<div class="comfont">

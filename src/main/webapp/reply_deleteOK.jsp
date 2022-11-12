@@ -41,7 +41,7 @@
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('권한이 없습니다.')");
-			script.println("location.href = 'board.jsp'");
+			script.println("history.back()");
 			script.println("</script>");
 		} else {
 				ReplyDAO ReplyDAO = new ReplyDAO();
@@ -55,7 +55,7 @@
 				} else { // 글삭제 성공
 					PrintWriter script = response.getWriter();
 					script.println("<script>");
-					script.println("location.href = 'view.jsp'");
+					script.println("location.href = 'board.jsp'");
 					script.println("</script>");
 				}
 		}

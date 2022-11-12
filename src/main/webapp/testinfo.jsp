@@ -204,7 +204,7 @@
 		<!-- 수정 버튼 -->
 		<p><a href="test_reply_update.jsp?t_id=<%=t_id%>&tr_ID=<%=tr_ID%>" class="btnupdate">수정</a> </p>
 		<!-- 삭제 버튼 -->
-		<p><a href="test_reply_depleteOK.jsp?t_ID=<%=t_id%>&tr_ID=<%=tr_ID%>"class="btnupdate">삭제</a> </p>
+		<p><a onclick="return confirm('정말로 삭제하시겠습니까?')" href="test_reply_deleteOK.jsp?t_id=<%=t_id%>&tr_ID=<%=tr_ID%>" class="btnupdate">삭제</a> </p>
 		</div>	
 		
 		<div class="comfont">

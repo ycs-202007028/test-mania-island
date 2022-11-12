@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="bbs.Bbs"%>
-<%@ page import="bbs.BbsDAO"%>
 <%@ page import="reply.Test_Reply"%>
 <%@ page import="reply.Test_ReplyDAO"%>
 <%@ page import="java.io.PrintWriter"%>
@@ -15,10 +13,6 @@
 </head>
 <body>
 	<%
-		int t_id=0;
-		if(request.getParameter("t_id")!=null){
-			t_id=Integer.parseInt(request.getParameter("t_id"));
-		}
 
 		String userID = null;
 		if (session.getAttribute("userID") != null) {//유저아이디이름으로 세션이 존재하는 회원들은 
@@ -32,16 +26,25 @@
 			script.println("</script>");
 		} 
 
-		Test_Reply test_reply = new Test_ReplyDAO().getTest_Reply(t_id);
+		int t_ID=0;
+		if(request.getParameter("t_ID")!=null){
+			t_ID=Integer.parseInt(request.getParameter("t_ID"));
+		}
+		int tr_ID=0;
+		if(request.getParameter("tr_ID")!=null){
+			tr_ID=Integer.parseInt(request.getParameter("tr_ID"));
+		}
+		
+		Test_Reply test_reply = new Test_ReplyDAO().getTest_Reply(tr_ID);
 		if(!userID.equals(test_reply.getUserID())){
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('권한이 없습니다.')");
-			script.println("location.href = 'main.jsp'");
+			script.println("history.back()");
 			script.println("</script>");
 		} else {
 				Test_ReplyDAO Test_ReplyDAO = new Test_ReplyDAO();
-				int result = Test_ReplyDAO.delete(t_id);
+				int result = Test_ReplyDAO.delete(tr_ID);
 				if(result == -1){
 					PrintWriter script = response.getWriter();
 					script.println("<script>");
@@ -51,7 +54,7 @@
 				} else { // 글삭제 성공
 					PrintWriter script = response.getWriter();
 					script.println("<script>");
-					script.println("location.href = 'view.jsp'");
+					script.println("location.href = 'main.jsp'");
 					script.println("</script>");
 				}
 		}
