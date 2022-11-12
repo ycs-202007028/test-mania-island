@@ -13,14 +13,16 @@
 	<div class="wrapper row1">
 		<div id="logo" style="display: flex; justify-content: flex-end;">
 			<% 
-		/*String master = (String)session.getAttribute("MLoginID"); */ 
+		String manager = (String)session.getAttribute("manager");
 		String userID = null;
 		//	로그인을 하지 않은 상태
 		if(session.getAttribute("userID") != null){
 			userID = (String) session.getAttribute("userID");
 		}
+		if(session.getAttribute("manager") != null)
+			manager = (String)session.getAttribute("manager");
 
-			if(userID == null){
+			if(userID == null && manager == null){
 		%>
 			<a href="login.jsp"
 				style="padding: 5px 10px 8px 0px; color: black; font-size: large;">
@@ -28,7 +30,7 @@
 				style="padding: 5px 10px 8px 0px; color: black; font-size: large;">
 				회원가입 </a>
 			<%
-			} else {
+			} else if(userID != null && manager == null) {
 		
             %>
 			<a href="mypages.jsp"
@@ -36,6 +38,13 @@
 			<a href="logoutOK.jsp"
 				style="padding: 5px 10px 8px 0px; color: black; font-size: large;">로그아웃</a>
 			<%
+            } else{
+            	%>
+    			<a href="managerUser.jsp"
+    				style="padding: 5px 10px 8px 0px; color: black; font-size: large;">관리자 페이지</a>
+    			<a href="logoutOK.jsp"
+    				style="padding: 5px 10px 8px 0px; color: black; font-size: large;">로그아웃</a>
+    			<%
             }
             %>
 		</div>

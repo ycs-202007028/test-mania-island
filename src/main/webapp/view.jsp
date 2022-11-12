@@ -60,13 +60,17 @@
 	  String sql;
 	  // 댓글 사용자 이미지 가져오기 
 	  String userID = (String)session.getAttribute("userID");
+	  String manager = (String)session.getAttribute("manager");
 	  String mbti = null;
 	  String img1 = ""; 
 	  
 	  if(session.getAttribute("userID") != null){
 			userID = (String) session.getAttribute("userID");
 		}
-		if(userID == null){
+	  if(session.getAttribute("manager") != null){
+		  manager = (String)session.getAttribute("manager");
+	  }
+		if(userID == null && manager == null){
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('로그인을 하세요.')");

@@ -185,7 +185,7 @@ try{
 				<progress class="progress" value=<%=r_count %> min="0"
 					max=<%=t_count %>></progress>
 				<hr>
-				<button class="bn" type="button">내가 쓴 글 / 댓글</button>
+				<button class="bn" type="button" onclick="location.href='managerUser.jsp'">내가 쓴 글 / 댓글</button>
 				<button class="bn" type="button"
 					onclick="location.href='t_result.jsp'">테스트 결과 보기</button>
 			</div>

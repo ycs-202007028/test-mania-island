@@ -14,6 +14,15 @@
 </head>
 <body>
 	<%
+	String id = (String)request.getParameter("id");
+	String pw = (String)request.getParameter("pw");
+		if(id.equals("admin") && pw.equals("1234")){
+			session.setAttribute("manager", id);
+			PrintWriter script = response.getWriter();
+			script.println("<script>");
+			script.println("location.href = 'main.jsp'");
+			script.println("</script>");
+		}
 		UserDAO userDAO = new UserDAO();
 		int result = userDAO.login(user.getId(), user.getPw());
 		if(result == 1){
