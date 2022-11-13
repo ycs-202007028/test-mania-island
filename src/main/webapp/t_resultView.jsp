@@ -52,19 +52,20 @@ try{
 	}
 	
 	%>
-	<fieldset>
-	<legend><%=t_title %></legend>
+	<br>
+	<fieldset style="margin-left: 10%; margin-right: 10%; border:0 solid black;">
+	<legend><div style="border-radius: 10px; width: 250px; background-color: #F7AD19; color: #FFFFFF; font-size: 150%; padding: 5px; text-align: center;"> <%=t_title %> </div></legend>
 	<%
 	if(r_content == null){
 		%>
-		<div><img src=<%=r_img %> alt="크롤링부분"
+		<div style="text-align: center;"><img src=<%=r_img %> alt="크롤링부분"
 				style="margin-right: 2%; width: 400; height: 400" /></div>
 		<%
 	}else{
 		%>
-		<div><img src=<%=r_img %> alt="크롤링부분"
+		<div style="text-align: center;"><img src=<%=r_img %> alt="크롤링부분"
 				style="margin-right: 2%; width: 400; height: 400" /></div>
-		<div><%=r_content %></div>
+		<div style="text-align: center;"><%=r_content %></div>
 		<%
 	}
 	%>

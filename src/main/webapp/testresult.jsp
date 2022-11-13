@@ -14,6 +14,8 @@
 	color: white;
 	font-size: 15pt;
 	font-weight: bold;
+	margin-left: auto;
+	margin-right: auto;
 }
 </style>
 </head>
@@ -21,7 +23,6 @@
 	<!-- Top Background Image Wrapper -->
 	<jsp:include page="top.jsp" flush="false" />
 
-	<hr>
 	<%
   Connection conn = null;
   PreparedStatement pstmt = null;
@@ -92,12 +93,13 @@
   		title = rs.getString("t_title");		
   	}
   	%>
-	<fieldset>
-		<legend><%=title %></legend>
+	<fieldset style="margin: 2.7%; border: solid 4px #F7AD19; border-radius: 60px 60px 60px 60px/60px 60px 60px 60px;">
+		<legend><div style="border-radius: 10px; width: 300px; background-color: #F7AD19; color: #FFFFFF; font-size: 150%; padding: 5px; text-align: center;"> 
+		<%=title %> </div> </legend>
 		<%
   	if(content != null){
   %>
-		<div style="padding: 20px;">
+		<div style="padding: 20px; text-align: center;">
 			<img src=<%=img %> alt="크롤링부분"
 				style="margin-right: 2%; width: 400; height: 400" /> <br> <span><%=content %></span>
 			<button type="button" id="rego"
@@ -107,7 +109,7 @@
 		<%
   	}else{
   		%>
-		<div style="padding: 20px;">
+		<div style="padding: 20px; text-align: center;">
 			<img src=<%=img %> alt="크롤링부분"
 				style="margin-right: 2%; width: 400; height: 400" />
 			<button type="button" id="rego"
@@ -118,18 +120,18 @@
   	}
 %>
 	</fieldset>
-	<fieldset style="margin: 2.7%">
-		<legend> 다른 테스트 하러가기 </legend>
+	<fieldset style="margin: 2.7%; border: solid 4px #F7AD19; border-radius: 60px 60px 60px 60px/60px 60px 60px 60px;">
+		<legend> <div style="border-radius: 10px; width: 230px; background-color: #F7AD19; color:#FFFFFF; font-size:150%; padding:5px; text-align: center; "> 다른 테스트 하러 가기 </div> </legend>
 		<img
 			src="https://cdn.banggooso.com/assets/images/uploadImg/1664416656(PC).png"
 			href="https://www.banggooso.com/gl/136/"
-			style="margin: 2%; width: 350px; height: 350px;" /> <img
+			style="margin: 2%; width: 230px; height: 180px;" /> <img
 			src="https://cdn.banggooso.com/assets/images/uploadImg/1665044743(PC).jpg"
 			href="https://www.banggooso.com/gl/138/"
-			style="margin: 2%; width: 350px; height: 350px;" /> <img
+			style="margin: 2%; width: 230px; height: 180px;" /> <img
 			src="https://cdn.banggooso.com/assets/images/uploadImg/1663055970(PC).jpg"
 			href="https://www.metavv.com/content/10039931"
-			style="margin: 2%; width: 350px; height: 350px;" />
+			style="margin: 2%; width: 230px; height: 180px;" />
 	</fieldset>
 
 	<%
