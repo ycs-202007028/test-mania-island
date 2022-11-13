@@ -6,10 +6,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="layout/styles/manageruser.css" rel="stylesheet" type="text/css"	media="all">
 </head>
-<body id ="top">
+<body>
 	<!-- Top Background Image Wrapper -->
-	<jsp:include page="top.jsp" flush="false" />				
+	<jsp:include page="top.jsp" flush="false" />		
+	<div class="hoc clear">		
 		<%
 		// DB에서 id에 맞는 정보들을 가져온 값
 		String id = null; // 아이디
@@ -29,16 +31,16 @@
 		try {
 			%>
 			<form action="delete.jsp" method="post">
-			<fieldset>
-			<legend align="center">&nbsp;게시글 관리</legend>
-			<table>
+			<table class ="contents">
+			<thead class="conth">
 			<tr>
 				<th>선택</th>
 				<th>게시글번호</th>
 				<th>ID</th>
 				<th>제목</th>
 				<th>작성날짜</th>
-			</tr>
+				</tr>
+			</thead>
 			<%
 			String jdbcUrl = "jdbc:mysql://localhost:3306/BBS?useUnicode=yes&characterEncoding=UTF8";
 			String dbId = "root";
@@ -76,7 +78,6 @@
 		%>
 	</table>
 	<button type="submit" value="게시글 삭제">게시글 삭제</button>
-	</fieldset>
 	</form>
 			
 			<!-- 게시판 내 댓글 삭제 -->
@@ -162,7 +163,9 @@
 	} catch (SQLException ex) {
 		ex.printStackTrace();
 	}
-	%>
+	%>	
+	</div>
+	
 	<div class="wrapper row5">
 		<div id="copyright" class="hoc clear">
 			<p class="fl_left">
@@ -172,5 +175,6 @@
 			</p>
 		</div>
 	</div>
+	
 </body>
 </html>

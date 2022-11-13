@@ -9,7 +9,7 @@
 
 .div1 {
 	margin-top: 25px;
-	margin-bottom: 25px;
+	margin-bottom:50px;
 }
 
 .div2 {
@@ -64,6 +64,7 @@
 .puzzle {
 	margin-left: 20px;
 	width: 50%;
+	display:block;
 }
 
 .titlefont {

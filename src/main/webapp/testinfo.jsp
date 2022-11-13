@@ -194,9 +194,9 @@
 		<p class="comdate"><%= list.get(j).getTr_Date().substring(0, 11) + list.get(j).getTr_Date().substring(11, 13) + "시" + list.get(j).getTr_Date().substring(14, 16) + "분" %>
 		</p>
 		<!-- 수정 버튼 -->
-		<p><a href="test_reply_update.jsp?t_id=<%=t_id%>&tr_ID=<%=tr_ID%>" class="btnupdate">수정</a> </p>
+		<p style="margin-right: 5px;"><a href="test_reply_update.jsp?t_id=<%=t_id%>&tr_ID=<%=tr_ID%>" class="btnupdate">수정</a> </p>
 		<!-- 삭제 버튼 -->
-		<p><a onclick="return confirm('정말로 삭제하시겠습니까?')" href="test_reply_deleteOK.jsp?t_id=<%=t_id%>&tr_ID=<%=tr_ID%>" class="btnupdate">삭제</a> </p>
+		<p style="margin-left: 5px;"><a onclick="return confirm('정말로 삭제하시겠습니까?')" href="test_reply_deleteOK.jsp?t_id=<%=t_id%>&tr_ID=<%=tr_ID%>" class="btnupdate">삭제</a> </p>
 		</div>	
 		
 		<div class="comfont">

@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+@charset "EUC-KR";
+
+/* ---------- 폰트관련 설정 ---------- */
+@import	url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+	
+
+@font-face {
+	font-family: 'GmarketSansMedium';
+	src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body, .introfont {
+	font-family: 'GmarketSansMedium';
+}
+
+/* ---------- manageruser ---------- */
+
+
+
+table {
+	width: 90%;
+	height: 90%;
+	text-align: left;
+	font-size: large;
+	border: none !important;
+}
+
+thead{
+	background-color: pink !important;
+	font-size: xx-small;
+}
+
+tr{
+	border-bottom: 1px solid #cccccc;
+}

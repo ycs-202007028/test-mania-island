@@ -882,40 +882,11 @@ input:focus, textarea:focus, *:required:focus {
 	background-color: #D55A77;
 }
 
-/* Tables + Comments */
-table, th, td, #comments .avatar, #comments input, #comments textarea {
-	border-color: #D7D7D7;
-}
 
-#comments input:focus, #comments textarea:focus, #comments *:required:focus
-	{
-	border-color: #D55A77;
-}
-
-th {
-	color: #FFFFFF;
-	background-color: #373737;
-}
-
-tr, #comments li, #comments input[type="submit"], #comments input[type="reset"]
-	{
-	color: inherit;
-	background-color: #FBFBFB;
-}
-
-tr:nth-child(even), #comments li:nth-child(even) {
-	color: inherit;
-	background-color: #F7F7F7;
-}
-
-table a, #comments a {
-	background-color: inherit;
-}
 
 /* Media Queries
 --------------------------------------------------------------------------------------------------------------- */
-@
--ms-viewport {
+@-ms-viewport {
 	width: device-width;
 }
 

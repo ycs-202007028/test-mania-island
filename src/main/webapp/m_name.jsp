@@ -4,17 +4,38 @@
 <html lang="ko">
 <head>
 <style>
-div {
-	box-sizing: border-box;
-	width: 120px;
-	height: 35px;
-	margin: 20px auto;
-	background-color: orange;
-	border-radius: 40px/40px;
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    font-size: 25px;
+    padding: 15px 30px;
+    background-color: white;
+    color: black;
+    border: 3px solid black;
+    border-radius: 30px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-family: sans-serif;
+    transition: all 0.4s;
+}
+
+.btn:focus {
+    outline: none;
+}
+
+.btn:hover {
+    background-color: black;
+    color: white;
 }
 </style>
 </head>
 <body>
-	<div class="radi"></div>
+  <button class="btn">Hello</button>
+
 </body>
 </html>
