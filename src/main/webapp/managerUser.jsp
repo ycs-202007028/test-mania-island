@@ -82,9 +82,7 @@
 			
 			<!-- 게시판 내 댓글 삭제 -->
 			<form action="delete.jsp" method="post">
-			<fieldset>
-			<legend align="center">&nbsp;댓글 관리</legend>
-			<table>
+			<table class="contents">
 			<tr>
 				<th>선택</th>
 				<th>댓글번호</th>
@@ -156,7 +154,7 @@
 		%>
 	</table>
 	<button type="submit" value="댓글 삭제">댓글 삭제</button>
-	</fieldset>
+	
 	</form>
 	<%
 	// 에러 처리
@@ -166,7 +164,8 @@
 	%>	
 	</div>
 	
-	<div class="wrapper row5">
+
+<div class="wrapper row5">
 		<div id="copyright" class="hoc clear">
 			<p class="fl_left">
 				Copyright &copy; 2022 컴퓨터소프트웨어학과 - <a target="_blank"
@@ -174,7 +173,6 @@
 					title="3학년 1반 - 1조">T.M.I</a>
 			</p>
 		</div>
-	</div>
-	
+	</div>	
 </body>
 </html>

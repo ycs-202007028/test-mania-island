@@ -4,24 +4,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-#rego {
-	border: none;
-	border-radius: 20px;
-	width: 200px;
-	height: 50px;
-	background: #FFC000;
-	color: white;
-	font-size: 15pt;
-	font-weight: bold;
-	margin-left: auto;
-	margin-right: auto;
-}
-</style>
+<link href="layout/styles/testres.css" rel="stylesheet" type="text/css"	media="all">
 </head>
 <body>
 	<!-- Top Background Image Wrapper -->
 	<jsp:include page="top.jsp" flush="false" />
+	<div class="hoc clear">
 
 	<%
   Connection conn = null;
@@ -93,16 +81,18 @@
   		title = rs.getString("t_title");		
   	}
   	%>
-	<fieldset style="margin: 2.7%; border: solid 4px #F7AD19; border-radius: 60px 60px 60px 60px/60px 60px 60px 60px;">
-		<legend><div style="border-radius: 10px; width: 300px; background-color: #F7AD19; color: #FFFFFF; font-size: 150%; padding: 5px; text-align: center;"> 
-		<%=title %> </div> </legend>
+	<fieldset class="testres">
+	<div class="testBox">
+	<a class="testlabel"><%=title %></a>
+	</div>		
 		<%
   	if(content != null){
   %>
 		<div style="padding: 20px; text-align: center;">
 			<img src=<%=img %> alt="크롤링부분"
-				style="margin-right: 2%; width: 400; height: 400" /> <br> <span><%=content %></span>
-			<button type="button" id="rego"
+				style="margin-right: 2%; width: 400; height: 400" /> <br> 
+				<span class="note"><%=content %></span>
+			<button type="button" class="rego"
 				onclick="location.href='testinfo.jsp?t_id='+<%=id%>">테스트
 				다시하기</button>
 		</div>
@@ -120,18 +110,24 @@
   	}
 %>
 	</fieldset>
-	<fieldset style="margin: 2.7%; border: solid 4px #F7AD19; border-radius: 60px 60px 60px 60px/60px 60px 60px 60px;">
-		<legend> <div style="border-radius: 10px; width: 230px; background-color: #F7AD19; color:#FFFFFF; font-size:150%; padding:5px; text-align: center; "> 다른 테스트 하러 가기 </div> </legend>
+	
+	<hr>
+	<div class="otherBox">
+	<a class="otherlabel">다른 테스트 하러 가기</a>
+	</div>
+	<fieldset class="othertest">		
 		<img
 			src="https://cdn.banggooso.com/assets/images/uploadImg/1664416656(PC).png"
 			href="https://www.banggooso.com/gl/136/"
-			style="margin: 2%; width: 230px; height: 180px;" /> <img
+			style="margin: 2%; width: 30%; height: 180px;" /> 
+		<img
 			src="https://cdn.banggooso.com/assets/images/uploadImg/1665044743(PC).jpg"
 			href="https://www.banggooso.com/gl/138/"
-			style="margin: 2%; width: 230px; height: 180px;" /> <img
+			style="margin: 2%; width: 30%; height: 180px;" /> 
+		<img
 			src="https://cdn.banggooso.com/assets/images/uploadImg/1663055970(PC).jpg"
 			href="https://www.metavv.com/content/10039931"
-			style="margin: 2%; width: 230px; height: 180px;" />
+			style="margin: 2%; width: 30%; height: 180px;" />
 	</fieldset>
 
 	<%
@@ -236,5 +232,15 @@
 	}
 	}
 %>
+	</div> 
+	<div class="wrapper row5">
+		<div id="copyright" class="hoc clear">
+			<p class="fl_left">
+				Copyright &copy; 2022 컴퓨터소프트웨어학과 - <a target="_blank"
+					href="https://github.com/ycs-202007028/test-mania-island"
+					title="3학년 1반 - 1조">T.M.I</a>
+			</p>
+		</div>
+	</div>
 </body>
 </html>

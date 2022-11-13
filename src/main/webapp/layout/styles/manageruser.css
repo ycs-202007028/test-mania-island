@@ -29,7 +29,7 @@ table {
 	border: none !important;
 }
 
-thead{
+th{
 	background-color: pink !important;
 	font-size: xx-small;
 }

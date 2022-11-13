@@ -8,6 +8,7 @@
 <title>T.M.I</title>
 </head>
 <link href="layout/styles/test.css" rel="stylesheet" type="text/css"	media="all">
+<link href="layout/styles/testres.css" rel="stylesheet" type="text/css"	media="all">
 <body>
 	<!-- Top Background Image Wrapper -->
 	<jsp:include page="top.jsp" flush="false" />

@@ -1,0 +1,122 @@
+@charset "EUC-KR";
+
+@charset "UTF-8";
+
+/* ---------- 폰트관련 설정 ---------- */
+@import	url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+	
+
+@font-face {
+	font-family: 'GmarketSansMedium';
+	src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body, .introfont {
+	font-family: 'GmarketSansMedium';
+}
+
+/* ---------- testres ---------- */
+
+
+.testres{
+	margin: 2.7%; 
+	border: solid 3px #F7AD19; 
+	border-radius: 25px 25px 25px 25px;
+}
+
+
+.testBox{	
+	margin : 30px 0px 0px 0px;	
+	text-indent: 35px !important;
+}
+
+.testlabel{
+	font-size: xx-large;
+	font-weight :bolder;
+	color: #F7AD19;
+}
+
+.note{
+	font-size: large;
+	font-weight: bolder;
+}
+
+.rego{
+	margin: 30px auto 5px auto;
+	border: none;
+	border-radius: 20px;
+	width: 200px;
+	height: 50px;
+	background: #F7AD19;
+	color :white;
+	text-align: center;
+	font-weight :bold;
+	display: block;
+}
+
+.otherBox{
+	
+	margin : 30px 0px 5px 0px;
+	
+	text-indent: 35px !important;
+}
+
+.otherlabel{
+	font-size: large;
+	font-weight :bolder;
+	color: #F7AD19;
+}
+.otherBox{
+	
+	margin : 30px 0px 5px 0px;
+	
+	text-indent: 35px !important;
+}
+
+.otherlabel{
+	font-size: large;
+	font-weight :bolder;
+	color: #F7AD19;
+}
+
+.othertest{
+	margin: 2.7%; 
+	border: solid 3px #F7AD19;
+	border-radius : 25px 25px 25px 25px;
+	
+	display: flex;
+	justify-content: center;
+}
+
+
+/* ---------- testres_view ---------- */
+
+.Box1{
+	display: flex;
+	justify-content: center;
+}
+.imgbox{
+	margin-left: auto;
+	margin-right: 0px;
+}
+
+.Box2{
+	margin-right: auto;
+	margin-left: 0px;
+	margin-top: 30px;
+}
+
+.t_title{
+	font-size: xx-large;
+	font-weight: bolder;
+	margin: 10px 0px 10px 0px;
+
+}
+.t_contents{
+	font-size: medium;
+	font-weight: lighter;	
+	margin: 10px 0px 10px 0px;
+}
+

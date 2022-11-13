@@ -18,6 +18,7 @@
 	<!-- Top Background Image Wrapper -->
 	<jsp:include page="top.jsp" flush="false" />
 	<div class="hoc clear">
+	<div class="allofus">
 		<%
   Connection conn = null;
   PreparedStatement pstmt = null;
@@ -139,12 +140,6 @@
 	
   	
   %>
-
-		<table>
-			<tr></tr>
-			<tr></tr>
-		</table>
-
 		<div class="div1">
 			<div class="imgbox">
 				<img style="width:100% !important;" src=<%=img %>>
@@ -230,9 +225,10 @@
 	}
 	}
 %>
+</div>
 		</div>
 
-	<br><br><br><br>
+	
 	<div class="wrapper row5">
 		<div id="copyright" class="hoc clear">
 			<p class="fl_left">
