@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <link href="layout/styles/manageruser.css" rel="stylesheet" type="text/css"	media="all">
+<title>관리</title>
 </head>
 <body>
 	<!-- Top Background Image Wrapper -->
@@ -30,11 +31,12 @@
 		String sql = null;
 		try {
 			%>
+			<div class="gru">
 			<form action="delete.jsp" method="post">
 			<table class ="contents">
 			<thead class="conth">
 			<tr>
-				<th>선택</th>
+				<th>선택</th>				
 				<th>게시글번호</th>
 				<th>ID</th>
 				<th>제목</th>
@@ -66,6 +68,7 @@
 				date = result.getString("b_Date");
 				b_id = result.getInt("b_ID");
 		%>		
+		<tbody>
 				<tr>
 					<td><input type="checkbox" name="boardck" value="<%=b_id%>"></td>
 					<td><%=b_id %></td>
@@ -73,16 +76,21 @@
 					<td><a href="view.jsp?b_ID=<%=b_id%>"><%=b_title%></a></td>
 					<td><%=date%></td>
 				</tr>
+		
 		<%
 			}
 		%>
+	</tbody>
 	</table>
-	<button type="submit" value="게시글 삭제">게시글 삭제</button>
+	<div class="btnarea">
+	<button class ="delete" type="submit" value="게시글 삭제">게시글 삭제</button>
+	</div></div>
 	</form>
 			
 			<!-- 게시판 내 댓글 삭제 -->
 			<form action="delete.jsp" method="post">
 			<table class="contents">
+			<thead>
 			<tr>
 				<th>선택</th>
 				<th>댓글번호</th>
@@ -90,6 +98,7 @@
 				<th>댓글내용</th>
 				<th>작성날짜</th>
 			</tr>
+			</thead>
 			<%
 			jdbcUrl = "jdbc:mysql://localhost:3306/BBS?useUnicode=yes&characterEncoding=UTF8";
 			dbId = "root";
@@ -115,13 +124,15 @@
 				date = result.getString("r_Date");
 				r_id = result.getInt("replyID");
 		%>		
+				<tbody>
 				<tr>
-					<td><input type="checkbox" name="replyck" value="<%=r_id%>"></td>
+					<td><input class="choice" type="checkbox" name="replyck" value="<%=r_id%>"></td>
 					<td>게시판 댓글 ID : <%=r_id %></td>
 					<td><%=id%></td>
 					<td><%=content%></td>
 					<td><%=date%></td>
 				</tr>
+				</tbody>
 		<%
 			}
 			
@@ -163,16 +174,7 @@
 	}
 	%>	
 	</div>
-	
-
-<div class="wrapper row5">
-		<div id="copyright" class="hoc clear">
-			<p class="fl_left">
-				Copyright &copy; 2022 컴퓨터소프트웨어학과 - <a target="_blank"
-					href="https://github.com/ycs-202007028/test-mania-island"
-					title="3학년 1반 - 1조">T.M.I</a>
-			</p>
-		</div>
-	</div>	
+		
+		
 </body>
 </html>
