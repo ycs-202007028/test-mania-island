@@ -30,7 +30,7 @@
   
   //댓글 사용자 이미지 가져오기 
   String userID = (String)session.getAttribute("userID");
-  String mbti = null;
+  String mbti = "";
   String img1 = ""; 
 
   String sql;
@@ -123,15 +123,7 @@
 	if(session.getAttribute("userID") != null){
 		userID = (String) session.getAttribute("userID");
 	}
-	if(userID == null){
-		PrintWriter script = response.getWriter();
-		script.println("<script>");
-		script.println("alert('로그인을 하세요.')");
-		script.println("location.href = 'login.jsp'");
-		script.println("</script>");
-	}else{
-		PrintWriter script = response.getWriter();
-	}
+
 	
 	int t_id = 0;
 	
