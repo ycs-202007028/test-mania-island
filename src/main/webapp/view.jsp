@@ -244,11 +244,74 @@
 				while(rs.next()){
 					replyID = Integer.parseInt(rs.getString("replyID"));
 				}	
+String mbti_img = null;
+				
+				sql = "select mbti from user where id=?";
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, list.get(i).getUserID());
+				rs = pstmt.executeQuery();
+				while(rs.next()){
+					mbti_img = rs.getString("mbti");
+				}
+				
+				mbti_img = (String)mbti_img.toUpperCase().trim();
+				String img2 = "";
+				
+				switch(mbti_img){
+				case "ENFJ" :
+					img2 = "images/mbti/ENFJ.jpg";
+					break;
+				case "ENFP" :
+					img2 = "images/mbti/ENFP.jpg";
+					break;
+				case "ENTJ" :
+					img2 = "images/mbti/ENTJ.jpg";
+					break;
+				case "ENTP" :
+					img2 = "images/mbti/ENTP.jpg";
+					break;
+				case "ESFJ" :
+					img2 = "images/mbti/ESFJ.jpg";
+					break;
+				case "ESFP" :
+					img2 = "images/mbti/ESFP.jpg";
+					break;
+				case "ESTJ" :
+					img2 = "images/mbti/ESTJ.jpg";
+					break;
+				case "ESTP" :
+					img2 = "images/mbti/ESTP.jpg";
+					break;
+				case "INFJ" :
+					img2 = "images/mbti/INFJ.jpg";
+					break;
+				case "INFP" :
+					img2 = "images/mbti/INFP.jpg";
+					break;
+				case "INTJ" :
+					img2 = "images/mbti/INTJ.jpg";
+					break;
+				case "INTP" :
+					img2 = "images/mbti/INTP.jpg";
+					break;
+				case "ISFJ" :
+					img2 = "images/mbti/ISFJ.jpg";
+					break;
+				case "ISFP" :
+					img2 = "images/mbti/ISFP.jpg";
+					break;
+				case "ISTJ" :
+					img2 = "images/mbti/ISTJ.jpg";
+					break;
+				default :
+					img2 = "images/mbti/ISTP.jpg";
+					break;
+				}
 							
 		%>
 		<div class="div3">
 		<!-- 사용자 이미지 프로 -->
-		<img src=<%=img1 %> class="profile" />
+		<img src=<%=img2 %> class="profile" />
 		
 		<div class="div5">
 		<div class="div4">
