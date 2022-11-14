@@ -71,7 +71,7 @@
   	String[] Array_select = select.split(",");
   	%>
   	<div class="topper">
-  	<div class="t_title"><%=title %></div>
+  	<div class="t_title2" style="font-size: medium; !important;font-weight: bold;"><%=title %></div>
 	<div class="t_number"><%=i + 1%>			/			<%=Array_content.length + 1 %></div>
 	</div>
 	
@@ -103,7 +103,7 @@
   	}else{
   		%>
   		
-		<div class="a3">
+		<div class="a3" >
 			<a href="testresult.jsp?t_id=<%=id%>&score=<%=score%>">결과 보러 가기</a><br>
 		</div>
 		<%

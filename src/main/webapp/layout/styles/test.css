@@ -45,9 +45,9 @@ body{
 	border: 1px solid white;
 }
 
-.t_title{
+.t_title2{
 	margin: 5px auto 5px 0px;
-	font-size: medium;
+	font-size: xx-large !important;
 	font-weight: bold;
 }
 
@@ -107,13 +107,13 @@ body{
 	
 }
 
-.a1:focus, .a2:focus {
+.a1:focus, .a2:focus, .a3:focus {
     outline: none;
 }
 
 .a1:hover, .a2:hover, .a3:hover{
     background-color: #F7AD19;
     border: 2px solid #F7AD19;
-    color: white;
+    color: white !important;
 }
 

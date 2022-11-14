@@ -810,7 +810,7 @@ input:focus, textarea:focus, *:required:focus {
 }
 
 #mainav .active a, #mainav a:hover, #mainav li:hover>a {
-	color: #D55A77;
+	color: #F7AD19;
 	background-color: inherit;
 }
 
@@ -854,12 +854,12 @@ input:focus, textarea:focus, *:required:focus {
 
 .pagination .current * {
 	color: #FFFFFF;
-	background-color: #D55A77;
+	background-color: #F7AD19;
 }
 
 #backtotop {
 	color: #FFFFFF;
-	background-color: #D55A77;
+	background-color: #F7AD19;
 }
 
 

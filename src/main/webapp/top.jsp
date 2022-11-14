@@ -40,11 +40,24 @@
 			<%
             } else{
             	%>
-    			<a href="managerUser.jsp"
-    				style="padding: 5px 10px 8px 0px; color: black; font-size: large;">관리자 페이지</a>
-    			<a href="user_Drop.jsp"
-    				style="padding: 5px 10px 8px 0px; color: black; font-size: large;">회원 삭제</a>
-    			
+            	
+            <nav id="mainav" class="fl_right">
+   			<ul  class="clear" >     
+      		<li style="padding: 5px 15px 8px 0px; color: black; font-size: large;">관리자
+        		<ul>
+          		<li>
+          		<a href="managerUser.jsp">게시글 / 댓글</a>
+    			</li>
+          		<li>
+          		<a href="user_Drop.jsp">회원 삭제</a>
+    			</li>
+        	
+        	</ul>
+     		</li>
+      
+   		 	</ul>
+ 			</nav>
+ 			
     			<a href="logoutOK.jsp"
     				style="padding: 5px 10px 8px 0px; color: black; font-size: large;">로그아웃</a>
     			<%
@@ -71,7 +84,8 @@
 							<li><a href="gallery.jsp?kind=banggoosuk">방구석 연구소</a></li>
 							<li><a href="gallery.jsp?kind=ktest">ktest</a></li>
 							<li><a href="gallery.jsp?kind=etc">기타</a></li>
-						</ul></li>
+						</ul>
+						</li>
 					<li><a href="board.jsp">커뮤니티</a></li>
 					<li><a href="MBTI.jsp">MBTI?</a></li>
 				</ul>
