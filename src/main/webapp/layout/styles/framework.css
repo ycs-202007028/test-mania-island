@@ -157,7 +157,7 @@ img {
 
 /* Forms
 --------------------------------------------------------------------------------------------------------------- */
-label, select, button {
+label, select{
 	display: block;
 	resize: none;
 	outline: none;

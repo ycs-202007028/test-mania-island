@@ -175,11 +175,5 @@
 	}
 	%>	
 	</div>
-<<<<<<< HEAD
-	<button onclick="user_Drop.jsp">회원 삭제</button>
-=======
-		
-		
->>>>>>> e8c2d8192eb6c5e615fe586ae4b8b47faedc7e73
 </body>
 </html>

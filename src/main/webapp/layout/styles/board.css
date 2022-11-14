@@ -1,0 +1,82 @@
+@charset "UTF-8";
+@charset "EUC-KR";
+@import
+	url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+@font-face {
+	font-family: 'GmarketSansMedium';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body{
+	font-family: 'GmarketSansMedium';
+}
+
+/* ---------- board ----------*/
+
+.allofus{
+	margin-bottom: 100px;
+}
+
+
+table {
+	border-collapse: collapse;
+    margin: 250px 0 0 0 ;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    width: 80%;    
+    margin: 50px auto 0px auto;
+}
+
+thead{
+ 	background-color: #F7AD19;
+    color: white;
+    text-align: center;
+	font-size: medium;	
+	font-weight:lighter;
+	line-height:30px;
+}
+
+tbody{
+	border-bottom: 1px solid #dddddd;	 
+    text-align: center;
+    font-size: small;
+}
+
+td:first-child {
+	width: 60px;
+	margin-left: auto;
+	margin-right: auto;
+	
+}
+
+tr:hover td{
+	background: rgb(255, 242, 204);	
+    transition: all 0.4s;
+}
+
+.btnarea{
+	width:80%; 
+	margin-left: auto;
+	margin-right: auto;
+}
+
+button{
+	padding: 10px;
+	border: 1px solid #CCCCCC;
+	width : 100px;
+	background-color: white;
+    border-radius: 12px;
+    transition: all 0.4s;
+	line-height:15px;
+	margin: 20px 0px 0px auto;
+	color: white;
+}
+button:hover{
+	background-color: #F7AD19;
+	border: 1px solid white;
+	color: white;
+}
