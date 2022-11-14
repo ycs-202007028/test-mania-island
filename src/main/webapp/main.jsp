@@ -217,10 +217,10 @@ while(rs.next()){
 			</figure>
 
 
-			<div
-				style="color: #F7AD19; font-size: 150%; margin-top: 20px; padding: 10px; text-align: left; font-weight: bold;">
+			<div style="color: #F7AD19; font-size: 150%; margin-top: 20px; padding: 10px; text-align: left; font-weight: bold;">
 				OTHER</div>
-			<figure id="introblocks">
+				
+			<figure  id="introblocks">
 				<ul class="nospace group overview">
 					<%
 	//test에서 타이틀, 테스트 종류, 테스트 상세, 테스트 이미지 불러오기
@@ -238,27 +238,32 @@ while(rs.next()){
 %>
 					<li class="one_third first"><a
 						href="testinfo.jsp?t_id=<%=id[0]%>"> <img src=<%=n_img[0] %>
-							alt="" style="height: 80%;" /></a>
+							alt="" style="height: 300px; object-fit: contain;" /></a>
 						<div class="fontall">
 							<a class="fonttitle"><%=title[0] %></a> <a class="fontsub"><%=content[0] %></a>
 						</div></li>
 
 					<li class="one_third"><a href="testinfo.jsp?t_id=<%=id[1]%>">
-							<img src=<%=n_img[1] %> alt="" />
+							<img style=" height: 300px; object-fit: contain;" src=<%=n_img[1] %> alt="" />
 					</a>
 						<div class="fontall">
 							<a class="fonttitle"><%=title[1] %><br></a> <a
 								class="fontsub"><%=content[1] %></a>
 						</div></li>
-
-					<li class="one_third"><a href="testinfo.jsp?t_id=<%=id[2]%>">
-							<img src=<%=n_img[2] %> alt="" />
-					</a>
+					
+					
+					<li class="one_third">
+						<a href="testinfo.jsp?t_id=<%=id[2]%>">
+							<img style="height: 300px; object-fit: contain;" src=<%=n_img[2] %> alt="" />
+						</a>
 						<div class="fontall">
-							<a class="fonttitle"><%=title[2] %><br></a> <a
-								class="fontsub"><%=content[2] %></a>
-						</div></li>
+							<a class="fonttitle"><%=title[2] %>
+							</a> 
+							<a class="fontsub"><%=content[2] %></a>
+						</div>
+					</li>
 				</ul>
+				
 			</figure>
 
 			<!-- / main body -->

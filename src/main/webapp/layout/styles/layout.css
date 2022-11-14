@@ -65,6 +65,7 @@ h3 {
 	text-indent: 15px;
 }
 
+
 /* Header
 ---------------------------------------------------------------------------- */
 #header {
@@ -143,7 +144,7 @@ h3 {
 
 #introblocks {
 	position: relative;
-	margin: 50px 0px 0px 0px;
+	margin: auto 0px 0px 0px;
 	padding: 30px;
 	border-radius: 10px;
 }
@@ -187,6 +188,8 @@ h3 {
 .meta li {
 	display: inline-block;
 	font-size: .8rem;
+	margin-bottom: 0px;
+	margin-top: auto;
 }
 
 .meta li::after {
@@ -906,7 +909,7 @@ input:focus, textarea:focus, *:required:focus {
 		display: block;
 		float: none;
 		width: auto;
-		margin: 0 0 30px 0;
+		margin: 50px 0px 0px 0px;
 		padding: 0;
 	}
 	#header {
@@ -969,6 +972,7 @@ input:focus, textarea:focus, *:required:focus {
 	#pageintro li .heading {
 		font-size: 1.6rem;
 	}
+	img
 }
 
 /* Radi */

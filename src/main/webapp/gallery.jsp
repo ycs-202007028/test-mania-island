@@ -106,21 +106,20 @@
 				if(category == "ktest"){
 					%>
 					<li class="one_quarter first">
-					<a href="testinfo.jsp?t_id=<%=t_id %>"><img src="<%=t_img%>" alt=""/>
-					<div></div><div style="font-size: 130%; font-weigth:BOLD;"></div><div></div>
+					<a href="testinfo.jsp?t_id=<%=t_id %>">
+					<img src="<%=t_img%>" alt=""/>
 					</a>
 					</li>
 					<%
 				}else{
 %>
 
-							<li class="one_quarter first"><a
-								href="testinfo.jsp?t_id=<%=t_id%>"> <img src=<%=t_img %>
-									alt="" />
-									<div></div>
-									<div style="font-size: 130%; font-weight: BOLD;"><%=t_title %></div>
-									<div><%=t_content %></div>
-							</a></li>
+					<li class="one_quarter first">
+					<a href="testinfo.jsp?t_id=<%=t_id%>"> 
+					<img style="height: 250px; width:100%; object-fit:contain;" src=<%=t_img %> alt="" />
+					<div style="font-size: 130%; font-weight: BOLD;"><%=t_title %></div>
+					<div><%=t_content %></div>
+					</a></li>
 							<% 	
 				}
 			}
@@ -128,20 +127,18 @@
 				if(category == "ktest"){
 					%>
 					<li class="one_quarter">
-					<a href="testinfo.jsp?t_id=<%=t_id %>"><img src="<%=t_img%>" alt=""/>
-					<div></div><div style="font-size: 130%; font-weigth:BOLD;"></div><div></div>
+					<a href="testinfo.jsp?t_id=<%=t_id %>"><img src="<%=t_img%>" alt="">					
 					</a>
 					</li>
 					<%
-				}else{
+				}else {
 				%>
-							<li class="one_quarter"><a
-								href="testinfo.jsp?t_id=<%=t_id%>"> <img src=<%=t_img %>
-									alt="" />
-									<div></div>
-									<div style="font-size: 130%; font-weight: BOLD;"><%=t_title %></div>
-									<div><%=t_content %></div>
-							</a></li>
+					<li class="one_quarter">
+					<a href="testinfo.jsp?t_id=<%=t_id%>"> 
+					<img style="height: 250px; width:100%; object-fit:contain; align-content: " src=<%=t_img %> alt="" />									
+					<div style="font-size: 130%; font-weight: BOLD;"><%=t_title %></div>
+					<div><%=t_content %></div>
+					</a></li>
 							<%
 				}
 			}
@@ -158,12 +155,14 @@
 			for(i=1; i<=board_num; i++){
 				if(i == page_num){
 					%>
-						<li class="current"><a
-							href="gallery.jsp?kind=<%=kind%>&page=<%=i%>"><%=i%></a></li>
+						<li class="current">
+						<a href="gallery.jsp?kind=<%=kind%>&page=<%=i%>"><%=i%></a>
+						</li>
 						<%
 				}else{
 			%>
-						<li><a href="gallery.jsp?kind=<%=kind%>&page=<%=i%>"><%=i%></a>
+						<li>
+						<a href="gallery.jsp?kind=<%=kind%>&page=<%=i%>"><%=i%></a>
 						</li>
 						<%
 				}
