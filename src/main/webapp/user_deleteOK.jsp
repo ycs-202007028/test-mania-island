@@ -2,66 +2,54 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="java.io.PrintWriter"%>
+<%@ page import="user.User" %>
 <%@ page import="user.UserDAO" %>
 <% request.setCharacterEncoding("UTF-8"); %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>회원 삭제</title>
 </head>
 <body>
 	<button onclick="location.href='user_delete.jsp'">다시 검색</button>
 	<%
-		String uid = "";
-		uid = (String) session.getAttribute("textbox"); //이부분 뭘해도 null로 입력값이 들어가는데 이부분만 완성하면될듯
-		UserDAO udao = new UserDAO();
-		int result = 0;
-		result = (int) udao.deleteUser(uid);
-		
-		out.println("입력한 아이디 : "+uid);
-		out.println("에러 코드 : "+result);
-		
- 		if(uid == null || uid == ""){
+		String userID = null;
+		if (session.getAttribute("userID") != null) {//유저아이디이름으로 세션이 존재하는 회원들은 
+			userID = (String) session.getAttribute("userID");//유저아이디에 해당 세션값을 넣어준다.
+		}
+		if (userID == null) {
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('삭제할 아이디를 입력하세요.')");
+			script.println("location.href = 'user_Drop.jsp'");
 			script.println("</script>");
-		}else{
+		} 
+	
+		int t_ID=0;
+		if(request.getParameter("t_ID")!=null){
+			t_ID=Integer.parseInt(request.getParameter("t_ID"));
+		}
+		int tr_ID=0;
+		if(request.getParameter("tr_ID")!=null){
+			tr_ID=Integer.parseInt(request.getParameter("tr_ID"));
+		}
+		
+
+			UserDAO userdao = new UserDAO();
+			int result = userdao.delete(tr_ID);
 			if(result == -1){
 				PrintWriter script = response.getWriter();
 				script.println("<script>");
-				script.println("alert('회원 아이디를 다시 검색하세요.')");
+				script.println("alert('회원 삭제에 실패했습니다.')");
+				script.println("history.back()");
 				script.println("</script>");
-			}else{
+			} else { // 회원삭제 성공
 				PrintWriter script = response.getWriter();
 				script.println("<script>");
-				script.println("alert('회원 삭제가 완료되었습니다.')");
-				script.println("location.href = 'managerUser.jsp'");
+				script.println("location.href = 'main.jsp'");
 				script.println("</script>");
-			}
-		}
-	
-	%>
-	<script>
-/* 		function SearchID(){ //reply_deleteOK.jsp 참고하고 만듦
- 			const uid = document.getElementById('id').value;
-		
-			if(uid == ""){
-				alert("삭제할 아이디를 입력하세요");
-			}else{
-				const udao = new UserDAO();
-	 		 	const result = udao.deleteUser(uid); //이부분만 먹히면 완성임
-	 			if(result == -1){
-					alert("회원 삭제에 실패했습니다.");
-					history.back();
-				}else{
-					alert("회원 삭제에 성공했습니다.");
-					location.href = "managerUser.jsp";
 				}
-	 			alert(result);
-			}
-		} */
-	</script>
+	%>
 </body>
 </html>

@@ -172,5 +172,6 @@
 			</p>
 		</div>
 	</div>
+	<button onclick="user_Drop.jsp">회원 삭제</button>
 </body>
 </html>

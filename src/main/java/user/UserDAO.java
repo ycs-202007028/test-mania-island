@@ -63,11 +63,11 @@ public class UserDAO {
 		return -1; // DB 오류
 	}
 	
-	public int deleteUser(String b_ID) { //ReplyDAO.java 참고하고 만든거
+	public int delete(int b_ID) { //ReplyDAO.java 참고하고 만든거
 		String SQL = "delete from user where id = ?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
-			pstmt.setString(1, b_ID);
+			pstmt.setInt(1, b_ID);
 			return pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
