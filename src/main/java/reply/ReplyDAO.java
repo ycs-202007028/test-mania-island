@@ -15,7 +15,7 @@ public class ReplyDAO {
 	
 	public ReplyDAO() {
 		try {
-			String dbURL="jdbc:mysql://localhost:3306/BBS?serverTimezone=Asia/Seoul&useSSL=false";	
+			String dbURL="jdbc:mysql://localhost:3306/BBS?useUnicode=yes&characterEncoding=UTF8";	
 			String dbID="root";
 			String dbPassword="root";
 			Class.forName("com.mysql.jdbc.Driver");

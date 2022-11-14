@@ -39,7 +39,7 @@ try{
     String src; //선택지 따올 테스트의 주소
     
 	int i=0; //테스트 5개만 가져와서 저장
-	
+	/*
 	//--------------------------------------방구석연구소 크롤링 시작-----------------------------------------
 	Document doc1 = 
 			Jsoup.connect("https://www.banggooso.com/").get();
@@ -346,7 +346,7 @@ try{
   	        	pstmt.executeUpdate();
   	    	    
   	  		}
-  		
+  		*/																																																																																																																		
   		
     	t_id = "14";
 		String content4 = "";

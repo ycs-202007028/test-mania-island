@@ -5,12 +5,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="layout/styles/mypages.css" rel="stylesheet" type="text/css"
-	media="all">
-<title>Insert title here</title>
+<link href="layout/styles/mypages.css" rel="stylesheet" type="text/css"	media="all">
+<link href="layout/styles/testres.css" rel="stylesheet" type="text/css"	media="all">
+<title>T.M.I</title>
 </head>
 <body>
 <jsp:include page="top.jsp" flush="false" />
+<div class="hoc clear">
 <%
 Connection conn = null;
 PreparedStatement pstmt = null;
@@ -52,23 +53,28 @@ try{
 	}
 	
 	%>
-	<fieldset>
-	<legend><%=t_title %></legend>
 	<%
 	if(r_content == null){
 		%>
-		<div><img src=<%=r_img %> alt="크롤링부분"
-				style="margin-right: 2%; width: 400; height: 400" /></div>
+		
+		<img style="width:100% !important;" src=<%=r_img %> alt="크롤링부분"/>
+		
 		<%
 	}else{
 		%>
-		<div><img src=<%=r_img %> alt="크롤링부분"
-				style="margin-right: 2%; width: 400; height: 400" /></div>
-		<div><%=r_content %></div>
+		<div class ="Box1">
+		<div class="imgbox">
+		<img src=<%=r_img %> alt="크롤링부분"/>
+		</div>
+		<div class ="Box2">
+		<div class="t_title"> <%=t_title %> </div>
+		<div class="t_content"><%=r_content %></div>
+		</div>
+		</div>
 		<%
 	}
 	%>
-	</fieldset>
+	
 	<%
 }catch(SQLException ex){
 	ex.printStackTrace();
@@ -86,5 +92,16 @@ try{
 	}
 }
 %>
+</div>
+
+<div class="wrapper row5">
+		<div id="copyright" class="hoc clear">
+			<p class="fl_left">
+				Copyright &copy; 2022 컴퓨터소프트웨어학과 - <a target="_blank"
+					href="https://github.com/ycs-202007028/test-mania-island"
+					title="3학년 1반 - 1조">T.M.I</a>
+			</p>
+		</div>
+	</div>
 </body>
 </html>

@@ -7,6 +7,8 @@
 <meta charset="UTF-8">
 <link href="layout/styles/mypages.css" rel="stylesheet" type="text/css"
 	media="all">
+<link href="layout/styles/list.css" rel="stylesheet" type="text/css"
+	media="all">
 <title>Insert title here</title>
 </head>
 <body>
@@ -32,15 +34,9 @@ int i;
 
 try{
 	%>
-	<div><%=userID %>
-	님의 테스트 결과 내역</div>
-	<table>
-	<tr>
-	<td>1</td><td><a href = "t_resultView.jsp">test이름</a></td>
-	</tr>
-	<tr>
-	<td>2</td><td><a href = "t_resultView.jsp">test이름1</a></td>
-	</tr>
+	<div class="box">
+		<div class="box-header"><%=userID %>님의 테스트 결과 내역</div>
+		
 		<%
 	//user테이블에서 테스트 아이디, 결과 아이디 가져옴
 	sql = "select t_id, s_id from user where id = ?";
@@ -66,9 +62,9 @@ try{
 				t_test = rs.getString("t_title");
 			}
 			%>
-			<tr>
-				<td><%=i+1 %></td><td><a href = "t_resultView.jsp?t_id=<%=test_array[i]%>&s_id=<%=result_array[i]%>"><%=t_test %></a></td>
-			</tr>
+			<li class="item"><%=i+1 %>
+			<a href = "t_resultView.jsp?t_id=<%=test_array[i]%>&s_id=<%=result_array[i]%>"><%=t_test %></a>
+			</li>
 			<%
 		}
 	}else{
@@ -79,7 +75,8 @@ try{
 		<%
 	}
 %>
-	</table>
+	</ul>
+	</div>
 	<%
 }catch(SQLException ex){
 	ex.printStackTrace();

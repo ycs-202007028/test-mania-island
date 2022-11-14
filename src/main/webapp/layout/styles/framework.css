@@ -157,7 +157,7 @@ img {
 
 /* Forms
 --------------------------------------------------------------------------------------------------------------- */
-label, input, textarea, select, button {
+label, select, button {
 	display: block;
 	resize: none;
 	outline: none;

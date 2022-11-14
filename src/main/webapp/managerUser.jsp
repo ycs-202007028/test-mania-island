@@ -6,10 +6,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="layout/styles/manageruser.css" rel="stylesheet" type="text/css"	media="all">
+<title>관리</title>
 </head>
-<body id ="top">
+<body>
 	<!-- Top Background Image Wrapper -->
-	<jsp:include page="top.jsp" flush="false" />				
+	<jsp:include page="top.jsp" flush="false" />		
+	<div class="hoc clear">		
 		<%
 		// DB에서 id에 맞는 정보들을 가져온 값
 		String id = null; // 아이디
@@ -28,17 +31,18 @@
 		String sql = null;
 		try {
 			%>
+			<div class="gru">
 			<form action="delete.jsp" method="post">
-			<fieldset>
-			<legend align="center">&nbsp;게시글 관리</legend>
-			<table>
+			<table class ="contents">
+			<thead class="conth">
 			<tr>
-				<th>선택</th>
+				<th>선택</th>				
 				<th>게시글번호</th>
 				<th>ID</th>
 				<th>제목</th>
 				<th>작성날짜</th>
-			</tr>
+				</tr>
+			</thead>
 			<%
 			String jdbcUrl = "jdbc:mysql://localhost:3306/BBS?useUnicode=yes&characterEncoding=UTF8";
 			String dbId = "root";
@@ -64,6 +68,7 @@
 				date = result.getString("b_Date");
 				b_id = result.getInt("b_ID");
 		%>		
+		<tbody>
 				<tr>
 					<td><input type="checkbox" name="boardck" value="<%=b_id%>"></td>
 					<td><%=b_id %></td>
@@ -71,19 +76,21 @@
 					<td><a href="view.jsp?b_ID=<%=b_id%>"><%=b_title%></a></td>
 					<td><%=date%></td>
 				</tr>
+		
 		<%
 			}
 		%>
+	</tbody>
 	</table>
-	<button type="submit" value="게시글 삭제">게시글 삭제</button>
-	</fieldset>
+	<div class="btnarea">
+	<button class ="delete" type="submit" value="게시글 삭제">게시글 삭제</button>
+	</div></div>
 	</form>
 			
 			<!-- 게시판 내 댓글 삭제 -->
 			<form action="delete.jsp" method="post">
-			<fieldset>
-			<legend align="center">&nbsp;댓글 관리</legend>
-			<table>
+			<table class="contents">
+			<thead>
 			<tr>
 				<th>선택</th>
 				<th>댓글번호</th>
@@ -91,6 +98,7 @@
 				<th>댓글내용</th>
 				<th>작성날짜</th>
 			</tr>
+			</thead>
 			<%
 			jdbcUrl = "jdbc:mysql://localhost:3306/BBS?useUnicode=yes&characterEncoding=UTF8";
 			dbId = "root";
@@ -116,13 +124,15 @@
 				date = result.getString("r_Date");
 				r_id = result.getInt("replyID");
 		%>		
+				<tbody>
 				<tr>
-					<td><input type="checkbox" name="replyck" value="<%=r_id%>"></td>
+					<td><input class="choice" type="checkbox" name="replyck" value="<%=r_id%>"></td>
 					<td>게시판 댓글 ID : <%=r_id %></td>
 					<td><%=id%></td>
 					<td><%=content%></td>
 					<td><%=date%></td>
 				</tr>
+				</tbody>
 		<%
 			}
 			
@@ -154,24 +164,22 @@
 			}
 		%>
 	</table>
-	<button type="submit" value="댓글 삭제">댓글 삭제</button>
-	</fieldset>
+	<div class="btnarea">
+	<button class="delete" type="submit" value="댓글 삭제">댓글 삭제</button>
+	</div>
 	</form>
 	<%
 	// 에러 처리
 	} catch (SQLException ex) {
 		ex.printStackTrace();
 	}
-	%>
-	<div class="wrapper row5">
-		<div id="copyright" class="hoc clear">
-			<p class="fl_left">
-				Copyright &copy; 2022 컴퓨터소프트웨어학과 - <a target="_blank"
-					href="https://github.com/ycs-202007028/test-mania-island"
-					title="3학년 1반 - 1조">T.M.I</a>
-			</p>
-		</div>
+	%>	
 	</div>
+<<<<<<< HEAD
 	<button onclick="user_Drop.jsp">회원 삭제</button>
+=======
+		
+		
+>>>>>>> e8c2d8192eb6c5e615fe586ae4b8b47faedc7e73
 </body>
 </html>

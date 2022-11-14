@@ -7,12 +7,13 @@
 <meta charset="UTF-8">
 <title>T.M.I</title>
 </head>
-<link href="layout/styles/mypages.css" rel="stylesheet" type="text/css"	media="all">
 <link href="layout/styles/test.css" rel="stylesheet" type="text/css"	media="all">
+<link href="layout/styles/testres.css" rel="stylesheet" type="text/css"	media="all">
 <body>
 	<!-- Top Background Image Wrapper -->
 	<jsp:include page="top.jsp" flush="false" />
 	<div class="hoc clear">
+	<div class="allofus">
 	<%
   Connection conn = null;
   PreparedStatement pstmt = null;
@@ -23,6 +24,7 @@
   String select = "";
   String img = request.getParameter("img");
   String sql;
+  String title = ""; //테스트 제목 가져오기
   
   String num = request.getParameter("i");
   int i;
@@ -57,19 +59,29 @@
   		select = rs.getString("s_select"); 		
   	}
   	
+  	sql = "select t_title from test where t_id=?";
+  	pstmt = conn.prepareStatement(sql);
+  	pstmt.setString(1, id);
+  	rs = pstmt.executeQuery();
+  	while(rs.next()){
+  		title = rs.getString("t_title");		
+  	}
+  	
   	String[] Array_content= content.split(",");
   	String[] Array_select = select.split(",");
   	%>
-  	
-  	<div style="text-align: center">
-		<div><%=i + 1%>
-			/
-			<%=Array_content.length + 1 %></div>
-		<progress class="progress" value=<%=i %> min="1"
+  	<div class="topper">
+  	<div class="t_title"><%=title %></div>
+	<div class="t_number"><%=i + 1%>			/			<%=Array_content.length + 1 %></div>
+	</div>
+	
+	<div class="pros">	
+	<progress class="progress" value=<%=i %> min="1"
 			max=<%=Array_content.length %>></progress>
-			
+	</div>	
 		<!-- 테스트 이미지 출력 -->
 			<img class="testimg" src=<%=img %>>
+			
 		<%
   	
   	if(i < Array_content.length){
@@ -77,16 +89,16 @@
 		<div class="qanda">
   		
   		<!-- 질문 출력  -->
-		<div class="q"><%=Array_content[i] %><br> </div>
+		<div class="q"><%=Array_content[i] %></div>
 		<!-- 선택지(1) -->
-		<div class="a1">
-				<a href="test.jsp?t_id=<%=id%>&img=<%=img%>&i=<%=i%>&score=<%=score+1%>">
-				<%=Array_select[i+i] %></a><br> </div>
+		<button class="a1" onclick="location.href='test.jsp?t_id=<%=id%>&img=<%=img%>&i=<%=i%>&score=<%=score+1%>'" >
+				<%=Array_select[i+i] %>
+				</button>
 		<!-- 선택지(2) -->	
-		<div class="a2">	
-				<a href="test.jsp?t_id=<%=id%>&img=<%=img%>&i=<%=i%>&score=<%=score+3%>">
-				<%=Array_select[i+i+1] %></a><br> </div>
+		<button class="a2" onclick="location.href='test.jsp?t_id=<%=id%>&img=<%=img%>&i=<%=i%>&score=<%=score+3%>'" >
+				<%=Array_select[i+i+1] %></button>
 		</div>
+		
 		<%
   	}else{
   		%>
@@ -115,6 +127,16 @@
 	}
 %>
 	</div>
+	</div>
+	
+	<div class="wrapper row5">
+		<div id="copyright" class="hoc clear">
+			<p class="fl_left">
+				Copyright &copy; 2022 컴퓨터소프트웨어학과 - <a target="_blank"
+					href="https://github.com/ycs-202007028/test-mania-island"
+					title="3학년 1반 - 1조">T.M.I</a>
+			</p>
+		</div>
 	</div>
 </body>
 </html>

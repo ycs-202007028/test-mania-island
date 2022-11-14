@@ -18,6 +18,7 @@
 	<!-- Top Background Image Wrapper -->
 	<jsp:include page="top.jsp" flush="false" />
 	<div class="hoc clear">
+	<div class="allofus">
 		<%
   Connection conn = null;
   PreparedStatement pstmt = null;
@@ -30,7 +31,7 @@
   
   //댓글 사용자 이미지 가져오기 
   String userID = (String)session.getAttribute("userID");
-  String mbti = null;
+  String mbti = "";
   String img1 = ""; 
 
   String sql;
@@ -123,15 +124,7 @@
 	if(session.getAttribute("userID") != null){
 		userID = (String) session.getAttribute("userID");
 	}
-	if(userID == null){
-		PrintWriter script = response.getWriter();
-		script.println("<script>");
-		script.println("alert('로그인을 하세요.')");
-		script.println("location.href = 'login.jsp'");
-		script.println("</script>");
-	}else{
-		PrintWriter script = response.getWriter();
-	}
+
 	
 	int t_id = 0;
 	
@@ -147,12 +140,6 @@
 	
   	
   %>
-
-		<table>
-			<tr></tr>
-			<tr></tr>
-		</table>
-
 		<div class="div1">
 			<div class="imgbox">
 				<img style="width:100% !important;" src=<%=img %>>
@@ -188,11 +175,74 @@
 				while(rs.next()){
 					tr_ID = Integer.parseInt(rs.getString("tr_ID"));
 				}	
+				String mbti_img = null;
+				
+				sql = "select mbti from user where id=?";
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, list.get(j).getUserID());
+				rs = pstmt.executeQuery();
+				while(rs.next()){
+					mbti_img = rs.getString("mbti");
+				}
+				
+				mbti_img = (String)mbti_img.toUpperCase().trim();
+				String img2 = "";
+				
+				switch(mbti_img){
+				case "ENFJ" :
+					img2 = "images/mbti/ENFJ.jpg";
+					break;
+				case "ENFP" :
+					img2 = "images/mbti/ENFP.jpg";
+					break;
+				case "ENTJ" :
+					img2 = "images/mbti/ENTJ.jpg";
+					break;
+				case "ENTP" :
+					img2 = "images/mbti/ENTP.jpg";
+					break;
+				case "ESFJ" :
+					img2 = "images/mbti/ESFJ.jpg";
+					break;
+				case "ESFP" :
+					img2 = "images/mbti/ESFP.jpg";
+					break;
+				case "ESTJ" :
+					img2 = "images/mbti/ESTJ.jpg";
+					break;
+				case "ESTP" :
+					img2 = "images/mbti/ESTP.jpg";
+					break;
+				case "INFJ" :
+					img2 = "images/mbti/INFJ.jpg";
+					break;
+				case "INFP" :
+					img2 = "images/mbti/INFP.jpg";
+					break;
+				case "INTJ" :
+					img2 = "images/mbti/INTJ.jpg";
+					break;
+				case "INTP" :
+					img2 = "images/mbti/INTP.jpg";
+					break;
+				case "ISFJ" :
+					img2 = "images/mbti/ISFJ.jpg";
+					break;
+				case "ISFP" :
+					img2 = "images/mbti/ISFP.jpg";
+					break;
+				case "ISTJ" :
+					img2 = "images/mbti/ISTJ.jpg";
+					break;
+				default :
+					img2 = "images/mbti/ISTP.jpg";
+					break;
+				}
 							
 		%>
 		<div class="div3">
 		<!-- 사용자 이미지 프로 -->
-		<img src=<%=img1 %> class="profile" />
+		<img src=<%=img2 %> class="profile" />
 		
 		<div class="div5">
 		<div class="div4">
@@ -202,9 +252,9 @@
 		<p class="comdate"><%= list.get(j).getTr_Date().substring(0, 11) + list.get(j).getTr_Date().substring(11, 13) + "시" + list.get(j).getTr_Date().substring(14, 16) + "분" %>
 		</p>
 		<!-- 수정 버튼 -->
-		<p><a href="test_reply_update.jsp?t_id=<%=t_id%>&tr_ID=<%=tr_ID%>" class="btnupdate">수정</a> </p>
+		<p style="margin-right: 5px;"><a href="test_reply_update.jsp?t_id=<%=t_id%>&tr_ID=<%=tr_ID%>" class="btnupdate">수정</a> </p>
 		<!-- 삭제 버튼 -->
-		<p><a onclick="return confirm('정말로 삭제하시겠습니까?')" href="test_reply_deleteOK.jsp?t_id=<%=t_id%>&tr_ID=<%=tr_ID%>" class="btnupdate">삭제</a> </p>
+		<p style="margin-left: 5px;"><a onclick="return confirm('정말로 삭제하시겠습니까?')" href="test_reply_deleteOK.jsp?t_id=<%=t_id%>&tr_ID=<%=tr_ID%>" class="btnupdate">삭제</a> </p>
 		</div>	
 		
 		<div class="comfont">
@@ -238,9 +288,10 @@
 	}
 	}
 %>
+</div>
 		</div>
 
-	<br><br><br><br>
+	
 	<div class="wrapper row5">
 		<div id="copyright" class="hoc clear">
 			<p class="fl_left">

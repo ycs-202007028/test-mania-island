@@ -168,7 +168,6 @@ try{
 						<td><%=gender %></td>
 					</tr>
 				</table>
-				<button class="update" type="button">수정</button>
 			</div>
 		</div>
 

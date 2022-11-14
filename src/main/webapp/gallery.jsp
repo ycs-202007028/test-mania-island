@@ -103,6 +103,15 @@
 			t_id = rs.getString("t_id");
 			
 			if(i % 4 == 0){
+				if(category == "ktest"){
+					%>
+					<li class="one_quarter first">
+					<a href="testinfo.jsp?t_id=<%=t_id %>"><img src="<%=t_img%>" alt=""/>
+					<div></div><div style="font-size: 130%; font-weigth:BOLD;"></div><div></div>
+					</a>
+					</li>
+					<%
+				}else{
 %>
 
 							<li class="one_quarter first"><a
@@ -113,8 +122,18 @@
 									<div><%=t_content %></div>
 							</a></li>
 							<% 	
+				}
 			}
 			else {
+				if(category == "ktest"){
+					%>
+					<li class="one_quarter">
+					<a href="testinfo.jsp?t_id=<%=t_id %>"><img src="<%=t_img%>" alt=""/>
+					<div></div><div style="font-size: 130%; font-weigth:BOLD;"></div><div></div>
+					</a>
+					</li>
+					<%
+				}else{
 				%>
 							<li class="one_quarter"><a
 								href="testinfo.jsp?t_id=<%=t_id%>"> <img src=<%=t_img %>
@@ -124,6 +143,7 @@
 									<div><%=t_content %></div>
 							</a></li>
 							<%
+				}
 			}
 			i++;
 		}

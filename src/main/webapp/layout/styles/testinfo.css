@@ -2,6 +2,10 @@
 
 @charset "utf-8";
 
+.allofus{
+	margin-bottom: 300px;
+}
+
 .div1, .div2 {
 	display: flex;
 	justify-content: flex-start;
@@ -9,7 +13,7 @@
 
 .div1 {
 	margin-top: 25px;
-	margin-bottom: 25px;
+	margin-bottom:50px;
 }
 
 .div2 {
@@ -64,6 +68,7 @@
 .puzzle {
 	margin-left: 20px;
 	width: 50%;
+	display:block;
 }
 
 .titlefont {

@@ -20,7 +20,6 @@ create table board(
 	primary key (b_ID)
 ) charset = 'utf8';
 
-drop table reply;
 create table reply(
 	replyID int,
 	id VARCHAR(20),
@@ -43,7 +42,6 @@ create table test_reply(
 	foreign key(t_id) references test(t_id)
 )charset = 'utf8';
 
-drop table test;
 create table test(
 	t_id int AUTO_INCREMENT primary key,
 	t_title varchar(50) not null,
@@ -53,7 +51,6 @@ create table test(
 	t_src varchar(2048) not null
 ) default character set utf8 collate utf8_general_ci;
 
-drop table test_result;
 create table test_result(
 	t_id varchar(20) not null,
 	s_id varchar(20) not null,
@@ -97,5 +94,8 @@ insert into test_select values(14, '지옥철 뚫고 회사 도착! 시계를 �
 
 drop table test;
 drop table user;
+drop table board;
+drop table reply;
+drop table test_reply;
 drop table test_select;
 drop table test_result;

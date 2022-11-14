@@ -56,11 +56,12 @@
 
 				<h1>
 					<a href="main.jsp">
-					<img alt="logo" src="images/logo.png" style="margin-top: 15% !important; margin-bottom: 10% !important; width: 120px;" /></a>
+					<img alt="logo" src="images/logo.png" style="margin-top: auto; margin-bottom: auto; width: 120px;
+					display: flex; justify-content: flex-start;" /></a>
 				</h1>
 			</div>
-			<nav id="mainav" class="fl_right"">
-				<ul class="clear">
+			<nav id="mainav" class="fl_right">
+				<ul class="clear" style="margin-top: auto; margin-bottom: auto; display: flex; justify-content: flex-end;">
 					<li class="active"><a href="main.jsp">Home</a></li>
 					<li><a class="drop" href="#">테스트</a>
 						<ul>
