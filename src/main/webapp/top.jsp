@@ -42,6 +42,9 @@
             	%>
     			<a href="managerUser.jsp"
     				style="padding: 5px 10px 8px 0px; color: black; font-size: large;">관리자 페이지</a>
+    			<a href="user_Drop.jsp"
+    				style="padding: 5px 10px 8px 0px; color: black; font-size: large;">회원 삭제</a>
+    			
     			<a href="logoutOK.jsp"
     				style="padding: 5px 10px 8px 0px; color: black; font-size: large;">로그아웃</a>
     			<%
