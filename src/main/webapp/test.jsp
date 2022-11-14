@@ -24,6 +24,7 @@
   String select = "";
   String img = request.getParameter("img");
   String sql;
+  String title = ""; //테스트 제목 가져오기
   
   String num = request.getParameter("i");
   int i;
@@ -58,11 +59,19 @@
   		select = rs.getString("s_select"); 		
   	}
   	
+  	sql = "select t_title from test where t_id=?";
+  	pstmt = conn.prepareStatement(sql);
+  	pstmt.setString(1, id);
+  	rs = pstmt.executeQuery();
+  	while(rs.next()){
+  		title = rs.getString("t_title");		
+  	}
+  	
   	String[] Array_content= content.split(",");
   	String[] Array_select = select.split(",");
   	%>
   	<div class="topper">
-  	<div class="t_title">언니 사랑해💛</div>
+  	<div class="t_title"><%=title %></div>
 	<div class="t_number"><%=i + 1%>			/			<%=Array_content.length + 1 %></div>
 	</div>
 	

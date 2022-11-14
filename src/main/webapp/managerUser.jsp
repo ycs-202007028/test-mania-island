@@ -164,8 +164,9 @@
 			}
 		%>
 	</table>
-	<button type="submit" value="댓글 삭제">댓글 삭제</button>
-	
+	<div class="btnarea">
+	<button class="delete" type="submit" value="댓글 삭제">댓글 삭제</button>
+	</div>
 	</form>
 	<%
 	// 에러 처리
