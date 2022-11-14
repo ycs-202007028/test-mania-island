@@ -10,42 +10,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>게시판 글 보기</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
-<link href="layout/styles/testinfo.css" rel="stylesheet" type="text/css" media="all">
-<link href="layout/styles/view.css" rel="sylesheet" type="text/css" media="all">
-<style>
-#submit {
-	border: none;
-	border-radius: 20px;
-	width: 100px;
-	height: 50px;
-	background: #FFC000;
-	text-align: center;
-	color: white;
-	display: block;
-	vertical-align: middle;
-	top: 550px;
-	left: 900px;
-	font-size: 15pt;
-	font-weight: bold;
-}
-
-#comment-input {
-	border-style: bold;
-	border-bottom-color: #FFC000;
-	align: center;
-	border-right: 0px;
-	border-top: 0px;
-	border-left: 50px;
-}
-</style>
-<title>게시판 글 보기</title>
+<link href="layout/styles/view.css" rel="stylesheet" type="text/css" media="all">
 </head>
 <body>
 	<!-- Top 호출-->
 	<jsp:include page="top.jsp" flush="false" />
+	<div class="hoc clear">
 
 	<%
 	  Connection conn = null;
@@ -172,62 +145,49 @@
 
 	<!-- 게시판 시작 -->
 
-	<div class="container">
-		<div class="row">
-			<table class="list-table" >
-				<thead>
-					<tr>
-						<th colspan="3"
-							style="background-color: #eeeeee; text-align: center;"><font
-							color="black">게시글 글 보기</font></th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td style="width: 20%;">글 제목</td>
-						<td colspan="2"><%= bbs.getB_Title().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&tr;") %></td>
-					</tr>
-					<tr>
-						<td>작성자</td>
-						<td colspan="2"><%= bbs.getId() %></td>
-					</tr>
-					<tr>
-						<td>작성일자</td>
-						<td><%= bbs.getB_Date().substring(0, 11) + bbs.getB_Date().substring(11, 13) + "시" + bbs.getB_Date().substring(14, 16) + "분" %></td>
-					</tr>
-					<tr>
-						<td>내용</td>
-						<td colspan="2" style="min-height: 200px; text-align: left;"><%= bbs.getB_Content().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&tr;").replaceAll("\n", "<br>") %></td>
-					</tr>
-				</tbody>
-			</table>
-			<a href="board.jsp" class="btn btn-primary">목록</a>
+	<div class="topper">
+	
+	<div class="v_title"><%= bbs.getB_Title().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&tr;") %></div>
+		<div class="v_info">	
+		<img src=<%=img1 %> class="v_user" />	
+			
+			<div class="v_text">
+			<div class="v_name"><%= bbs.getId() %></div>
+			<div class="v_date"><%= bbs.getB_Date().substring(0, 11) + bbs.getB_Date().substring(11, 13) + "시" + bbs.getB_Date().substring(14, 16) + "분" %></div>
+			</div>
+		
+			
+			<div class="g_btn">			
 			<%
 				if(userID != null && userID.equals(bbs.getId())){
 			%>
-			<a href="update.jsp?b_ID=<%=b_ID%>" class="btn btn-primary">수정</a> <a
-				onclick="return confirm('정말로 삭제하시겠습니까?')"
-				href="b_deleteOK.jsp?b_ID=<%=b_ID%>" class="btn btn-primary">삭제</a>
+			<button class="v_btn" onclick="location.href='update.jsp?b_ID=<%=b_ID%>'">수정</button>
+			<a onclick="return confirm('정말로 삭제하시겠습니까?')"
+				href="b_deleteOK.jsp?b_ID=<%=b_ID%>" class="v_btna">삭제</a>
 			<%
 				}
 			%>
-			<a href="write.jsp"><input type="submit"
-				class="btn btn-primary pull-right" value="글쓰기" /></a>
+			<button class="v_btn" onclick="location.href='board.jsp'">목록</button>
+			<button type="submit" onclick="location.href='write.jsp'" class="v_btn" value="글쓰기" >글쓰기</button>
+			</div>
 		</div>
+			<hr>
+		<div class="v_content">		
+			<%= bbs.getB_Content().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&tr;").replaceAll("\n", "<br>") %>
+		</div>	
+	
 	</div>
 
-	<!-- 댓글 -->
-	<div style="padding: 10px 20px 40px 50px;" class="container">
-		<form action="replyOK.jsp?b_ID=<%= b_ID %>" method="post">	
+	<!-- 		댓글			-->
+	<div class="v_down">
+	<hr>
+		<form action="replyOK.jsp?b_ID=<%= b_ID %>" method="post">		
 		<div class="comment">
-		<img src=<%=img1 %> class="profile" />
-		<input id="comment-input" type="text" name="replyContent"
-						maxlength="150"  placeholder="댓글을 입력해 주세요.">
-		<a style="margin-top:auto; margin-bottom:40px; width: 150px; height: 30px;" 
-			href="replyOK.jsp"><input id="submit" type="submit"
-							value="등록" /></a>	
-			
-		</div><br><br><br>
+		<img src=<%=img1 %> class="v_profile" />
+		<input id="comment-input" type="text" name="replyContent" maxlength="150" placeholder="댓글을 입력해 주세요.">
+		<button class="submit1" onclick="location.href='replyOK.jsp'" type="submit" value="등록">등록</button>			
+		</div>
+		</form>
 			<!-- 데이터 불러오기 -->
 			<%
 			ReplyDAO replyDAO=new ReplyDAO();
@@ -309,7 +269,7 @@ String mbti_img = null;
 		%>
 		<div class="div3">
 		<!-- 사용자 이미지 프로 -->
-		<img src=<%=img2 %> class="profile" />
+		<img src=<%=img2 %> class="v_profile" />
 		
 		<div class="div5">
 		<div class="div4">
@@ -319,9 +279,11 @@ String mbti_img = null;
 		<p class="comdate"><%= list.get(i).getR_Date().substring(0, 11) + list.get(i).getR_Date().substring(11, 13) + "시" + list.get(i).getR_Date().substring(14, 16) + "분" %>
 		</p>
 		<!-- 수정 버튼 -->
+		<div class="v_btng">
 		<p><a href="reply_update.jsp?b_ID=<%=b_ID%>&replyID=<%=replyID%>"class="btnupdate">수정</a> </p>
 		<!-- 삭제 버튼 -->
 		<p><a onclick="return confirm('정말로 삭제하시겠습니까?')" href="reply_deleteOK.jsp?replyID=<%=replyID%>"class="btnupdate">삭제</a> </p>
+		</div>
 		</div>	
 		
 		<div class="comfont">
@@ -331,10 +293,10 @@ String mbti_img = null;
 		</div>
 		</div>
 		<hr>
-				<%
+			<%
 			}
 		%>
-		
+	</div>		
 	
 	<script src="js/scripts.js?ver=123"></script>
 	<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
@@ -359,7 +321,7 @@ String mbti_img = null;
 		}
 	%>
 	</div>
-	<br><br><br><br>
+	
 	<div class="wrapper row5">
 		<div id="copyright" class="hoc clear">
 			<p class="fl_left">

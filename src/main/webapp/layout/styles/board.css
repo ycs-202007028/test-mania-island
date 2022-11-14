@@ -44,6 +44,11 @@ tbody{
 	border-bottom: 1px solid #dddddd;	 
     text-align: center;
     font-size: small;
+    
+}
+
+td{
+	height: 50px;
 }
 
 td:first-child {
@@ -62,6 +67,8 @@ tr:hover td{
 	width:80%; 
 	margin-left: auto;
 	margin-right: auto;
+	display:flex;
+	justify-content: flex-end; 
 }
 
 button{
@@ -73,7 +80,8 @@ button{
     transition: all 0.4s;
 	line-height:15px;
 	margin: 20px 0px 0px auto;
-	color: white;
+	color: black;
+	
 }
 button:hover{
 	background-color: #F7AD19;

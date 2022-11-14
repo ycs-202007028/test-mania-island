@@ -56,7 +56,7 @@ try{
 	<%
 	if(r_content == null){
 		%>
-		
+		<div class="t_title2"> <%=t_title %> </div>
 		<img style="width:100% !important;" src=<%=r_img %> alt="크롤링부분"/>
 		
 		<%

@@ -114,6 +114,14 @@ body, .introfont {
 	margin: 10px 0px 10px 0px;
 
 }
+
+.t_title2{
+	font-size: xx-large;
+	font-weight: bolder;
+	margin: 10px 0px 10px 0px;
+
+}
+
 .t_contents{
 	font-size: medium;
 	font-weight: lighter;	

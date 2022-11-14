@@ -39,13 +39,13 @@
 							<label for="male">남자</label></div>
 						<div class="box2" data-toggle="buttons">
 							<input type="radio" class="ra" id="female" name="gender" autocomplete="off" value="female" />
-							<label for="female">여자</label></div>
+							<label style="float: left;" for="female">여자</label></div>
 						
 					</div><hr>
 					</div>
 					<div class="mb">
 						<input type="text" placeholder="MBTI" name="mbti" maxlength="20" /></div><hr>
-					<input type="submit" class="btnok" value="회원가입" />
+					<button type="submit" class="btnok" value="회원가입" > 회원가입 </button>
 		</form>
 			
 	</fieldset>

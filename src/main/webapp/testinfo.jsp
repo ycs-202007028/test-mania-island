@@ -158,9 +158,9 @@
 		<div class="comment">
 		<img src=<%=img1 %> class="profile" />
 		<input id="comment-input" type="text" name="tr_Content" maxlength="150" placeholder="댓글을 입력해 주세요.">
-		<a style="margin-top:auto; margin-bottom:20px; width: 150px; height: 30px;" href="test_replyOK.jsp">
-		<input id="submit" class="submit1" type="submit" value="등록" /></a>				
+		<button class="submit1" onclick="location.href='replyOK.jsp'" type="submit" value="등록">등록</button>			
 		</div>
+		</form>
 			<!-- 데이터 불러오기 -->
 			<%
 			Test_ReplyDAO test_replyDAO=new Test_ReplyDAO();

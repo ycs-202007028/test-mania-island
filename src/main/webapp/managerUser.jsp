@@ -68,7 +68,7 @@
 				date = result.getString("b_Date");
 				b_id = result.getInt("b_ID");
 		%>		
-		<tbody>
+			<tbody>
 				<tr>
 					<td><input type="checkbox" name="boardck" value="<%=b_id%>"></td>
 					<td><%=b_id %></td>
@@ -80,17 +80,17 @@
 		<%
 			}
 		%>
-	</tbody>
-	</table>
-	<div class="btnarea">
-	<button class ="delete" type="submit" value="게시글 삭제">게시글 삭제</button>
-	</div></div>
-	</form>
+			</tbody>
+			</table>
+			<div class="btnarea">
+				<button class ="delete" type="submit" value="게시글 삭제">게시글 삭제</button>
+			</div>
+			</form></div>
 			
 			<!-- 게시판 내 댓글 삭제 -->
 			<form action="delete.jsp" method="post">
 			<table class="contents">
-			<thead>
+			<thead class="conth">
 			<tr>
 				<th>선택</th>
 				<th>댓글번호</th>
@@ -124,15 +124,15 @@
 				date = result.getString("r_Date");
 				r_id = result.getInt("replyID");
 		%>		
-				<tbody>
-				<tr>
-					<td><input class="choice" type="checkbox" name="replyck" value="<%=r_id%>"></td>
-					<td>게시판 댓글 ID : <%=r_id %></td>
-					<td><%=id%></td>
-					<td><%=content%></td>
-					<td><%=date%></td>
-				</tr>
-				</tbody>
+			<tbody>
+			<tr>
+				<td><input class="choice" type="checkbox" name="replyck" value="<%=r_id%>"></td>
+				<td>게시판 댓글 ID : <%=r_id %></td>
+				<td><%=id%></td>
+				<td><%=content%></td>
+				<td><%=date%></td>
+			</tr>
+			</tbody>
 		<%
 			}
 			
@@ -153,21 +153,24 @@
 				date = result.getString("tr_Date");
 				r_id = result.getInt("tr_ID");
 		%>		
+			<tbody>
 				<tr>
-					<td><input type="checkbox" name="trck" value="<%=r_id%>"></td>
+					<td><input class="choice" type="checkbox" name="trck" value="<%=r_id%>"></td>
 					<td>테스트 댓글 ID : <%=r_id %></td>
 					<td><%=id%></td>
 					<td><%=content%></td>
 					<td><%=date%></td>
 				</tr>
+			</tbody>
 		<%
 			}
 		%>
-	</table>
-	<div class="btnarea">
-	<button class="delete" type="submit" value="댓글 삭제">댓글 삭제</button>
-	</div>
-	</form>
+		</table>	
+		<div class="btnarea">
+		<button class="delete" type="submit" value="댓글 삭제">댓글 삭제</button>
+		</div>
+	
+		</form>
 	<%
 	// 에러 처리
 	} catch (SQLException ex) {
