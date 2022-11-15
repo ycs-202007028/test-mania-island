@@ -68,13 +68,6 @@ h3 {
 
 /* Header
 ---------------------------------------------------------------------------- */
-#header {
-	
-}
-
-#header #logo {
-	
-}
 
 #header #logo h1 {
 	padding: 0;
@@ -129,9 +122,6 @@ h3 {
 }
 
 /* Content */
-.container .content {
-	
-}
 
 .sectiontitle {
 	display: block;
@@ -156,9 +146,6 @@ h3 {
 #introblocks>ul>li img {
 	width: 100%;
 } /* 이미지 너비가 전체 너비에 맞도록 강제 기능*/
-.overview {
-	
-}
 
 .overview>li {
 	margin-bottom: 50px;
@@ -269,9 +256,6 @@ h3 {
 }
 
 /* Sidebar */
-.container .sidebar {
-	
-}
 
 .sidebar .sdb_holder {
 	margin-bottom: 50px;
@@ -326,10 +310,6 @@ h3 {
 
 #footer .linklist li, #footer .linklist li::after {
 	clear: both;
-}
-
-#footer .contact {
-	
 }
 
 #footer .contact.linklist li, #footer .contact.linklist li:last-child {
@@ -403,9 +383,6 @@ nav ul, nav ol {
 }
 
 /* Top Navigation */
-#mainav {
-	
-}
 
 #mainav ul {
 	text-transform: uppercase;
@@ -741,10 +718,6 @@ input:focus, textarea:focus, *:required:focus {
 	background-color: #F7AD19;
 }
 
-.row2, .row2 a {
-	
-}
-
 .row3 {
 	color: #474747;
 	background-color: #FFFFFF;
@@ -972,24 +945,4 @@ input:focus, textarea:focus, *:required:focus {
 	#pageintro li .heading {
 		font-size: 1.6rem;
 	}
-	img
-}
-
-/* Radi */
-#radi {
-	background-color: rgba(247, 173, 25, 1);
-	border-color: rgba(247, 173, 25, 0);
-	z-index: 3;
-	position: relative;
-	left: 80px;
-	top: -312px;
-	box-sizing: border-box;
-	width: 150px;
-	height: 45px;
-	background-color: orange;
-	border-radius: 40px/40px;
-} /*margin: 20px auto;*/
-#radi1 {
-	position: relative;
-	z-index: 2;
 }
