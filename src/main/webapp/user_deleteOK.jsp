@@ -28,15 +28,22 @@
 		//게시글 삭제
 		if(u_chk != null){
 			for(i = 0; i < u_chk.length; i++){
-				//게시글 삭제하면 해당 게시글에 있는 댓글 삭제
+				//유저 삭제시 해당 유저 게시글댓글 삭제
 				sql = "delete from reply where id=?";
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setString(1, u_chk[i]);
 				pstmt.executeUpdate();
+				//유저 삭제 시 해당 유저 테스트 댓글 삭제
 				sql = "delete from test_reply where id=?";
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setString(1, u_chk[i]);
 				pstmt.executeUpdate();
+				//유저 삭제 시 해당 유저 게시글 삭제
+				sql = "delete from board where id=?";
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, u_chk[i]);
+				pstmt.executeUpdate();
+				//유저 삭제
 				sql = "delete from user where id=?";
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setString(1, u_chk[i]);
