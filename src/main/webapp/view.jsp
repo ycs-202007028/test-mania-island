@@ -126,6 +126,8 @@
       }
       
       
+      
+      
       int replyID = 0;
       
       int b_ID = 0;
@@ -153,8 +155,72 @@
    <div class="topper">
    
    <div class="v_title"><%= bbs.getB_Title().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&tr;") %></div>
-      <div class="v_info">   
-      <img src=<%=img1 %> class="v_user" />   
+      <div class="v_info">  
+      <%
+      sql = "select mbti from user where id = ?";
+      pstmt = conn.prepareStatement(sql);
+      pstmt.setString(1, bbs.getId());
+      rs = pstmt.executeQuery();
+      
+      String reply_mbti = "";
+      String img3 = "";
+      
+      while(rs.next()){
+         reply_mbti = (String)rs.getString("mbti").toUpperCase().trim();
+      }
+
+      switch(reply_mbti){
+      case "ENFJ" :
+         img3 = "images/mbti/ENFJ.jpg";
+         break;
+      case "ENFP" :
+         img3 = "images/mbti/ENFP.jpg";
+         break;
+      case "ENTJ" :
+         img3 = "images/mbti/ENTJ.jpg";
+         break;
+      case "ENTP" :
+         img3 = "images/mbti/ENTP.jpg";
+         break;
+      case "ESFJ" :
+         img3 = "images/mbti/ESFJ.jpg";
+         break;
+      case "ESFP" :
+         img3 = "images/mbti/ESFP.jpg";
+         break;
+      case "ESTJ" :
+         img3 = "images/mbti/ESTJ.jpg";
+         break;
+      case "ESTP" :
+         img3 = "images/mbti/ESTP.jpg";
+         break;
+      case "INFJ" :
+         img3 = "images/mbti/INFJ.jpg";
+         break;
+      case "INFP" :
+         img3 = "images/mbti/INFP.jpg";
+         break;
+      case "INTJ" :
+         img3 = "images/mbti/INTJ.jpg";
+         break;
+      case "INTP" :
+         img3 = "images/mbti/INTP.jpg";
+         break;
+      case "ISFJ" :
+         img3 = "images/mbti/ISFJ.jpg";
+         break;
+      case "ISFP" :
+         img3 = "images/mbti/ISFP.jpg";
+         break;
+      case "ISTJ" :
+         img3 = "images/mbti/ISTJ.jpg";
+         break;
+      default :
+         img3 = "images/mbti/ISTP.jpg";
+         break;
+      }
+      %> 
+      <img src=<%=img3 %> class="v_user" />   
          
          <div class="v_text">
          <div class="v_name"><%= bbs.getId() %></div>

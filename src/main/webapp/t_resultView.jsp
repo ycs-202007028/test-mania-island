@@ -56,8 +56,11 @@ try{
 	<%
 	if(r_content == null){
 		%>
+		<div class="img_ph">
 		<div class="t_title2"> <%=t_title %> </div>
-		<img style="width:100% !important;" src=<%=r_img %> alt="크롤링부분"/>
+		
+		<img style="width:100% !important; margin: 0 auto 0 auto;" src=<%=r_img %> alt="크롤링부분"/>
+		</div>
 		
 		<%
 	}else{
@@ -74,7 +77,9 @@ try{
 		<%
 	}
 	%>
-	
+	<div class="allresult">
+	<button class="allresultb" onclick="location.href='t_result.jsp'" >다른 결과 보러가기</button>
+	</div>
 	<%
 }catch(SQLException ex){
 	ex.printStackTrace();

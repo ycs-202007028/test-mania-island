@@ -74,6 +74,14 @@ body, .introfont {
 
 
 /* ---------- testres_view ---------- */
+.img_ph{
+	width : 60%;
+	margin: 0 auto 0 auto;
+}
+
+.allresult{
+	width : 100%;
+}
 
 .Box1{
 	display: flex;
@@ -98,9 +106,10 @@ body, .introfont {
 }
 
 .t_title2{
-	font-size: xx-large;
+	font-size: x-large;
 	font-weight: bolder;
-	margin: 10px 0px 10px 0px;
+	margin: 25px 0px 10px 0px;
+	float: left;
 
 }
 
@@ -143,8 +152,23 @@ body, .introfont {
 	font-size: medium;	
 	font-family: 'GmarketSansMedium';
 }
+.allresultb {
+	padding: 15px;
+	border: 1px solid #CCCCCC;
+	width : 200px;
+	background-color: white;
+    border-radius: 12px;
+    transition: all 0.4s;
+	line-height:15px;
+	margin: 0 auto 50px auto;
+	color: black;
+	font-size: medium;	
+	font-family: 'GmarketSansMedium';
+	display: flex;
+	justify-content: center;
+}
 
-.rego:hover {
+.allresultb:hover, .rego:hover {
 	background-color: #F7AD19;
 	border: 1px solid white;
 	color: white;

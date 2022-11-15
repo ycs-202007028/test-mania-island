@@ -130,6 +130,9 @@ h1{
 	height: 70px;
 	font-size: 25px;
 }
+#comment-input {
+	outline: none;
+}
 
 /* ---------- ¹öÆ°  ---------- */
 

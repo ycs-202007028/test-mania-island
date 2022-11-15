@@ -34,7 +34,7 @@ create table reply(
 create table test_reply(
 	tr_ID int,
 	id VARCHAR(20),
-	tr_Content varchar(20),
+	tr_Content varchar(200),
 	tr_Date DateTIME,
 	t_id int,
 	tr_Available int,

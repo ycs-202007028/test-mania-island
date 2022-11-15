@@ -61,7 +61,7 @@ try{
 						<a href="testinfo.jsp?t_id=<%=id[0]%>"> <img
 							src=<%=n_img[0] %>
 							style="display: block; margin: 0 auto; width: 600px; height: 300px" />
-							<br> <%=title[0] %> <br>
+							<br> <div class="sc_title"><%=title[0] %></div> <br>
 						</a>
 					</article>
 				</li>
@@ -70,7 +70,7 @@ try{
 						<a href="testinfo.jsp?t_id=<%=id[1]%>"> <img
 							src=<%=n_img[1] %>
 							style="display: block; margin: 0 auto; width: 600px; height: 300px" />
-							<br> <%=title[1] %> <br>
+							<br> <div class="sc_title"><%=title[1] %></div> <br>
 						</a>
 					</article>
 				</li>
@@ -79,7 +79,7 @@ try{
 						<a href="testinfo.jsp?t_id=<%=id[2]%>"> <img
 							src=<%=n_img[2] %>
 							style="display: block; margin: 0 auto; width: 600px; height: 300px" />
-							<br> <%=title[2] %> <br>
+							<br> <div class="sc_title"><%=title[2] %></div> <br>
 						</a>
 					</article>
 				</li>

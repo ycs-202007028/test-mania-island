@@ -23,6 +23,11 @@ body, .introfont {
 	font-family: 'GmarketSansMedium';
 }
 
+.sc_title{
+	font-size: x-large !important;
+	padding: 30px 0 0 0 ;
+}
+
 .introfont {
 	font-size: 50px;
 	padding-left: 0px;
