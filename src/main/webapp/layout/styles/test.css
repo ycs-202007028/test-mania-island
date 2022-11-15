@@ -83,7 +83,7 @@ body{
 
 .q{
 	margin: 25px auto 15px auto;
-	font-size: large;
+	font-size: x-large;
 }
 
 .a1, .a2, .a3{
@@ -100,7 +100,8 @@ body{
 	line-height:40px;
 	margin: 15px auto 15px auto;
 	opacity:.9;
-	
+	font-size:large;
+	font-family: 'GmarketSansMedium';
 }
 
 .a1:focus, .a2:focus, .a3:focus {

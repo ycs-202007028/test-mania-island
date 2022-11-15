@@ -60,6 +60,7 @@ body{
 
 .g_btn{
 		float: left;
+		margin: auto 0 10px auto;
 }
 
 .v_user{
@@ -162,13 +163,15 @@ body{
 .v_btn{
 	padding: 10px;
 	border: 1px solid #CCCCCC;
-	width : 60px;
+	width : 100px;
 	background-color: white;
     border-radius: 12px;
     transition: all 0.4s;
 	line-height:10px;
 	margin: 20px 5px 0px auto;
 	color: black;
+	font-family: 'GmarketSansMedium';
+
 }
 
 .v_btn:hover, .v_btna:hover,
@@ -181,13 +184,13 @@ body{
 .v_btna{
 	padding: 5px 15px 5px 15px;
 	border: 1px solid #CCCCCC;
-	width : 60px;
 	background-color: white;
     border-radius: 12px;
     transition: all 0.4s;
-	line-height:10px;
-	margin: 20px 5px 0px auto;
+	line-height:15px;
+	margin: auto 5px 0px auto;
 	color: black;
+	font-family: 'GmarketSansMedium';
 }
 
 .btnupdate {
@@ -201,7 +204,7 @@ body{
 	margin-top :auto;
 	margin-left :10px;
 	padding: 1px 20px 1px 20px;
-	font-size: small;
+	font-size: small;	
 }
 
 .submit1 {
@@ -216,4 +219,5 @@ body{
 	line-height:10px;
 	transition: all 0.4s;
 	margin: auto 0 10px 10px;
+	font-family: 'GmarketSansMedium';
 }
