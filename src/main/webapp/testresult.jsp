@@ -104,7 +104,7 @@
 		<div style="padding: 20px; text-align: center;">
 			<img src=<%=img %> alt="크롤링부분"
 				style="margin-right: 2%; width: 400; height: 400" />
-			<button type="button" id="rego"
+			<button type="button" class="rego"
 				onclick="location.href='testinfo.jsp?t_id='+<%=id%>">테스트
 				다시하기</button>
 		</div>
