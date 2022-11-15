@@ -67,7 +67,12 @@
 			mbti = rs.getString("mbti");
 		}
 		
+		if(manager != null){
+			mbti = "ISTJ";
+		}
+		else if(manager == null){
 		mbti = (String)mbti.toUpperCase().trim();
+		}
 		
 		switch(mbti){
 		case "ENFJ" :
