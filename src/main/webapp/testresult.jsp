@@ -89,8 +89,8 @@
 	</div>		
 		<%
   	if(content != null){
-  %>
-		<div style="padding: 20px; text-align: center;">
+  %>	
+		<div class="t_res"">
 			<img src=<%=img %> alt="크롤링부분"
 				style="margin-right: 2%; width: 400; height: 400" /> <br> 
 				<span class="note"><%=content %></span>
@@ -101,10 +101,10 @@
 		<%
   	}else{
   		%>
-		<div style="padding: 20px; text-align: center;">
+		<div class="t_res" >
 			<img src=<%=img %> alt="크롤링부분"
-				style="margin-right: 2%; width: 400; height: 400" />
-			<button type="button" id="rego"
+				style="margin-right: 2%; width: 400; height: 400" /><br>
+			<button type="button" class="rego"
 				onclick="location.href='testinfo.jsp?t_id='+<%=id%>">테스트
 				다시하기</button>
 		</div>
@@ -118,13 +118,12 @@
 	<a class="otherlabel">다른 테스트 하러 가기</a>
 	</div>
 	<fieldset class="othertest">
-	<ul class="nospace group overview">
 	<%
 	String t_img = "";
 	String t_title = "";
 	String id_t = "";
   	//test에서 타이틀, 테스트 종류, 테스트 상세, 테스트 이미지 불러오기
-  	sql = "select t_img, t_title, t_id from test order by t_id desc limit 3";
+  	sql = "select t_img, t_title, t_id from test order by t_id limit 3";
   	pstmt = conn.prepareStatement(sql);
   	rs = pstmt.executeQuery();
   	
@@ -134,17 +133,19 @@
   		id_t = rs.getString("t_id");
 	%>
 	
-	<li class="one_third"><a href="testinfo.jsp?t_id=<%=id_t%>">
-			<img style=" height: 300px; object-fit: contain;" src=<%=t_img %> alt="" />
+	<li class="one_third">
+		<a href="testinfo.jsp?t_id=<%=id_t%>">
+			<img style=" width: 90%; height: 180px; object-fit :contain;" src=<%=t_img %> alt="" />
 		</a>
 		<div class="fontall">
-			<a class="fonttitle"><%=t_title %><br></a>
+			<a class="fonttitle"><%=t_title %></a>
 		</div>
+		
 	</li>
+	
 	<%
   	}
 	%>
-	</ul>
 	</fieldset>
 	
 
