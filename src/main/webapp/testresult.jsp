@@ -5,6 +5,8 @@
 <html>
 <head>
 <link href="layout/styles/testres.css" rel="stylesheet" type="text/css"	media="all">
+<link href="layout/styles/layout.css" rel="stylesheet" type="text/css"
+	media="all">
 </head>
 <body>
 	<!-- Top Background Image Wrapper -->
@@ -115,20 +117,36 @@
 	<div class="otherBox">
 	<a class="otherlabel">다른 테스트 하러 가기</a>
 	</div>
-	<fieldset class="othertest">		
-		<img
-			src="https://cdn.banggooso.com/assets/images/uploadImg/1664416656(PC).png"
-			href="https://www.banggooso.com/gl/136/"
-			style="margin: 2%; width: 30%; height: 180px;" /> 
-		<img
-			src="https://cdn.banggooso.com/assets/images/uploadImg/1665044743(PC).jpg"
-			href="https://www.banggooso.com/gl/138/"
-			style="margin: 2%; width: 30%; height: 180px;" /> 
-		<img
-			src="https://cdn.banggooso.com/assets/images/uploadImg/1663055970(PC).jpg"
-			href="https://www.metavv.com/content/10039931"
-			style="margin: 2%; width: 30%; height: 180px;" />
+	<fieldset class="othertest">
+	<ul class="nospace group overview">
+	<%
+	String t_img = "";
+	String t_title = "";
+	String id_t = "";
+  	//test에서 타이틀, 테스트 종류, 테스트 상세, 테스트 이미지 불러오기
+  	sql = "select t_img, t_title, t_id from test order by t_id desc limit 3";
+  	pstmt = conn.prepareStatement(sql);
+  	rs = pstmt.executeQuery();
+  	
+  	while(rs.next()){
+  		t_title = rs.getString("t_title");
+  		t_img = rs.getString("t_img");  
+  		id_t = rs.getString("t_id");
+	%>
+	
+	<li class="one_third"><a href="testinfo.jsp?t_id=<%=id_t%>">
+			<img style=" height: 300px; object-fit: contain;" src=<%=t_img %> alt="" />
+		</a>
+		<div class="fontall">
+			<a class="fonttitle"><%=t_title %><br></a>
+		</div>
+	</li>
+	<%
+  	}
+	%>
+	</ul>
 	</fieldset>
+	
 
 	<%
 	sql = "select t_id, s_id from user where id=?";

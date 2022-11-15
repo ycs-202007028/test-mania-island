@@ -82,7 +82,7 @@ body, .introfont {
 }
 
 .othertest{
-	margin: 2.7%; 
+	margin: 0 auto 0 auto; 
 	border: solid 3px #F7AD19;
 	border-radius : 25px 25px 25px 25px;
 	
